@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Nancy's Fried Dough</title>
+<!-- TemplateEndEditable -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet' type='text/css'>
+      <script>
+	    $(document).ready(function(){
+   		 $('.materialboxed').materialbox();
+  		});
+	  </script>
+      <script>
+	    $(document).ready(function(){
+         $('.slider').slider({full_width: true});
+    	});
+	  </script>
+<meta name="Description" content="Nancy's Fried Dough is a family owned enterprise based in Rochester, NY.  We are a mobile food concessionaire specializing in seasonal events for the past 30 		years.  We are able to provide a wide and various menu to satisfy the needs of any event, large or small." />
+      <meta content="noodp" name="robots" />
+      <!-- TemplateBeginEditable name="head" -->
+      <!-- TemplateEndEditable -->
+</head>
+
+<body>
+  <div class="navbar-fixed">  
+   <nav>          
+    <div class="nav-wrapper red darken-4">
+            
+      <a href="#" class="brand-logo center"><h4>Nancy's Fried Dough</h4></a>
+      <ul id="nav-mobile" class="left">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">History</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Events</a></li>
+        
+      </ul>
+      <ul id="nav-mobile" class="right">
+		<li><a href="#">Contact</a></li>
+      </ul>
+        
+    </div>
+  </nav>
+ </div>
+  <!-- TemplateBeginEditable name="Content" -->Content<!-- TemplateEndEditable -->
+
+  
+</body>
+</html>
