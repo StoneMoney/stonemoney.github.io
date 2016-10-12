@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>The Shado Temple</title>
+<link rel="stylesheet" type="text/css" href="css.css">
+<link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
+</head>
+
+<body bgcolor="#222">
+<h1>The Shado Temple</h1>
+<table align="center">
+	<tr>
+    	<td width="250px" height="250px" valign="middle" align="center"><a href="http://www.twitter.com/Shado_Temple/"><img id="center" src="twitter.png" width="165"/><div class="twitterbutton">@Shado_Temple</div></a></td>
+        <td width="250px" height="250px" valign="middle" align="center">
+            
+            <img width="240" src="twitch.png" />
+            
+            <a href="#" class="twitch-widget" id="twitch-widget" target="_blank"></a><noscript>Scripts are disabled, visit twitch.tv/Shado_Temple for livestream</noscript>
+        </td>
+        <td width="250px" height="250px" align="center"><a href="https://discord.gg/0WumqD60QxUklG7n"><img src="discord.png" width="170" /><br />
+			<div class="discordbutton">Discord</div></a></td>
+    </tr>
+   	<tr>
+    	<td width="250px" height="250px" valign="middle" align="center"><a href="pixelperfect.html"><img src="pxlperfect.png" width="200"/><br /><div class="teambutton">Team Pixel Perfect</div></a></td>
+        <td width="250px" height="250px" valign="middle" align="center"><a href="https://www.youtube.com/user/shadotemple"><img src="youtube.png" width="175" /><br /><br /><div class="youtubebutton">Youtube</div></a></td>
+        <td width="250px" height="250px" valign="middle" align="center"><a href="http://www.twitch.tv/team/zeldathon"><img src="zthon.png" width="240" style="padding-top:20px;padding-bottom:15px;" /><br /><br /><div class="teambutton">Team Zeldathon</div></a></td>
+    </tr>
+</table>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script>
+(function() {
+
+  var user_name, api_key, twitch_widget;
+  
+  user_name = "Shado_Temple";
+  api_key = "5j0r5b7qb7kro03fvka3o8kbq262wwm";
+  twitch_widget = $("#twitch-widget");
+
+  twitch_widget.attr("href","http://twitch.tv/" + user_name);
+
+  $.getJSON('https://api.twitch.tv/kraken/streams/' + user_name + '?client_id=' + api_key + '&callback=?', function(data) {    
+      if (data.stream) {
+           twitch_widget.html("<span class='online'></span> Shado is live! Playing: <span class='viewers'>" + data.stream.game + " <br />Viewers: " + data.stream.viewers + "</span>");
+      } else {
+          twitch_widget.html("<span class='offline'></span> Offline <h4>Live every day from 9-12pm est</h4>");
+      }  
+  });
+	twitch_widget.html("<span class='offline'></span> Attempting Connection to Twitch");
+})();
+</script>
+<h1>Extra Links</h1>
+<table align="center">
+	<tr>
+    	<td width="187.5" height="187.5" valign="middle" align="center"><a href="calendar.html"><img src="calendar.png" width="115"/><br /><h2>Calendar</h2></a></td>
+        <td width="187.5" height="187.5" valign="middle" align="center"><a href="xcom.html"><img src="form.png" width="100" /><br /><h2>XCOM2 Names</h2></a></td>
+        <td width="187.5" height="187.5" valign="middle" align="center"><a href="pc-specs.html"><img src="specs.png" width="100" /><br /><h2>PC Specs</h2></a></td>
+        <td width="187.5" height="187.5" valign="middle" align="center"><a href="feedback.html"><img src="feedback.png" width="100" /><br /><h2>Feedback</h2></a></td>
+    </tr>
+</table>
+<h5><a href="test.html">About</a> | contact@stonemoney.xyz</h5>
+<h6>Livestream script by Scott Vinkle</h6>
+<table align="center">
+	<tr>
+    	<td width="50" height="50" class="vlcbutton"><span title="Watch stream via VLC client (can be better for people with bad internet)"><img src="vlc.png" /></span></td>
+        
+        <td width="50" height="50" class="twitchbuttonalt"><span title="Watch stream the conventional way with the twitch web interface"><a href="http://www.twitch.tv/Shado_Temple"><img src="glitch.png" width="43" height="45"/></a></span></td>
+    </tr>
+</table>
+</body>
+</html>

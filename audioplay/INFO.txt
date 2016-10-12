@@ -1,0 +1,3 @@
+Audioplay Player
+Created by adam@strangecube.com
+http://strangecube.com/audioplay/
