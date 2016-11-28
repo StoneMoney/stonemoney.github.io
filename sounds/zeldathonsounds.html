@@ -1,0 +1,3186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Zeldathon Sounds</title>
+		<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script>
+				$( document ).ready(function(){})
+				$(".button-collapse").sideNav();({
+					  menuWidth: 300, // Default is 240
+			  edge: 'right', // Choose the horizontal origin
+			  closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+			}
+		  );
+				$(document).ready(function(){
+		  		$('.parallax').parallax();
+			}
+		  );
+
+	  </script>
+<script>
+
+// Mouseover/ Click sound effect- by JavaScript Kit (www.javascriptkit.com)
+// Visit JavaScript Kit at http://www.javascriptkit.com/ for full source code
+
+//** Usage: Instantiate script by calling: var uniquevar=createsoundbite("soundfile1", "fallbackfile2", "fallebacksound3", etc)
+//** Call: uniquevar.playclip() to play sound
+
+var html5_audiotypes={ //define list of audio file extensions and their associated audio types. Add to it if your specified audio file isn't on this list:
+	"mp3": "audio/mpeg",
+	"mp4": "audio/mp4",
+	"ogg": "audio/ogg",
+	"wav": "audio/wav"
+}
+
+
+function createsoundbite(sound){
+	var html5audio=document.createElement('audio')
+	if (html5audio.canPlayType){ //check support for HTML5 audio
+		for (var i=0; i<arguments.length; i++){
+			var sourceel=document.createElement('source')
+			sourceel.setAttribute('src', arguments[i])
+			if (arguments[i].match(/\.(\w+)$/i))
+				sourceel.setAttribute('type', html5_audiotypes[RegExp.$1])
+			html5audio.appendChild(sourceel)
+		}
+		html5audio.load()
+		html5audio.playclip=function(){
+			html5audio.pause()
+			html5audio.currentTime=0
+			html5audio.play()
+		}
+		return html5audio
+	}
+	else{
+		return {playclip:function(){throw new Error("Your browser doesn't support HTML5 audio unfortunately")}}
+	}
+}
+
+function stop() {
+    var html5audio = document.getElementsByTagName('audio')[1];
+    html5audio.pause();
+    html5audio.currentTime = 0;
+}
+//Initialize two sound clips with 1 fallback file each:
+
+var sbHey=createsoundbite("soundboard/hey.mp3")
+var sbWow=createsoundbite("soundboard/wow.mp3")
+var sbNope=createsoundbite("soundboard/nope.mp3")
+var sbHooray=createsoundbite("soundboard/hooray.mp3")
+var sbBody=createsoundbite("soundboard/body.mp3")
+// var sbDonateNow=createsoundbite("soundboard/donatenow.mp3")
+var sbZeldathon=createsoundbite("soundboard/zeldathon.mp3")
+var sbBreakers=createsoundbite("soundboard/breakers.mp3")
+var sbFixers=createsoundbite("soundboard/fixers.mp3")
+var sbPalindrome=createsoundbite("soundboard/palindrome.mp3")
+var sbEct=createsoundbite("soundboard/ect.mp3")
+// var sbOhYeah=createsoundbite("soundboard/ohyeah.mp3")
+var sbGameOver=createsoundbite("soundboard/gameover.mp3")
+
+//Donation Sounds
+var dollar1=createsoundbite("donationsounds/1.mp3")
+var dollar5=createsoundbite("donationsounds/5.mp3")
+var dollar10=createsoundbite("donationsounds/10.mp3")
+var dollar25=createsoundbite("donationsounds/25.mp3")
+var dollar50=createsoundbite("donationsounds/50.mp3")
+var dollar100=createsoundbite("donationsounds/100.mp3")
+var dollar250=createsoundbite("donationsounds/250.mp3")
+var dollar500=createsoundbite("donationsounds/500.mp3")
+var dollar1000=createsoundbite("donationsounds/1000.mp3")
+
+
+var secret1_05=createsoundbite("secretsounds/1-05.mp3")
+var secret6_31=createsoundbite("secretsounds/6-31.mp3")
+var secret6_66=createsoundbite("secretsounds/6-66.mp3")
+var secret7_77=createsoundbite("secretsounds/7-77.mp3")
+// var secret9_75=createsoundbite("secretsounds/9-75.mp3")
+// var secret10_01=createsoundbite("secretsounds/10-01.mp3")
+var secret10_10=createsoundbite("secretsounds/10-10.mp3")
+var secret10_59=createsoundbite("secretsounds/10-59.mp3")
+var secret10_93=createsoundbite("secretsounds/10-93.mp3")
+var secret11_11=createsoundbite("secretsounds/11-11.mp3")
+var secret12=createsoundbite("secretsounds/12.mp3")
+// var secret12_13=createsoundbite("secretsounds/12-13.mp3")
+// var secret12_20=createsoundbite("secretsounds/12-20.mp3")
+// var secret12_34=createsoundbite("secretsounds/12-34.mp3")
+var secret12_99=createsoundbite("secretsounds/12-99.mp3")
+// var secret13_12=createsoundbite("secretsounds/13-12.mp3")
+var secret17=createsoundbite("secretsounds/17.mp3")
+var secret17_38=createsoundbite("secretsounds/17-38.mp3")
+var secret17_4=createsoundbite("secretsounds/17-4.mp3")
+var secret18_69=createsoundbite("secretsounds/18-69.mp3")
+// var secret19_44=createsoundbite("secretsounds/19-44.mp3")
+var secret19_53=createsoundbite("secretsounds/19-53.mp3")
+var secret19_68=createsoundbite("secretsounds/19-68.mp3")
+var secret19_69=createsoundbite("secretsounds/19-69.mp3")
+var secret19_72=createsoundbite("secretsounds/19-72.mp3")
+var secret19_83=createsoundbite("secretsounds/19-83.mp3")
+var secret19_86=createsoundbite("secretsounds/19-86.mp3")
+var secret19_88=createsoundbite("secretsounds/19-88.mp3")
+var secret19_9=createsoundbite("secretsounds/19-9.mp3")
+var secret19_93=createsoundbite("secretsounds/19-93.mp3")
+var secret19_96=createsoundbite("secretsounds/19-96.mp3")
+var secret19_98=createsoundbite("secretsounds/19-98.mp3")
+var secret19_99=createsoundbite("secretsounds/19-99.mp3")
+var secret20_01=createsoundbite("secretsounds/20-01.mp3")
+var secret20_02=createsoundbite("secretsounds/20-02.mp3")
+var secret20_03=createsoundbite("secretsounds/20-03.mp3")
+var secret20_07=createsoundbite("secretsounds/20-07.mp3")
+// var secret20_13=createsoundbite("secretsounds/20-13.mp3")
+var secret20_14=createsoundbite("secretsounds/20-14.mp3")
+var secret20_16=createsoundbite("secretsounds/20-16.mp3")
+// var secret20_20=createsoundbite("secretsounds/20-20.mp3")
+var secret21_3=createsoundbite("secretsounds/21-3.mp3")
+var secret22=createsoundbite("secretsounds/22.mp3")
+var secret22_1=createsoundbite("secretsounds/22-1.mp3")
+// var secret23_01=createsoundbite("secretsounds/23-01.mp3")
+// var secret27_5=createsoundbite("secretsounds/27-5.mp3")
+var secret30=createsoundbite("secretsounds/30.mp3")
+var secret30_86=createsoundbite("secretsounds/30-86.mp3")
+var secret31_41=createsoundbite("secretsounds/31-41.mp3")
+var secret33_33=createsoundbite("secretsounds/33-33.mp3")
+var secret36=createsoundbite("secretsounds/36.mp3")
+var secret39_4=createsoundbite("secretsounds/39-4.mp3")
+var secret40_4=createsoundbite("secretsounds/40-4.mp3")
+var secret47=createsoundbite("secretsounds/47.mp3")
+var secret50_06=createsoundbite("secretsounds/50-06.mp3")
+// var secret50_3=createsoundbite("secretsounds/50-3.mp3")
+// var secret60=createsoundbite("secretsounds/60.mp3")
+var secret60_27=createsoundbite("secretsounds/60-27.mp3")
+// var secret64=createsoundbite("secretsounds/64.mp3")
+var secret65_02=createsoundbite("secretsounds/65-02.mp3")
+var secret66=createsoundbite("secretsounds/66.mp3")
+// var secret69_12=createsoundbite("secretsounds/69-12.mp3")
+// var secret69_68=createsoundbite("secretsounds/69-68.mp3")
+var secret69_69=createsoundbite("secretsounds/69-69.mp3")
+var secret70_13=createsoundbite("secretsounds/70-13.mp3")
+// var secret77_77=createsoundbite("secretsounds/77-77.mp3")
+var secret90_01=createsoundbite("secretsounds/90-01.mp3")
+// var secret99_99=createsoundbite("secretsounds/99-99.mp3")
+var secret100_07=createsoundbite("secretsounds/100-07.mp3")
+var secret105=createsoundbite("secretsounds/105.mp3")
+// var secret108_92=createsoundbite("secretsounds/108-92.mp3")
+// var secret121_07=createsoundbite("secretsounds/121-07.mp3")
+// var secret143=createsoundbite("secretsounds/143.mp3")
+var secret157_52=createsoundbite("secretsounds/157-52.mp3")
+// var secret173_8=createsoundbite("secretsounds/173-8.mp3")
+// var secret193=createsoundbite("secretsounds/193.mp3")
+var secret201_1=createsoundbite("secretsounds/201-1.mp3")
+var secret251=createsoundbite("secretsounds/251.mp3")
+var secret280_5=createsoundbite("secretsounds/280-5.mp3")
+var secret300=createsoundbite("secretsounds/300.mp3")
+var secret360=createsoundbite("secretsounds/360.mp3")
+var secret524_16=createsoundbite("secretsounds/524-16.mp3")
+// var secret623=createsoundbite("secretsounds/623.mp3")
+// var secret999_99=createsoundbite("secretsounds/999-99")
+var secret1000_17=createsoundbite("secretsounds/1000-17.mp3")
+var secret1337=createsoundbite("secretsounds/1337.mp3")
+
+</script>
+
+</head>
+
+<body class="orange lighten-5">
+  <div class="fixed-action-btn" onClick="window.location.reload()">
+     <a class="btn-floating btn-large red">
+       <i class="large material-icons">stop</i>
+     </a>
+   </div>
+<div class="navbar-fixed">
+   <nav>
+    <div class="nav-wrapper red darken-1">
+      <a href="#" class="brand-logo center">
+  				<img src="Zeldathon_Sounds.png" height="65"/>
+        </a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="http://www.stonemoney.xyz"><span title="Home"><i class="material-icons">class</i></span></a></li>
+      </ul>
+    </div>
+  </nav>
+ </div>
+ <div class="parallax-container">
+ <div class="parallax"><img src="banner.jpg" /></div>
+
+  <div class="center">
+	<h1>&nbsp;</h1>
+    <br/><br/><br/><br/><br/>	<br/><br/><br/>	<br/><br/><br/>	<br/><br/><br/>
+	<a class="waves-effect waves-light red btn-large" href="#soundboard"><i class="material-icons left">view_module</i>SOUNDBOARD</a>
+	<a class="waves-effect waves-light red btn-large" href="#normal"><i class="material-icons left">person_pin</i>DONATION SOUNDS</a>
+    <a class="waves-effect waves-light red btn-large" href="#secret"><i class="material-icons left">live_help</i>SECRET DONATION SOUNDS</a>
+    <a class="waves-effect waves-light red btn-large" href="11-27-16Zeldathon Sounds.zip"><i class="material-icons left">save</i>DOWNLOAD ALL</a>
+
+   </div>
+  </div>
+  <div class="section white">
+  <h1><a id="#soundboard"></a><i class="material-icons left medium">view_module</i>Soundboard</h1>
+	   <div class="row">
+
+      <div class="col s6 m4 l3">
+
+          <div class="card small red darken-3 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">HEY!</span>
+
+              <p>
+              	King of the Red Lions "Hey!"
+                <br />
+				<i>The Windwaker</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="sbHey.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#current"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+      	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover green darken-3 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">WOW!</span>
+
+              <p>
+              	Tingle "WOW!"
+                <br />
+				<i>Tingle Tingle </i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current"  onclick="sbWow.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover yellow darken-3 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">NOPE</span>
+
+              <p>
+              	The engineer goes "nope"
+                <br />
+				<i>TF2 nope.avi</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current"  onclick="sbNope.playclip()"><i class="material-icons left black-text">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left black-text">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink darken-3 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">HOORAY</span>
+
+              <p>
+              	Hooray! Yay!
+                <br />
+				<i>The Windwaker</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current"  onclick="sbHooray.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+		<div class="col s6 m4 l3 ">
+
+          <div class="card small hover blue darken-3 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">MY BODY IS READY</span>
+
+              <p>
+              	My body is <strike>ready</strike> Reggie.
+                <br />
+				<i>President of Nintendo of America</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current"  onclick="sbBody.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover green darken-3 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">DONATE NOW!</span>
+
+              <p>
+              	DONATE..... NOW!
+                <br />
+				<i>Zeldathon Annoucer man! </i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current"  onclick="sbDonateNow.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover orange darken-3 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">ZELDATHON!</span>
+
+              <p>
+              	..RECOVERY!
+                <br />
+				<i>Zeldathon Annoucer man!</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current"  onclick="sbZeldathon.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover red darken-1 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">Team Breakers</span>
+
+              <p>
+              	KABOOM
+                <br />
+				<i>The Windwaker</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="sbBreakers.playclip()" ><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover blue z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">Team Fixers</span>
+
+              <p>
+              	Gonnngg!
+                <br />
+				<i>The Windwaker</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current"  onclick="sbFixers.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover purple darken-3 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">Team Palindrome</span>
+
+              <p>
+              	Sick soundclip pilcdnuos kciS
+                <br />
+				<i>The Windwaker</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current"  onclick="sbPalindrome.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover white darken-3 z-depth-3">
+
+            <div class="card-content black-text">
+
+              <span class="card-title">Team Ect</span>
+
+              <p>
+              	Everything else
+                <br />
+				<i>The Windwaker</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current"  onclick="sbEct.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover green darken-3 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">OH YEAH!</span>
+
+              <p>
+              	OH YEAH INDEED
+                <br />
+				<i>Zeldathon Annoucer man!</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current"  onclick="sbOhYeah.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+        </div>
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover red lighten-1 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">Game over</span>
+
+              <p>
+              	Yeaaaaaaaaaaaaaaaah!
+                <br />
+				<i>Sega Rally</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current"  onclick="sbGameOver.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="#"><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover black darken-3 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">Button 17</span>
+
+              <p>
+              	Who put that here?
+                <br />
+				<i>???</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="banner2.jpg"></div>
+  </div>
+  <div class="section white">
+  	<h1><a  id="#soundboard"></a><i class="material-icons left medium">person_pin</i>Donation Sounds</h1>
+    	   <div class="row">
+
+      <div class="col s6 m4 l3">
+
+          <div class="card small green z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$1+</span>
+
+              <p>
+              	Rupee get
+                <br />
+				<i>Twilight Princess</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="dollar1.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="donationsounds/1.mp3" download><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+      	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover blue z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$5+</span>
+
+              <p>
+              	Small item get
+                <br />
+				<i>The Windwaker</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="dollar5.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="donationsounds/5.mp3" download><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover yellow darken-2 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$10+</span>
+
+              <p>
+              	Large item get
+                <br />
+				<i>The Windwaker</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="dollar10.playclip()"><i class="material-icons left white-text">play_arrow</i>&nbsp;</a>
+
+              <a href="donationsounds/10.mp3" download><i class="material-icons left white-text">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover red z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$25+</span>
+
+              <p>
+              	Small item get
+                <br />
+				<i>Twilight Princess</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="dollar25.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="donationsounds/25.mp3" download><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+		<div class="col s6 m4 l3 ">
+
+          <div class="card small hover purple z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$50+</span>
+
+              <p>
+              	Item get
+                <br />
+				<i>Skyward Sword</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="dollar50.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="donationsounds/50.mp3" download><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover orange z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$100+</span>
+
+              <p>
+              	Heart container get
+                <br />
+				<i>The Windwaker</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="dollar100.playclip()"><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="donationsounds/100.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover silver darken-3 z-depth-3">
+
+            <div class="card-content black-text">
+
+              <span class="card-title">$250+</span>
+
+              <p>
+              	Key item get
+                <br />
+				<i>Skyward Sword</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="dollar250.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="donationsounds/250.mp3" download><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover orange darken-1 z-depth-3">
+
+            <div class="card-content black-text">
+
+              <span class="card-title">$500+</span>
+
+              <p>
+              	Key item get
+                <br />
+				<i>Twilight Princess</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="dollar500.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="donationsounds/500.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+              	<div class="col s6 m4 l3 ">
+
+          <div class="card small hover black z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$1000+</span>
+
+              <p>
+              	Movement 4 - A Link to the Past
+                <br />
+				<i>Symphony of Goddesses</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="dollar1000.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="donationsounds/1000.mp3" download><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+  </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="banner3.jpg"></div>
+  </div>
+  <div class="section white">
+    <h1><a id="#soundboard"></a><i class="material-icons left medium" >live_help</i>Secret Donation Sounds</h1>
+      <div class="row">
+
+      <div class="col s6 m4 l3">
+
+          <div class="card small green z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$1.05</span>
+
+              <p>
+                Bobby Brown
+                <br />
+        <i>Every Little Step</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret1_05.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/1-05.mp3" download><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover blue z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$6.31</span>
+
+              <p>
+                Shoop631
+                <br />
+        <i>Zeldathon Announcer</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret6_31.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/6-31.mp3" download><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover yellow darken-2 z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$6.66</span>
+
+              <p>
+                Miniblins
+                <br />
+        <i>Windwaker</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret6_66.playclip()"><i class="material-icons left white-text">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/6-66.mp3" download><i class="material-icons left white-text">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover red z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$7.77</span>
+
+              <p>
+                  Great Fairy Laugh
+                <br />
+        <i>OOT/MM</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret7_77.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/7-77.mp3" download><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+    <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$9.75</span>
+
+              <p>
+                Platform 9 3/4
+                <br />
+        <i>No sound file</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+                <div class="col s6 m4 l3 ">
+
+          <div class="card small hover orange z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$10.01</span>
+
+              <p>
+                SouperMCGamer
+                <br />
+        <i>One of us, One of us</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret10_01.playclip()"><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/10-01.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+                <div class="col s6 m4 l3 ">
+
+          <div class="card small hover silver darken-3 z-depth-3">
+
+            <div class="card-content black-text">
+
+              <span class="card-title">$10.10</span>
+
+              <p>
+                Tidus Laugh
+                <br />
+        <i>Final Fantasy X</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret10_10.playclip()"><i class="material-icons left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/10-10.mp3" download><i class="material-icons left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover orange lighten-1 z-depth-3">
+
+            <div class="card-content black-text">
+
+              <span class="card-title">$10.59</span>
+
+              <p>
+                Well exuuuse me princess
+                <br />
+        <i>Legend of Zelda Cartoon</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret10_59.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/10-59.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+                <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$10.61</span>
+
+              <p>
+                And remember, dont get blasted.
+                <br />
+        <i>No sound file</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+                <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover orange lighten-1 z-depth-3">
+
+            <div class="card-content black-text">
+
+              <span class="card-title">$10.93</span>
+
+              <p>
+                Squadala, were off!
+                <br />
+        <i>Zelda CDI</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret10_93.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/10-93.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover orange lighten-1 z-depth-3">
+
+            <div class="card-content black-text">
+
+              <span class="card-title">$11.11</span>
+
+              <p>
+                That's Awesome!
+                <br />
+        <i>Jyggy11</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret11_11.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/11-11.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover orange lighten-1 z-depth-3">
+
+            <div class="card-content black-text">
+
+              <span class="card-title">$12.00</span>
+
+              <p>
+                It's High Noon
+                <br />
+        <i>McCree - Overwatch</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret12.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/12.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$12.13</span>
+
+              <p>
+                Nope
+                <br />
+        <i>No sound file</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$12.20</span>
+
+              <p>
+                Release the Kraken
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$12.34</span>
+
+              <p>
+                It's cool, just cool. Into the mouth.
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons red-text left">report_problem</i>&nbsp;</a></span>
+              <span title="Clip of the sound"><a href="https://clips.twitch.tv/supermcgamer/SmilingGazelleTwitchRaid"><i class="material-icons red-text left">movie</i></a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$12.99</span>
+
+              <p>
+                *pop* Amiibo
+                <br />
+        <i>The price of an Amiibo</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret12_99.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/12-99.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$13.12</span>
+
+              <p>
+                Drums then Hunger Games whistle
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$17</span>
+
+              <p>
+                17 is the number for me
+                <br />
+        <i>Bill Wurtz</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret17.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/17.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$17.38</span>
+
+              <p>
+                seventeen thirty-eight
+                <br />
+        <i>Fetty Wap - Trap Queen</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret17_38.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/17-38.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$17.40</span>
+
+              <p>
+                Yes! Yes!
+                <br />
+        <i>M. Bison</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret17_4.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/17-4.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$18.69</span>
+
+              <p>
+                AT SOUP
+                <br />
+        <i>Code MENT</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret18_69.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/18-69.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.44</span>
+
+              <p>
+                Pretty good
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.53</span>
+
+              <p>
+                Wilhelm Scream
+                <br />
+        <i>The Charge at Feather River</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret19_53.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/19-53.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.68</span>
+
+              <p>
+                YOU'RE TEARING ME APART LISA
+                <br />
+        <i>The Room</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret19_68.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/19-68.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.69</span>
+
+              <p>
+                Space, Space, wana go to space
+                <br />
+        <i>Space Core - Portal 2</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret19_69.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/19-69.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.72</span>
+
+              <p>
+                LIQUID, BROTHER
+                <br />
+        <i>Metal Gear</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret19_72.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/19-72.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.83</span>
+
+              <p>
+                Woah, nice graphics!
+                <br />
+        <i>Zelda commercial</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret19_83.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/19-83.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content grey white-text">
+
+              <span class="card-title">$19.86</span>
+
+              <p>
+                Zelda I sounds + OH YEAH!
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.88</span>
+
+              <p>
+                Inconceivable!
+                <br />
+        <i>Princess Bride</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret19_88.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/19-88.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.90</span>
+
+              <p>
+                Level up jingle
+                <br />
+        <i>Fire Emblem</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret19_9.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/19-9.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.93</span>
+
+              <p>
+                Bomb some dodongos!
+                <br />
+        <i>Zelda CDI</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret19_93.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/19-93.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.96</span>
+
+              <p>
+                Dixie Kong Victory Theme
+                <br />
+        <i>Donkey Kong Country 2</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret19_96.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/19-96.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.98</span>
+
+              <p>
+                Banjo Kazooie
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$19.99</span>
+
+              <p>
+                Well done!
+                <br />
+        <i>Pokemon Snap</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret19_99.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/19-99.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$20.01</span>
+
+              <p>
+                Startup Jingle
+                <br />
+        <i>Nintendo Gamecube</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret20_01.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/20-01.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$20.02</span>
+
+              <p>
+                Secret Startup Jingle
+                <br />
+        <i>Nintendo Gamecube</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret20_02.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/20-02.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$20.03</span>
+
+              <p>
+                Ironside Siren
+                <br />
+        <i>Kill Bill</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret20_03.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/20-03.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$20.07</span>
+
+              <p>
+                Brotherman Bill
+                <br />
+        <i>TerribleTim</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret20_07.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/20-07.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$20.13</span>
+
+              <p>
+                A Link Between Worlds - JACKPOT
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$20.14</span>
+
+              <p>
+                Did he just walk up slowly
+                <br />
+        <i>PeoplesChamp</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret20_14.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/20-14.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$20.16</span>
+
+              <p>
+                Here comes DAT BOI
+                <br />
+        <i>The Beetles Meme</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret20_16.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/20-16.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$20.20</span>
+
+              <p>
+                Fox Taunt sounds from Smash
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$21.30</span>
+
+              <p>
+                Startup Sound
+                <br />
+        <i>Game Boy Advanced</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret21_3.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/21-3.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$22.00</span>
+
+              <p>
+                Beetle Bye
+                <br />
+        <i>Windwaker</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret22.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/22.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$22.10</span>
+
+              <p>
+                2+2 = BILLION
+                <br />
+        <i>Bill Wurtz</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret22_1.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/22-1.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$23.01</span>
+
+              <p>
+                JACKPOT! *Deku*
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$27.50</span>
+
+              <p>
+                ARE YOU LISTENING?
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$30</span>
+
+              <p>
+                Mah Boi
+                <br />
+        <i>Zelda CDI</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret30.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/30.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$30.86</span>
+
+              <p>
+                JUST DO IT
+                <br />
+        <i>Shai LaBeouf</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret30_86.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/30-86.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$31.41</span>
+
+              <p>
+                I baked you a pie!
+                <br />
+        <i>ASDF</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret31_41.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/31-41.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$33.33</span>
+
+              <p>
+                Oh baby a triple!
+                <br />
+        <i>MLG Video</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret33_33.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/33-33.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$36</span>
+
+              <p>
+                Dolla Dolla
+                <br />
+        <i>Here comes the money</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret36.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/36.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$39.40</span>
+
+              <p>
+                Turn to page 394
+                <br />
+        <i>Snape</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret39_4.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/39-4.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$40.40</span>
+
+              <p>
+                NO GOD PLEASE NO
+                <br />
+        <i>The Office</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret40_40.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/40-40.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$47</span>
+
+              <p>
+                Donation! *You Rock*
+                <br />
+        <i>The Silver</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret47.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/47.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$50.06</span>
+
+              <p>
+                You could shop at 5 or 6 stores
+                <br />
+        <i>Unknown Source</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret50_06.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/50-06.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$50.30</span>
+
+              <p>
+                I am error Navi windows crash
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$60</span>
+
+              <p>
+                Oh my giddy aunt
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$60.27</span>
+
+              <p>
+                IMMA FIRIN MA LAZOR
+                <br />
+        <i>BLARG</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret60_27.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/60-27.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$64</span>
+
+              <p>
+                Lanky trombone
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$65.02</span>
+
+              <p>
+                Startup Jingle
+                <br />
+        <i>Nintendo Famicom</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret65_02.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/65_02.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$66</span>
+
+              <p>
+                Excecute order 66
+                <br />
+        <i>Star Wars</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret66.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/66.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$69.12</span>
+
+              <p>
+                Dial up sounds
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$69.68</span>
+
+              <p>
+                Objection sunshine court
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$69.69</span>
+
+              <p>
+                Careless Whispers
+                <br />
+        <i><3</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret69_69.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/69-69.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$70.13</span>
+
+              <p>
+                Inception Gong
+                <br />
+        <i>Inception</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret70_13.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/70-13.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$77.77</span>
+
+              <p>
+                Chance time!
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$90.01</span>
+
+              <p>
+                And this is to go even further beyond
+                <br />
+        <i>Dragon Ball</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret90_01.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/90-01.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$99.99</span>
+
+              <p>
+                Andy Scream
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$100.07</span>
+
+              <p>
+                Goldeneye 007 Theme
+                <br />
+        <i>N64</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret100_07.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/100-07.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$105.00</span>
+
+              <p>
+                OOO BANANA
+                <br />
+        <i>Donkey Kong 64</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret105.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/105.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$108.92</span>
+
+              <p>
+                Mortal Kombat
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$121.07</span>
+
+              <p>
+                Wise words from Gaspra
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$143.00</span>
+
+              <p>
+                Wont you be my neighbor?
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$157.52</span>
+
+              <p>
+                Vitas
+                <br />
+        <i>7th Element</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret157_52.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/157-52.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$173.80</span>
+
+              <p>
+                ThunderScott + Poptart Fetty Wap
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$193.00</span>
+
+              <p>
+                Time to D-D-Duel (REMIX)
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$201.10</span>
+
+              <p>
+                Tadtones
+                <br />
+        <i>Skyward Sword</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret201_1.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/201-1.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$251.00</span>
+
+              <p>
+                John Cena theme
+                <br />
+        <i>He wheighs 251lbs</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret251.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/251.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$280.50</span>
+
+              <p>
+                Your a kid now, your a squid now!
+                <br />
+        <i>DJ CUTMAN</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret280_5.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/280-5.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$300.00</span>
+
+              <p>
+                This is madness, this is Sparta!
+                <br />
+        <i>300 (Movie)</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret300.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/300.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$360.00</span>
+
+              <p>
+                Here comes the money!
+                <br />
+        <i>Dolla dolla!</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret360.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/360.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$524.16</span>
+
+              <p>
+                Play of the game
+                <br />
+        <i>Overwatch</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret524_16.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/524-16.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$623.00</span>
+
+              <p>
+                Sonic
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover grey z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$999.99</span>
+
+              <p>
+                Start of ALttP Movement - Rupoor Jingle
+                <br />
+        <i>No sound found</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <span title="Not identified! Help source sound"><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><i class="material-icons left red-text">report_problem</i>&nbsp;</a></span>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$1000.17</span>
+
+              <p>
+                ALttP Credits
+                <br />
+        <i>ALttP</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret1000_17.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/1000-17.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col s6 m4 l3 ">
+
+          <div class="card small hover pink z-depth-3">
+
+            <div class="card-content white-text">
+
+              <span class="card-title">$1337</span>
+
+              <p>
+                ALttP MEME
+                <br />
+        <i>MEME MEME MEME</i>
+              </p>
+
+            </div>
+
+            <div class="card-action">
+
+              <a href="#current" onclick="secret1337.playclip()" ><i class="material-icons white-text left">play_arrow</i>&nbsp;</a>
+
+              <a href="secretsounds/1337.mp3" download><i class="material-icons white-text left">file_download</i>&nbsp;</a>
+
+            </div>
+
+          </div>
+
+        </div>
+  </div>
+          <footer class="page-footer red">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">StoneMoney Studio</h5>
+                <p class="grey-text text-lighten-4">Creating cool stuff<br/>
+                Thanks to Silver for providing the sound for $47!</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Portfolio</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 StoneMoney studio. Not associated with Zeldathon, mcgDev, or KinstoneIO LLC. Logo graphic created by DarkDecay. Audio files belong to their respective owners. Boilerplate by Materialize css
+            </div>
+          </div>
+        </footer>
+</body>
+</html>
