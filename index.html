@@ -21,73 +21,61 @@
 		  		$('.parallax').parallax();
 			}
 		  );
-        
+
 	  </script>
-	  <style>
-		  .material-icons {
+    <style>
+      @font-face {
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: 400;
+      src: url(MaterialIcons-Regular.eot); /* For IE6-8 */
+      src: local('Material Icons'),
+           local('MaterialIcons-Regular'),
+           url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+           url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff) format('woff'),
+           url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+      }
 
-	  font-family: 'Material Icons';
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;  /* Preferred icon size */
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
 
-	  font-weight: normal;
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
 
-	  font-style: normal;
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
 
-	  font-size: 24px;  /* Preferred icon size */
-
-	  display: inline-block;
-
-	  width: 1em;
-
-	  height: 1em;
-
-	  line-height: 1;
-
-	  text-transform: none;
-
-	  letter-spacing: normal;
-
-	  word-wrap: normal;
-
-	  white-space: nowrap;
-
-	  direction: ltr;
-
-
-
-	  /* Support for all WebKit browsers. */
-
-	  -webkit-font-smoothing: antialiased;
-
-
-
-	  /* Support for Safari and Chrome. */
-
-	  text-rendering: optimizeLegibility;
-
-
-
-	  /* Support for Firefox. */
-
-	  -moz-osx-font-smoothing: grayscale;
-
-
-
-	  /* Support for IE. */
-
-	  font-feature-settings: 'liga';
-
-	}
-	</style>
+      /* Support for IE. */
+      font-feature-settings: 'liga';
+    }
+    .inline {
+      display: inline;
+    }
+    </style>
 </head>
 
 <body>
-  <div class="navbar-fixed">  
-   <nav>          
+  <div class="navbar-fixed">
+   <nav>
     <div class="nav-wrapper deep-purple lighten-1">
       <a href="#" class="brand-logo center"><h4><strong> STONEMONEY</strong><div style="font-weight:200;display: inline-block;">.GITHUB.IO</div></h4></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="#"><span title="Portfolio"><i class="material-icons">[]</i></span></a></li>
-        <li><a href="#"><span title="Contact"><i class="material-icons">()</i></span></a></li>
+        <li><a href="#"><span title="Portfolio"><i class="material-icons">class</i></span></a></li>
+        <li><a href="#"><span title="Contact"><i class="material-icons">comment</i></span></a></li>
       </ul>
     </div>
   </nav>
@@ -157,10 +145,10 @@
               <a href="shado/index.html">CHECK IT OUT</a>
             </div>
           </div>
-          
+
         </div>
     </div>
-  </div>  	
+  </div>
           <footer class="page-footer deep-purple">
           <div class="container">
             <div class="row">

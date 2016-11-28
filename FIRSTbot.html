@@ -22,26 +22,69 @@
 		  		$('.parallax').parallax();
 			}
 		  );
-        
+
 	  </script>
+    <style>
+      @font-face {
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: 400;
+      src: url(MaterialIcons-Regular.eot); /* For IE6-8 */
+      src: local('Material Icons'),
+           local('MaterialIcons-Regular'),
+           url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+           url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff) format('woff'),
+           url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+      }
+
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;  /* Preferred icon size */
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
+
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
+
+      /* Support for IE. */
+      font-feature-settings: 'liga';
+    }
+    .inline {
+      display: inline;
+    }
+  </style>
 	<meta name="Description" content="An open source chat bot catered for FIRST Robotics built in node.JS" />
 	<meta name="keywords" content="Discord,SlackHQ,FIRST,FIRST Robotics,node.js,stonemoney">
 </head>
 
 <body>
-  <div class="navbar-fixed">  
-   <nav>          
+  <div class="navbar-fixed">
+   <nav>
     <div class="nav-wrapper blue darken-1">
       <a href="#" class="brand-logo center"><h4><strong> FIRST</strong><div style="font-weight:200;display: inline-block;">bot</div></h4></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="#"><span title="Portfolio">PORTFOLIO</span></a></li>
-        <li><a href="#"><span title="Contact">CONTACT</span></a></li>
+        <li><a href="#"><span title="Portfolio"><i class="material-icons">class</i></span></a></li>
+        <li><a href="#"><span title="Contact"><i class="material-icons">class</i></span></a></li>
       </ul>
     </div>
   </nav>
  </div>
  <div class="parallax-container">
-    <div class="parallax"><img src="images/banner.jpg"></div> 
+    <div class="parallax"><img src="images/banner.jpg"></div>
 	<div class="center">
 		<br/><br/><br/>
 		<h1 class="white-text">A <b>Discord</b> Bot</h1>
@@ -51,12 +94,12 @@
 	</div>
 	<br/>
 	<h4 class="center white-text">View features <b>below</b></h4>
- </div>	
+ </div>
 
   <a name="features"></a>
   <div class="section white">
 	<div class="row">
-	
+
         <div class="col s12 m6 l4 offset-l2">
           <div class="card">
             <div class="card-image">
@@ -73,8 +116,8 @@
             </div>
           </div>
         </div>
-		
-		
+
+
         <div class="col s12 m6 l4">
           <div class="card">
             <div class="card-image">
@@ -91,7 +134,7 @@
           </div>
         </div>
 		</div>
-		
+
 		<div class="row">
         <div class="col s12 m6 l4 offset-l2">
           <div class="card">
@@ -107,8 +150,8 @@
             </div>
           </div>
         </div>
-		
-		
+
+
         <div class="col s12 m6 l4">
           <div class="card">
             <div class="card-image">
@@ -123,12 +166,12 @@
             </div>
           </div>
           </div>
-        
+
     </div>
 	<div class="center">
 		<a class="waves-effect waves-light btn-large blue-grey darken-3" href="https://github.com/StoneMoney/FIRSTbot/wiki">See all commands on our wiki page</a>
 	</div>
-  </div> 
+  </div>
   <div class="parallax-container">
     <div class="parallax"><img src="images/shot.png"></div>
 	<div class="center">
@@ -136,7 +179,7 @@
 		<a class="waves-effect waves-light btn-large" href="https://discordapp.com/oauth2/authorize?client_id=176865551262416896&scope=bot&permissions=0">ADD TO SERVER</a>
 		<a class="waves-effect waves-light red btn-large" href="#">BACK TO TOP</a>
 	</div>
-  </div>	
+  </div>
           <footer class="page-footer blue">
           <div class="container">
             <div class="row">

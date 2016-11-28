@@ -26,13 +26,56 @@
       <meta content="noodp" name="robots" />
       <!-- InstanceBeginEditable name="head" -->
       <!-- InstanceEndEditable -->
+      <style>
+        @font-face {
+        font-family: 'Material Icons';
+        font-style: normal;
+        font-weight: 400;
+        src: url(MaterialIcons-Regular.eot); /* For IE6-8 */
+        src: local('Material Icons'),
+             local('MaterialIcons-Regular'),
+             url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+             url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff) format('woff'),
+             url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+        }
+
+      .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;  /* Preferred icon size */
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+
+        /* Support for all WebKit browsers. */
+        -webkit-font-smoothing: antialiased;
+        /* Support for Safari and Chrome. */
+        text-rendering: optimizeLegibility;
+
+        /* Support for Firefox. */
+        -moz-osx-font-smoothing: grayscale;
+
+        /* Support for IE. */
+        font-feature-settings: 'liga';
+      }
+      .inline {
+        display: inline;
+      }
+    </style>
 </head>
 
 <body>
-  <div class="navbar-fixed">  
-   <nav>          
+  <div class="navbar-fixed">
+   <nav>
     <div class="nav-wrapper red darken-4">
-            
+
       <a href="#" class="brand-logo center"><h4>Nancy's Fried Dough</h4></a>
       <ul id="nav-mobile" class="left">
         <li><a href="#">Home</a></li>
@@ -40,12 +83,12 @@
         <li><a href="#">History</a></li>
         <li><a href="#">Gallery</a></li>
         <li><a href="#">Events</a></li>
-        
+
       </ul>
       <ul id="nav-mobile" class="right">
 		<li><a href="#">Contact</a></li>
       </ul>
-        
+
     </div>
   </nav>
  </div>
@@ -120,6 +163,6 @@
     </div>
   <!-- InstanceEndEditable -->
 
-  
+
 </body>
 <!-- InstanceEnd --></html>
