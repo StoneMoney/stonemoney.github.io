@@ -49,7 +49,9 @@
 		  		$('.parallax').parallax();
 			}
 		  );
-
+      $(document).ready(function(){
+        $('.tooltipped').tooltip({delay: 50});
+      });
 	  </script>
     <style>
       @font-face {
@@ -271,7 +273,7 @@ var secret1337=createsoundbite("secretsounds/1337.mp3")
         </a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="../index.html"><span title="Home"><i class="material-icons">class</i></span></a></li>
-        <li><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3"><span title="Contribute"><i class="material-icons">comment</i></span></a></li>
+        <li><a href="https://goo.gl/forms/FpUbtt57gs9BJzKI3" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Source missing sounds"><i class="material-icons">comment</i></a></li>
       </ul>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a onClick="window.location.reload()"><i class="material-icons">stop</i></a></li>
@@ -286,9 +288,8 @@ var secret1337=createsoundbite("secretsounds/1337.mp3")
   <div class="center">
 	<h1>&nbsp;</h1>
     <br/><br/><br/><br/><br/>	<br/><br/><br/>	<br/><br/><br/>	<br/><br/><br/>
-	<a class="waves-effect waves-light red btn-large" href="#soundboard"><i class="material-icons left">view_module</i>SOUNDBOARD</a>
-	<a class="waves-effect waves-light red btn-large" href="#normal"><i class="material-icons left">person_pin</i>DONATION SOUNDS</a>
-    <a class="waves-effect waves-light red btn-large" href="#secret"><i class="material-icons left">live_help</i>SECRET DONATION SOUNDS</a>
+	  <a class="waves-effect waves-light red btn-large" href="https://docs.google.com/spreadsheets/d/1nT8vmOsvK4eLEaIJfeT-tU0cPVSQ1-Ue5JpFk5sMXS8/edit?usp=sharing"><i class="material-icons left">event_note</i>SOUNDS DOC</a>
+    <a class="waves-effect waves-light red btn-large" href="http://www.zeldathon.net"><i class="material-icons left">videogame_asset</i>ZELDATHON</a>
     <a class="waves-effect waves-light red btn-large" href="11-27-16Zeldathon Sounds.zip"><i class="material-icons left">save</i>DOWNLOAD ALL</a>
 
    </div>
