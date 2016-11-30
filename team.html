@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+  <html><!-- InstanceBegin template="/Templates/base.dwt" codeOutsideHTMLIsLocked="false" -->
+    <head>
+        <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="manifest" href="favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!-- InstanceBeginEditable name="head" -->
+      <!-- InstanceEndEditable -->
+      <title>PokeQuest</title>
+    </head>
+
+    <body class="green lighten-2">
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript">
+
+var CDown = function() {
+	this.state=0;// if initialized
+	this.counts=[];// array holding countdown date objects and id to print to {d:new Date(2013,11,18,18,54,36), id:"countbox1"}
+	this.interval=null;// setInterval object
+}
+
+CDown.prototype = {
+	init: function(){
+		this.state=1;
+		var self=this;
+		this.interval=window.setInterval(function(){self.tick();}, 1000);
+	},
+	add: function(date,id){
+		this.counts.push({d:date,id:id});
+		this.tick();
+		if(this.state==0) this.init();
+	},
+	expire: function(idxs){
+		for(var x in idxs) {
+			this.display(this.counts[idxs[x]], "Now!");
+			this.counts.splice(idxs[x], 1);
+		}
+	},
+	format: function(r){
+		var out="";
+		if(r.y != 0){out += r.y +" "+((r.y==1)?"year":"years")+", ";}
+		if(r.w != 0){out += r.w +" "+((r.w==1)?"week":"weeks")+", ";}
+
+		return out.substr(0,out.length-2);
+	},
+	math: function(work){
+		var	y=w=d=h=m=s=ms=0;
+
+		ms=(""+((work%1000)+1000)).substr(1,3);
+		work=Math.floor(work/1000);//kill the "milliseconds" so just secs
+
+		y=Math.floor(work/31536000);//years (no leapyear support)
+		work=work%31536000;
+
+		w=Math.floor(work/604800);//weeks
+		work=work%604800;
+
+		d=Math.floor(work/86400);//days
+		h=Math.floor(work/3600);//hours
+		m=Math.floor(work/60);//minutes
+		s=Math.floor(work);//seconds
+
+		return {y:y,w:w,d:d,h:h,m:m,s:s,ms:ms};
+	},
+	tick: function(){
+		var now=(new Date()).getTime(),
+			expired=[],cnt=0,amount=0;
+
+		if(this.counts)
+		for(var idx=0,n=this.counts.length; idx<n; ++idx){
+			cnt=this.counts[idx];
+			amount=cnt.d.getTime()-now;//calc milliseconds between dates
+
+			// if time is already past
+			if(amount<0){
+				expired.push(idx);
+			}
+			// date is still good
+			else{
+				this.display(cnt, this.format(this.math(amount)));
+			}
+		}
+
+		// deal with any expired
+		if(expired.length>0) this.expire(expired);
+
+		// if no active counts, stop updating
+		if(this.counts.length==0) window.clearTimeout(this.interval);
+		
+	},
+	display: function(cnt,msg){
+		document.getElementById(cnt.id).innerHTML=msg;
+	}
+};
+
+window.onload=function(){
+	var cdown = new CDown();
+
+	cdown.add(new Date(2016,5,11,15,0,0), "countbox1");
+}; 
+</script>
+
+        <div class="navbar-fixed"> 
+        <nav>
+          <div class="nav-wrapper green darken-3">
+            <a href="index.html" class="brand-logo center"><img src="images/dice.png" width="80"></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="left hide-on-med-and-down">
+              <li><a href="sass.html"><a class="btn tooltipped green" data-position="right" data-delay="50" data-tooltip="All money from donations go to Childs Play">$<span class="counter">0.00</span></a></a></a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="schedule.html">Schedule</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="" class="waves-effect waves-light btn-large red">CLOSED</a></li>
+            </ul>
+     <ul class="side-nav" id="mobile-demo">
+     	<li><h3 class="black-text">$<span class="counter">5.10</span></h3></li>
+        <li><a href="http://playlive.stjude.org/pcn"><b>Donate</b></a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="http://www.twitch.tv/pikathoncharitynetwork">Livestream</a></li>
+      </ul>
+          </div>
+        </nav>
+      </div>
+      
+      
+      <!--<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>--><!-- InstanceBeginEditable name="Content" -->
+  <!-- Dropdown Trigger -->
+  <h1 class="center white-text">Team</h1>
+<div class="row s12">  
+ <div class="col s12 m6 l4 offset-l2">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/dinos.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Pokeylover<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Director</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Pokeylover<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue" href="http://www.twitter.com/kylebray4">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red disabled">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="http://www.twitch.tv/pokeylover">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> Pokemon Game</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> Gaming</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+ <div class="col s12 m6 l4">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/dinos.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Dinos<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Assistant Director</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Dinos<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue" href="http://www.twitter.com/dinos24sp">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red" href="http://www.youtube.com/dinos24sp">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="http://www.twitch.tv/dinos24sp">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> Game</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> Gaming</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+ <div class="col s12 m6 l4 offset-l2">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/dinos.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Moonfur<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Assistant Director</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Moonfur<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue" href="#">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red" href="#">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="#">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> Game</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> Gaming</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+ <div class="col s12 m6 l4">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/dinos.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Tuttaliny<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Assistant Director</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Tuttaliny<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue" href="http://www.twitter.com/tuttaliny">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red" href="https://www.youtube.com/channel/UCTye5d4zUiIeGM2awI0uN7g">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="http://www.twitch.tv/tuttaliny">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> Game</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> Gaming</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+ <!-----!!!!!!!-->
+  <div class="col s12 m6 l4 offset-l2">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/dinos.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Bagbot<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Team Member</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Bagbot<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue" href="http://www.twitter.com/bagbot29">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red" href="https://www.youtube.com/channel/UC0YndWEe6lSca9MntH3aZRw">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="https://www.twitch.tv/bagbot29">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> Game</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> Gaming</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+ <div class="col s12 m6 l4">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/bob.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Bobbobkilu<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Team Member</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Bobbobkilu<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue" href="http://www.twitter.com/bobbobkilu">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red" href="https://www.youtube.com/user/bobbobkilu">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="http://twitch.tv/bobbobkilu">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> Game</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> Gaming</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+  <!-----!!!!!!!-->
+  <div class="col s12 m6 l4 offset-l2">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/honeyden.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Honeyden<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Team Member</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Honeyden<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue" href="https://twitter.com/korzaisbest">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red disabled" href="#">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="https://www.twitch.tv/ilovehoneyden">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> Game</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> Gaming</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+ <div class="col s12 m6 l4">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/pig.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">MrPig35<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Team Member</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">MrPig35<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue" href="http://www.twitter.com/_MrPig35">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red disabled" href="#">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="https://www.twitch.tv/mrpig35">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> Game</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> Gaming</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+   <!-----!!!!!!!-->
+  <div class="col s12 m6 l4 offset-l2">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/dinos.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">StoneMoney<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Website Manager</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">StoneMoney<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue" href="https://twitter.com/StoneMoney533">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red" href="youtube.com/TheStoneMoney">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="https://www.twitch.tv/StoneMoney533">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> Rocket League</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> NEEEEERRRDDDD</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+ <div class="col s12 m6 l4">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/wise.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Wise2171<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Team Member</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Wise2171<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue" href="https://twitter.com/Wise2171">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red disabled" href="#">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="https://www.twitch.tv/wise2171">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> Game</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> Gaming</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+    <!-----!!!!!!!-->
+  <div class="col s12 m6 l4 offset-l2">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/jordan.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Jordan9957<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Team Member</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Jordan9957<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue disabled" href="#">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red disabled" href="#">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="Twitch.tv/jordan9957">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> G</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> G</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+ <div class="col s12 m6 l4">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/wise.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">MetalNinjaWolf<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">Team Member</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">MetalNinjaWolf<i class="material-icons right">close</i></span>
+      <p>
+      	<div class="row s12">
+      	  <div class="col m3 l4">
+            <a class="waves-effect waves-light btn light-blue" href="https://twitter.com/MetalNinjaWolf">Twitter</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn red" href="https://www.youtube.com/channel/UCMBGX1mrgZzHPmeGukpvx-A">YouTube</a>
+          </div>
+          <div class="col hide-on-med-and-down l4">
+        	<a class="waves-effect waves-light btn purple" href="http://www.twitch.tv/metalninjawolf">Twitch</a>
+      	  </div>
+        </div>
+        <h5>Lorem</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <span title="Favorite Game"><h5><i class="material-icons">games</i> Game</h5></span>
+        <span title="Favorite Thing"><h5><i class="material-icons">done</i> Gaming</h5></span>
+        
+      </p>
+    </div>
+  </div>
+ </div>
+</div>  
+	  	  
+	  <!-- InstanceEndEditable --> 
+     
+      
+        <footer class="page-footer green darken-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">PokeQuest</h5>
+                <p class="grey-text text-lighten-4">Marathon for Childs Play</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="">Donate</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://www.twitch.tv/pikathoncharitynetwork">Livestream</a></li>
+                  <li><a class="grey-text text-lighten-3" href="schedule.html">Schedule</a></li>
+                  <li><a class="grey-text text-lighten-3" href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 PCN 
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+      	<script>
+		$( document ).ready(function(){})
+		$(".button-collapse").sideNav();({
+		      menuWidth: 300, // Default is 240
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    }
+  );
+  $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );
+		</script>
+    </body>
+  <!-- InstanceEnd --></html>

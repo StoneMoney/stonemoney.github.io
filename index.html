@@ -8,6 +8,7 @@
 		<!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -67,6 +68,9 @@
     .inline {
       display: inline;
     }
+    .parallax-container {
+      height: "100px";
+    }
     </style>
 </head>
 
@@ -76,22 +80,28 @@
     <div class="nav-wrapper deep-purple lighten-1">
       <a href="#" class="brand-logo center"><h4><strong> STONEMONEY</strong><div style="font-weight:200;display: inline-block;">.GITHUB.IO</div></h4></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="#"><span title="Portfolio"><i class="material-icons">class</i></span></a></li>
         <li><a href="#"><span title="Contact"><i class="material-icons">comment</i></span></a></li>
       </ul>
+      <ul class="side-nav" id="mobile-demo">
+       <li><h3 class="black-text">$<span class="counter">5.10</span></h3></li>
+         <li><a href="http://playlive.stjude.org/pcn"><b>Donate</b></a></li>
+         <li><a href="schedule.html">Schedule</a></li>
+         <li><a href="contact.html">Contact</a></li>
+         <li><a href="http://www.twitch.tv/pikathoncharitynetwork">Livestream</a></li>
+       </ul>
+
     </div>
   </nav>
  </div>
-  <div class="parallax-container">
-    <div class="parallax"><img src="images/hypixel.png"></div>
 	<br/><br/><br/><br/><br/>
-	<div class="center"><h1 class="white-text"><b>Hello!</b> Welcome to my site</h1></div>
+	<div class="center"><h1 class="black-text"><b>Hello!</b> Welcome to my site</h1></div>
   </div>
   <div class="section white">
-	<div class="row">
-		<div class="center"><h2>Projects</h2></div>
-        <div class="col s12 m4 offset-m2">
-          <div class="card">
+	<div class="center"><h2>Projects</h2></div>
+	<div class="row s12">
+
+        <div class="col s12 m6 l4 offset-l2">
+          <div class="card large">
             <div class="card-image">
               <img src="images/FIRSTbot splash.png">
               <span class="card-title">FIRSTbot</span>
@@ -104,8 +114,9 @@
             </div>
           </div>
         </div>
-        <div class="col s12 m4">
-          <div class="card">
+
+        <div class="col s12 m6 l4">
+          <div class="card large">
             <div class="card-image">
               <img src="images/PCN splash.png">
               <span class="card-title">PCN Website</span>
@@ -118,38 +129,53 @@
             </div>
           </div>
         </div>
-	</div>
-	<div class="row">
-        <div class="col s12 m4 offset-m2">
-          <div class="card">
+
+        <div class="col s12 m6 l4 offset-l2">
+          <div class="card large">
             <div class="card-image">
               <img src="images/LIVE splash.png">
               <span class="card-title">LIVE</span>
             </div>
             <div class="card-content">
-              <p>Not really though</p>
+              <p>I try to livestream the creation of my projects, and sometimes games too!</p>
             </div>
             <div class="card-action">
               <a href="http://www.twitch.tv/stonemoney533">CHECK IT OUT</a>
             </div>
           </div>
         </div>
-        <div class="col s12 m4">
-          <div class="card">
+
+        <div class="col s12 m6 l4">
+          <div class="card large">
             <div class="card-image">
               <img src="images/TST splash.png">
               <span class="card-title">THE SHADO TEMPLE</span>
             </div>
             <div class="card-content">
-              <p>A website hub for a semi-popular streamer that I made.</p>
+              <p>A website hub for a popular streamer that I made.</p>
             </div>
             <div class="card-action">
               <a href="shado/index.html">CHECK IT OUT</a>
             </div>
           </div>
-
         </div>
-    </div>
+
+        <div class="col s12 m6 l4 offset-l4">
+          <div class="card large">
+            <div class="card-image">
+              <img src="images/spotlight.png">
+              <span class="card-title">Zeldathon Sounds</span>
+            </div>
+            <div class="card-content">
+              <p>Play and download various sounds as heard on Zeldathon.<br/><i>Not directly associated with Zeldathon, mcgDev, or KinstoneIO</i></p>
+            </div>
+            <div class="card-action">
+              <a href="sounds/index.html">CHECK IT OUT</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
   </div>
           <footer class="page-footer deep-purple">
           <div class="container">
