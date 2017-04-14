@@ -3,8 +3,42 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>Nancy's Fried Dough</title>
+<title>Nancy's</title>
 <!-- InstanceEndEditable -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script>
+  $( document ).ready(function(){})
+  $('.button-collapse').sideNav({
+  menuWidth: 300, // Default is 240
+  edge: 'right', // Choose the horizontal origin
+  closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+  draggable: true // Choose whether you can drag to open on touch screens
+  }
+  );
+  $('.dropdown-button').dropdown({
+  inDuration: 300,
+  outDuration: 225,
+  constrain_width: false, // Does not change width of dropdown to that of the activator
+  hover: true, // Activate on hover
+  gutter: 5, // Spacing from edge
+  belowOrigin: false, // Displays dropdown below the button
+  alignment: 'left' // Displays dropdown with edge aligned to the left of button
+  }
+  );
+</script>
+<style>
+body {
+min-width: 386px;
+}
+</style>
+
+<style>
+.stroke {
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+   -webkit-font-smoothing: antialiased
+}
+</style>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
       <!--Import materialize.css-->
@@ -24,51 +58,8 @@
 	  </script>
 <meta name="Description" content="Nancy's Fried Dough is a family owned enterprise based in Rochester, NY.  We are a mobile food concessionaire specializing in seasonal events for the past 30 		years.  We are able to provide a wide and various menu to satisfy the needs of any event, large or small." />
       <meta content="noodp" name="robots" />
-      <!-- InstanceBeginEditable name="head" -->
-      <!-- InstanceEndEditable -->
-      <style>
-        @font-face {
-        font-family: 'Material Icons';
-        font-style: normal;
-        font-weight: 400;
-        src: url(MaterialIcons-Regular.eot); /* For IE6-8 */
-        src: local('Material Icons'),
-             local('MaterialIcons-Regular'),
-             url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
-             url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.woff) format('woff'),
-             url(https://rawgit.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.ttf) format('truetype');
-        }
-
-      .material-icons {
-        font-family: 'Material Icons';
-        font-weight: normal;
-        font-style: normal;
-        font-size: 24px;  /* Preferred icon size */
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        line-height: 1;
-        text-transform: none;
-        letter-spacing: normal;
-        word-wrap: normal;
-        white-space: nowrap;
-        direction: ltr;
-
-        /* Support for all WebKit browsers. */
-        -webkit-font-smoothing: antialiased;
-        /* Support for Safari and Chrome. */
-        text-rendering: optimizeLegibility;
-
-        /* Support for Firefox. */
-        -moz-osx-font-smoothing: grayscale;
-
-        /* Support for IE. */
-        font-feature-settings: 'liga';
-      }
-      .inline {
-        display: inline;
-      }
-    </style>
+      
+      
 </head>
 
 <body>
@@ -76,64 +67,102 @@
    <nav>
     <div class="nav-wrapper red darken-4">
 
-      <a href="#" class="brand-logo center"><h4>Nancy's Fried Dough</h4></a>
-      <ul id="nav-mobile" class="left">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">History</a></li>
+      <a href="index.html" class="brand-logo center"><img src="images/logo.png" width="60%"></a>
+      <ul id="nav-mobile" class="hide-on-small" class="left">
+        <li><a href="#">Our Menu</a></li>
         <li><a href="#">Gallery</a></li>
-        <li><a href="#">Events</a></li>
-
       </ul>
       <ul id="nav-mobile" class="right">
-		<li><a href="#">Contact</a></li>
+		<li><a href="#">About</a></li>
       </ul>
 
     </div>
   </nav>
  </div>
   <!-- InstanceBeginEditable name="Content" -->
-     <div class="slider">
+  <div class="slider">
     <ul class="slides">
       <li>
-        <img src="https://placeimg.com/1000/680/nature/1"> <!-- random image -->
-        <div class="caption center-align">
-          <h3 >Nancy's Fried Dough</h3>
-          <h5 class="light grey-text text-lighten-3">You haven't had fried dough until you've tried Nancy's!</h5>
-        </div>
-      </li>
-      <li>
-        <img src="https://placeimg.com/1000/680/nature/2"> <!-- random image -->
+        <img src="images/frieddough.jpg">
         <div class="caption left-align">
-          <h3>Nancy's Finger Foods</h3>
-          <h5 class="light grey-text text-lighten-3">If we didn't like it we wouldn't sell it.</h5>
+          <div class="row">
+            <div class="col s12 m10 l4">
+              <div class="card-panel red darken-1" style="opacity: 0.9;">
+                <h4>Nancy's Fried Dough</h4>
+                <h5 class="white-text">You haven't had fried dough until you've tried Nancy's!</h5>
+                <a href="confections.html" class="waves-effect waves-light btn-large white black-text center">View confections menu</a>
+              </div>
+            </div>
+          </div>
         </div>
       </li>
       <li>
-        <img src="https://placeimg.com/1000/680/nature/3"> <!-- random image -->
-        <div class="caption right-align">
-          <h3>Nancy's Pita Pit</h3>
-          <h5 class="light grey-text text-lighten-3">Sandwiches made to the customers liking.</h5>
+        <img src="images/fingerfoods.jpg">
+        <div class="caption left-align">
+          <div class="row">
+            <div class="col s12 m10 l4">
+              <div class="card-panel red darken-1" style="opacity: 0.9;">
+                <h4>Nancy's Finger Foods</h4>
+                <h5 class="white-text">If we didn't like it, we wouldn't sell it.</h5>
+                <a href="fingerfoods.html" class="waves-effect waves-light btn-large red accent-4 center">View finger food menu</a>
+              </div>
+            </div>
+          </div>
         </div>
       </li>
       <li>
-        <img src="https://placeimg.com/1000/680/nature/4"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>Nancy's Grill</h3>
-          <h5 class="light grey-text text-lighten-3">Comfort Food at its finest!</h5>
+        <img src="images/pitapit.jpg">
+        <div class="caption left-align">
+          <div class="row">
+            <div class="col s12 m10 l4">
+              <div class="card-panel red darken-1" style="opacity: 0.9;">
+                <h4>Nancy's Pita Pit</h4>
+                <h5>Sandwiches made to the customer's liking.</h5>
+                <a href="pitapit.html" class="waves-effect waves-light btn-large blue darken-1 white-text center">View pita pit menu</a>
+              </div>
+            </div>
+          </div>
         </div>
       </li>
+      <li>
+        <img src="images/grill.jpg">
+        <div class="caption left-align">
+          <div class="row">
+            <div class="col s12 m10 l4" style="opacity: 0.9;">
+              <div class="card-panel red darken-1">
+                <h4>Nancy's Grill</h4>
+                <h5>Comfort food at its finest</h5>
+                <a href="grill.html" class="waves-effect waves-light btn-large black white-text center">View grill menu</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+      	<img src="images/icecream.jpg"/>
+        <div class="caption left-align">
+          <div class="row">
+            <div class="col s12 m10 l4" style="opacity: 0.9;">
+              <div class="card-panel red darken-1">
+                <h4>Nancy's Ice Cream</h4>
+                <h5>Sundaies, Milkshakes, and Italian ice too!</h5>
+                <a href="icecream.html" class="waves-effect waves-light btn-large pink center">View ice cream menu</a>
+              </div>
+            </div>
+          </div>
+        </div>
+       </li>
     </ul>
   </div><br />
   <!--Catering section -->
   <div class="section grey lighten-3">
   	<h4 class="center">Catering to your special events no matter what size</h4>
     <div class="row">
-    	<div class="col s12 m4 offset-m2">
-        	<img src="http://placehold.it/500x400" width="100%" height="400" />
+    	<div class="col s12 l5 m8 offset-l2">
+        	<img class="materialboxed" src="images/front-splash.jpg" width="100%"/>
         </div>
-    	<div class="col s12 m3 center">
-    		<p class="center">Nancy's Fried Dough is a family owned enterprise based in Rochester, NY.  We are a mobile food concessionaire specializing in seasonal events for the past 30 years.  We are 		able to provide a wide and various menu to satisfy the needs of any event, large or small.  We are successful year in and year out due to many reasons but first and foremost it is because we  take pride in our product and enjoy what we do!</p>
+    	<div class="col s12 l3 m4 center">
+    		<p class="center">Nancy's Fried Dough is a family owned enterprise based in Rochester, NY.  We are a mobile food concessionaire specializing in seasonal events for the past 40 years.  We are 		able to provide a wide and various menu to satisfy the needs of any event, large or small.  We are successful year in and year out due to many reasons but first and foremost it is because we  take pride in our product and enjoy what we do!</p>
             <p class="center">Our operation is self-contained, modern, and flexible.  We are self sufficient, reliable, experienced, and have a great crew of employees that have been working for us for years.  The result is a great product and a happy customer!</p>
             <a class="waves-effect waves-light btn-large center">Contact us</a>
         </div>
@@ -144,18 +173,18 @@
       <h4 class="center">But we are more than just fried dough!</h4><br />
       <div class="row">
 
-      <div class="center col s4">
-        <img src="images/placeholder300.png" /><br />
+      <div class="center col l2 offset-l3 s4">
+        <img src="images/funnel300.png" width="75%"/><br />
 		<h3>Funnel cakes!</h3>
         <p>Brought the original Pennsylvania Dutch recipe into the central New York area over 30 years ago.</p>
       </div>
-      <div class="center col s4">
-        <img src="images/placeholder300.png" /><br />
+      <div class="center col l2 s4">
+        <img src="images/placeholder300.png" width="75%"/><br />
 		<h3>Smoothies!</h3>
         <p>Made to order with only natural ingredients and fresh fruit.</p>
       </div>
-      <div class="center col s4">
-        <img src="images/placeholder300.png" /><br />
+      <div class="center col l2 s4">
+        <img src="images/gyro300.png" width="75%"/><br />
 		<h3>Gyros!</h3>
         <p>No shortcuts here.  Only the finest ingredients go into our own tried and true recipe.  It's a meal and not a snack!</p>
       </div>
@@ -163,6 +192,6 @@
     </div>
   <!-- InstanceEndEditable -->
 
-
+  
 </body>
 <!-- InstanceEnd --></html>
