@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>title</title>
+		<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script>
+      $(document).ready(function() {
+        $('select').material_select();
+      });
+	  </script>
+    <style>
+    #replace {
+      position: fixed;
+      bottom: 0px;
+    }
+    </style>
+</head>
+<body class="black">
+<h1 class="white-text">FRC TOP 25 Overlay script</h1><br>
+<div class="row">
+      <p class="white-text">First label if it is a tie or not, then input the rank number and the team number. After that click add and the data will be inputted into the chart and scrolling bar areas marked in green are meant to be chroma keyed and captured. You can only undo ONCE per add, so be careful!</p>
+      <p class="col l1 m2 s3">
+        <input type="checkbox" id="isTie"/>
+        <label for="isTie">TIE?</label>
+      </p>
+      <div class="input-field col s12 m6 l1 white-text">
+        <input id="rank" type="text" class="input-field" data-length="2">
+        <label for="rank">Rank</label>
+      </div>
+      <div class="input-field col s12 m6 l1 white-text">
+        <input id="numberToAppend" type="text" class="input-field" data-length="4">
+        <label for="numberToAppend">Team Number</label>
+      </div>
+      <div class="col l4 m6 s12">
+        <button class="btn-large btn red" id="submit" onclick="appendNumber()">ADD</button>
+        <button class="btn-large btn blue disabled" id="undo" onclick="undoMarquee()">UNDO</button>
+      </div>
+      <div class="col s12 m6 l5 white-text">
+        <p class="white-text">This section contains information about the current inputted team. chroma key green and crop out this text. I would suggest giving the bottom area some breathing room in case of overflow</p>
+        <table style="font-size:36px;" class="white-text light-green accent-3">
+          <tr>
+            <td id="infotable-id">----</td>
+          </tr>
+          <tr>
+            <td id="infotable-name">----</td>
+          </tr>
+          <tr>
+            <td id="infotable-local">----</td>
+          </tr>
+          <tr>
+            <td id="infotable-rookie">----</td>
+          </tr>
+        </table>
+      </div>
+  </div>
+</div>
+<p class="white-text" style="visibility:hidden;" id="output-data">Debug JSON data, you shouldn't see this!</p>
+<input class="white-text" style="visibility:hidden;" id="apiRequest"></input>
+<h2><marquee behavior="scroll" direction="left" class="white-text light-green accent-3" id="replace">*** FRC TOP 25 RANKINGS</marquee></h2>
+
+<script>
+var undoMarqueeText = "NOTHING";
+
+//load api data from tba
+$("#submit").on('click',function(e) {
+  e.preventDefault();
+  $("#output-data").html('Processing request...');
+  $.ajax({
+    url: $("#apiRequest").val(),
+    dataType: 'json',
+    headers: {'X-TBA-App-Id':'ngiano3015:top25-script:1.1'},
+    success: function(data) {
+      $("#output-data").text(JSON.stringify(data, null, 2)).html();
+      loadInfoTable(data);
+    },
+    error: function(data) {
+      $("#output-data").html('Something went wrong! Please check for correct request format.');
+    }
+  });
+}).delay(800);
+//update marquee and generate request link for tba to be sent to jquery code
+function appendNumber() {
+  var link = "http://www.thebluealliance.com/api/v2/team/frc" + document.getElementById("numberToAppend").value;
+  var teamNo = document.getElementById("numberToAppend").value;
+  var rank = document.getElementById("rank").value;
+  if(document.getElementById("isTie").checked) {
+    undoMarqueeText = ", T" + rank + ". " + teamNo;
+    document.getElementById("replace").innerHTML = document.getElementById("replace").innerHTML + ", T" + rank + ". " + teamNo;
+  } else {
+    undoMarqueeText = ", " + rank + ". " + teamNo;
+    document.getElementById("replace").innerHTML = document.getElementById("replace").innerHTML + ", " + rank + ". " + teamNo;
+    document.getElementById("rank").value = rank - 1;
+  }
+  document.getElementById("apiRequest").value = link;
+  document.getElementById("undo").classList.remove("disabled");
+
+}
+function loadInfoTable(data) {
+  var teamNumberAndRank = "Rank #"+document.getElementById("rank").value+" - Team #"+document.getElementById("numberToAppend").value;
+  document.getElementById("infotable-name").innerHTML = data['nickname'];
+  document.getElementById("infotable-local").innerHTML = data['location'];
+  document.getElementById("infotable-id").innerHTML = teamNumberAndRank;
+  document.getElementById("infotable-rookie").innerHTML = "Rookie year: " + data['rookie_year'];
+  document.getElementById("numberToAppend").value = null;
+}
+function undoMarquee() {
+  console.log(undoMarqueeText);
+  var marquee = document.getElementById("replace").innerHTML;
+  document.getElementById("replace").innerHTML = marquee.replace(undoMarqueeText,"");
+  document.getElementById("infotable-name").innerHTML = "----";
+  document.getElementById("infotable-local").innerHTML = "----";
+  document.getElementById("infotable-id").innerHTML = "----";
+  document.getElementById("infotable-rookie").innerHTML = "----";
+  document.getElementById("undo").classList.add("disabled");
+}
+//prevent accidental refreshes
+window.onbeforeunload = function() {
+  return "Data will be lost if you leave the page, are you sure?";
+};
+</script>
+</body>
+</html>
