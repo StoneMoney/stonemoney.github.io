@@ -1,0 +1,155 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FIRST Updates Now Overlay TOP25</title>
+
+		<!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script>
+      $(document).ready(function() {
+        $('select').material_select();
+      });
+	     function docId(th) {
+		  return document.getElementById(th);
+      }
+
+	  </script>
+    <style>
+    #replace {
+      position: fixed;
+      bottom: 0px;
+    }
+    .chroma-green {
+      background-color: #00ff00;
+    }
+    </style>
+</head>
+<body class="black">
+<div class="navbar-fixed">
+ <nav>
+  <div class="nav-wrapper grey darken-4">
+    <a href="#" class="brand-logo center"><h4><strong>TOP25</strong><div style="font-weight:200;display: inline-block;">OVERLAY</div></h4></a>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a href="index.html"><span title="Contact"><i class="material-icons">home</i></span></a></li>
+    </ul>
+  </div>
+</nav>
+</div>
+<h6 class="white-text"><i class="light-blue-text">v1 [beta]</i> by ngiano (@StoneMoney533) and help from BellLabs! CSS boilerplate by materialize</h6><br>
+<p class="white-text"><b class="red-text">Chrome is recommended.</b> First label if it is a tie or not, then input the rank and the team number. After, click SUBMIT and the data will be inputted into the chart and marquee areas in green (Capture these and chroma key)</p>
+<div class="row">
+      <p class="col l1 m1 s2">
+        <input type="checkbox" id="isTie"/>
+        <label for="isTie">TIE?</label>
+      </p>
+      <div class="input-field col s2 m1 l1 white-text">
+        <input min=0 id="rank" type="text" class="input-field" value="25" data-length="2">
+        <label for="rank">Rank</label>
+      </div>
+      <div class="input-field col s3 m2 l1 white-text">
+        <input id="numberToAppend" type="text" class="input-field" data-length="4">
+        <label for="numberToAppend">Team</label>
+      </div>
+      <div class="col l3 m5 s5">
+        <button class="btn-large btn red" id="submit" onclick="appendNumber()">SUBMIT</button>
+        <button class="btn-large btn blue disabled" id="undo" onclick="undoMarquee()">UNDO</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m10 l6 white-text">
+        <p class="white-text">Information and data from the current inputted team. I would suggest giving the bottom area some breathing room in case of overflow</p>
+        <table style="font-size:36px;" class="white-text chroma-green">
+          <tr>
+            <td id="infotable-id">----</td>
+          </tr>
+          <tr>
+            <td id="infotable-name">----</td>
+          </tr>
+          <tr>
+            <td id="infotable-local">----</td>
+          </tr>
+          <tr>
+            <td id="infotable-rookie">----</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="white-text" style="visibility:hidden;" id="output-data">Debug JSON data, you shouldn't see this!</p>
+<input class="white-text" style="visibility:hidden;" id="apiRequest"></input>
+<h3><marquee behavior="scroll" direction="left" class="white-text chroma-green" id="replace">*** FRC TOP 25 RANKINGS </marquee></h3>
+
+<script>
+var undoMarqueeText = "NOTHING";
+//load api data from tba
+$("#submit").on('click',function(e) {
+  e.preventDefault();
+  $("#output-data").html('Processing request...');
+  $.ajax({
+    url: $("#apiRequest").val(),
+    dataType: 'json',
+    headers: {'X-TBA-App-Id':'ngiano3015:top25-script:1.1'},
+    success: function(data) {
+      $("#output-data").text(JSON.stringify(data, null, 2)).html();
+      loadInfoTable(data);
+    },
+    error: function(data) {
+      $("#output-data").html('Something went wrong! Please check for correct request format.');
+    }
+  });
+}).delay(800);
+//update marquee and generate request link for tba to be sent to jquery code
+function appendNumber() {
+  var link = "https://www.thebluealliance.com/api/v2/team/frc" + docId("numberToAppend").value;
+  var teamNo = docId("numberToAppend").value;
+  var rank = docId("rank").value;
+  if(docId("isTie").checked) {
+    undoMarqueeText = "| T" + rank + ". " + teamNo;
+    docId("replace").innerHTML = docId("replace").innerHTML + "| T" + rank + ". " + teamNo;
+  } else {
+    undoMarqueeText = "| " + rank + ". " + teamNo;
+    docId("replace").innerHTML = docId("replace").innerHTML + "| " + rank + ". " + teamNo;
+    if (docId("rank").value > 1) {
+      docId("rank").value = rank - 1;
+    }
+  }
+  docId("apiRequest").value = link;
+  docId("undo").classList.remove("disabled");
+}
+function loadInfoTable(data) {
+  if(docId("isTie").checked) {
+  var teamNumberAndRank = "Rank #T"+docId("rank").value+" - Team #"+docId("numberToAppend").value;
+  } else {
+  var teamNumberAndRank = "Rank #"+(parseInt(docId("rank").value)+1)+" - Team #"+docId("numberToAppend").value;
+  }
+  docId("infotable-name").innerHTML = data['nickname'];
+  docId("infotable-local").innerHTML = data['location'];
+  docId("infotable-id").innerHTML = teamNumberAndRank;
+  docId("infotable-rookie").innerHTML = "Rookie year: " + data['rookie_year'];
+  docId("numberToAppend").value = null;
+}
+function undoMarquee() {
+  var marquee = docId("replace").innerHTML;
+  docId("replace").innerHTML = marquee.replace(undoMarqueeText,"");
+  docId("infotable-name").innerHTML = "----";
+  docId("infotable-local").innerHTML = "----";
+  docId("infotable-id").innerHTML = "----";
+  docId("infotable-rookie").innerHTML = "----";
+  docId("undo").classList.add("disabled");
+  if(!docId("isTie").checked) {
+  docId("rank").value = parseInt(docId("rank").value)+1;
+  }
+}
+//prevent accidental refreshes
+window.onbeforeunload = function() {
+  return "Data will be lost if you leave the page, are you sure?";
+};
+</script>
+</body>
+</html>
