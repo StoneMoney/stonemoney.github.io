@@ -1,7 +1,9 @@
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>title</title>
+<title>FIRST Updates Now Overlay TOP25</title>
+
 		<!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
@@ -12,37 +14,45 @@
       $(document).ready(function() {
         $('select').material_select();
       });
+	     function docId(th) {
+		  return document.getElementById(th);
+      }
+
 	  </script>
     <style>
     #replace {
       position: fixed;
       bottom: 0px;
     }
+    .chroma-green {
+      background-color: #00ff00;
+    }
     </style>
 </head>
 <body class="black">
-<h1 class="white-text">FRC TOP 25 Overlay script</h1><br>
+<h1 class="white-text">FRC TOP 25 Overlay Script</h1>
+<h5 class="white-text"><i class="light-blue-text">v1 [beta]</i> by ngiano (@StoneMoney533) and help from BellLabs! CSS boilerplate by materialize</h5><br>
 <div class="row">
-      <p class="white-text">First label if it is a tie or not, then input the rank number and the team number. After that click add and the data will be inputted into the chart and scrolling bar areas marked in green are meant to be chroma keyed and captured. You can only undo ONCE per add, so be careful!</p>
-      <p class="col l1 m2 s3">
+      <p class="white-text"><b class="red-text">Chrome is recommended for the use of this script.</b> First label if it is a tie or not, then input the rank and the team number. After, click SUBMIT and the data will be inputted into the chart and marquee areas in green (Capture these and chroma key)</p>
+      <p class="col l1 m1 s3">
         <input type="checkbox" id="isTie"/>
         <label for="isTie">TIE?</label>
       </p>
-      <div class="input-field col s12 m6 l1 white-text">
-        <input id="rank" type="text" class="input-field" data-length="2">
+      <div class="input-field col s12 m2 l1 white-text">
+        <input min=0 id="rank" type="text" class="input-field" value="25" data-length="2">
         <label for="rank">Rank</label>
       </div>
-      <div class="input-field col s12 m6 l1 white-text">
+      <div class="input-field col s12 m2 l1 white-text">
         <input id="numberToAppend" type="text" class="input-field" data-length="4">
         <label for="numberToAppend">Team Number</label>
       </div>
-      <div class="col l4 m6 s12">
-        <button class="btn-large btn red" id="submit" onclick="appendNumber()">ADD</button>
+      <div class="col l4 m2 s12">
+        <button class="btn-large btn red" id="submit" onclick="appendNumber()">SUBMIT</button>
         <button class="btn-large btn blue disabled" id="undo" onclick="undoMarquee()">UNDO</button>
       </div>
-      <div class="col s12 m6 l5 white-text">
-        <p class="white-text">This section contains information about the current inputted team. chroma key green and crop out this text. I would suggest giving the bottom area some breathing room in case of overflow</p>
-        <table style="font-size:36px;" class="white-text light-green accent-3">
+      <div class="col s12 m2 l5 white-text">
+        <p class="white-text">Information and data from the current inputted team. I would suggest giving the bottom area some breathing room in case of overflow</p>
+        <table style="font-size:36px;" class="white-text chroma-green">
           <tr>
             <td id="infotable-id">----</td>
           </tr>
@@ -61,11 +71,10 @@
 </div>
 <p class="white-text" style="visibility:hidden;" id="output-data">Debug JSON data, you shouldn't see this!</p>
 <input class="white-text" style="visibility:hidden;" id="apiRequest"></input>
-<h2><marquee behavior="scroll" direction="left" class="white-text light-green accent-3" id="replace">*** FRC TOP 25 RANKINGS</marquee></h2>
+<h2><marquee behavior="scroll" direction="left" class="white-text chroma-green" id="replace">*** FRC TOP 25 RANKINGS </marquee></h2>
 
 <script>
 var undoMarqueeText = "NOTHING";
-
 //load api data from tba
 $("#submit").on('click',function(e) {
   e.preventDefault();
@@ -85,38 +94,45 @@ $("#submit").on('click',function(e) {
 }).delay(800);
 //update marquee and generate request link for tba to be sent to jquery code
 function appendNumber() {
-  var link = "http://www.thebluealliance.com/api/v2/team/frc" + document.getElementById("numberToAppend").value;
-  var teamNo = document.getElementById("numberToAppend").value;
-  var rank = document.getElementById("rank").value;
-  if(document.getElementById("isTie").checked) {
-    undoMarqueeText = ", T" + rank + ". " + teamNo;
-    document.getElementById("replace").innerHTML = document.getElementById("replace").innerHTML + ", T" + rank + ". " + teamNo;
+  var link = "https://www.thebluealliance.com/api/v2/team/frc" + docId("numberToAppend").value;
+  var teamNo = docId("numberToAppend").value;
+  var rank = docId("rank").value;
+  if(docId("isTie").checked) {
+    undoMarqueeText = "| T" + rank + ". " + teamNo;
+    docId("replace").innerHTML = docId("replace").innerHTML + "| T" + rank + ". " + teamNo;
   } else {
-    undoMarqueeText = ", " + rank + ". " + teamNo;
-    document.getElementById("replace").innerHTML = document.getElementById("replace").innerHTML + ", " + rank + ". " + teamNo;
-    document.getElementById("rank").value = rank - 1;
+    undoMarqueeText = "| " + rank + ". " + teamNo;
+    docId("replace").innerHTML = docId("replace").innerHTML + "| " + rank + ". " + teamNo;
+    if (docId("rank").value > 1) {
+      docId("rank").value = rank - 1;
+    }
   }
-  document.getElementById("apiRequest").value = link;
-  document.getElementById("undo").classList.remove("disabled");
-
+  docId("apiRequest").value = link;
+  docId("undo").classList.remove("disabled");
 }
 function loadInfoTable(data) {
-  var teamNumberAndRank = "Rank #"+document.getElementById("rank").value+" - Team #"+document.getElementById("numberToAppend").value;
-  document.getElementById("infotable-name").innerHTML = data['nickname'];
-  document.getElementById("infotable-local").innerHTML = data['location'];
-  document.getElementById("infotable-id").innerHTML = teamNumberAndRank;
-  document.getElementById("infotable-rookie").innerHTML = "Rookie year: " + data['rookie_year'];
-  document.getElementById("numberToAppend").value = null;
+  if(docId("isTie").checked) {
+  var teamNumberAndRank = "Rank #T"+docId("rank").value+" - Team #"+docId("numberToAppend").value;
+  } else {
+  var teamNumberAndRank = "Rank #"+(parseInt(docId("rank").value)+1)+" - Team #"+docId("numberToAppend").value;
+  }
+  docId("infotable-name").innerHTML = data['nickname'];
+  docId("infotable-local").innerHTML = data['location'];
+  docId("infotable-id").innerHTML = teamNumberAndRank;
+  docId("infotable-rookie").innerHTML = "Rookie year: " + data['rookie_year'];
+  docId("numberToAppend").value = null;
 }
 function undoMarquee() {
-  console.log(undoMarqueeText);
-  var marquee = document.getElementById("replace").innerHTML;
-  document.getElementById("replace").innerHTML = marquee.replace(undoMarqueeText,"");
-  document.getElementById("infotable-name").innerHTML = "----";
-  document.getElementById("infotable-local").innerHTML = "----";
-  document.getElementById("infotable-id").innerHTML = "----";
-  document.getElementById("infotable-rookie").innerHTML = "----";
-  document.getElementById("undo").classList.add("disabled");
+  var marquee = docId("replace").innerHTML;
+  docId("replace").innerHTML = marquee.replace(undoMarqueeText,"");
+  docId("infotable-name").innerHTML = "----";
+  docId("infotable-local").innerHTML = "----";
+  docId("infotable-id").innerHTML = "----";
+  docId("infotable-rookie").innerHTML = "----";
+  docId("undo").classList.add("disabled");
+  if(!docId("isTie").checked) {
+  docId("rank").value = parseInt(docId("rank").value)+1;
+  }
 }
 //prevent accidental refreshes
 window.onbeforeunload = function() {
