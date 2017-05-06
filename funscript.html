@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>FIRST Updates Now Overlay TOP25</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
@@ -42,6 +42,7 @@
 </div>
 <h6 class="white-text"><i class="light-blue-text">v1 [beta]</i> by ngiano (@StoneMoney533) and help from BellLabs! CSS boilerplate by materialize</h6><br>
 <p class="white-text"><b class="red-text">Chrome is recommended.</b> First label if it is a tie or not, then input the rank and the team number. After, click SUBMIT and the data will be inputted into the chart and marquee areas in green (Capture these and chroma key)</p>
+<p class="white-text">The remove button will take out the team number that is currently typed in the 'team' field.</p>
 <div class="row">
       <p class="col l1 m1 s2">
         <input type="checkbox" id="isTie"/>
@@ -56,8 +57,9 @@
         <label for="numberToAppend">Team</label>
       </div>
       <div class="col l3 m5 s5">
-        <button class="btn-large btn red" id="submit" onclick="appendNumber()">SUBMIT</button>
-        <button class="btn-large btn blue disabled" id="undo" onclick="undoMarquee()">UNDO</button>
+        <button class="btn-large btn green" id="submit" onclick="appendNumber()">SUBMIT</button>
+        <button class="btn-large btn blue" id="undo" onclick="undoMarquee()">UNDO</button>
+        <button class="btn-large btn red" id="undo" onclick="removeMarquee()">REMOVE</button>
       </div>
     </div>
     <div class="row">
@@ -86,7 +88,7 @@
 <h3><marquee behavior="scroll" direction="left" class="white-text chroma-green" id="replace">*** FRC TOP 25 RANKINGS </marquee></h3>
 
 <script>
-var undoMarqueeText = "NOTHING";
+var lastTeam = 0;
 //load api data from tba
 $("#submit").on('click',function(e) {
   e.preventDefault();
@@ -110,11 +112,11 @@ function appendNumber() {
   var teamNo = docId("numberToAppend").value;
   var rank = docId("rank").value;
   if(docId("isTie").checked) {
-    undoMarqueeText = "| T" + rank + ". " + teamNo;
-    docId("replace").innerHTML = docId("replace").innerHTML + "| T" + rank + ". " + teamNo;
+    lastTeam = teamNo;
+    docId("replace").innerHTML = docId("replace").innerHTML + "<span class=" + teamNo + "> | T" + rank + ". " + teamNo + "</span>";
   } else {
-    undoMarqueeText = "| " + rank + ". " + teamNo;
-    docId("replace").innerHTML = docId("replace").innerHTML + "| " + rank + ". " + teamNo;
+    lastTeam = teamNo;
+    docId("replace").innerHTML = docId("replace").innerHTML + "<span class=" + teamNo + "> |  " + rank + ". " + teamNo+ "</span>";
     if (docId("rank").value > 1) {
       docId("rank").value = rank - 1;
     }
@@ -123,27 +125,34 @@ function appendNumber() {
   docId("undo").classList.remove("disabled");
 }
 function loadInfoTable(data) {
-  if(docId("isTie").checked) {
-  var teamNumberAndRank = "Rank #T"+docId("rank").value+" - Team #"+docId("numberToAppend").value;
+  if(!docId("isTie").checked) {
+    var teamNumberAndRank = "Rank #"+(parseInt(docId("rank").value)+1)+" - Team #"+docId("numberToAppend").value;
   } else {
-  var teamNumberAndRank = "Rank #"+(parseInt(docId("rank").value)+1)+" - Team #"+docId("numberToAppend").value;
+    var teamNumberAndRank = "Rank #"+docId("rank").value+" - Team #"+docId("numberToAppend").value;
   }
   docId("infotable-name").innerHTML = data['nickname'];
   docId("infotable-local").innerHTML = data['location'];
   docId("infotable-id").innerHTML = teamNumberAndRank;
-  docId("infotable-rookie").innerHTML = "Rookie year: " + data['rookie_year'];
+  docId("infotable-rookie").innerHTML = "Rookie Year: " + data['rookie_year'];
   docId("numberToAppend").value = null;
+}
+function removeMarquee() {
+  document.getElementsByClassName(docId("numberToAppend").value)[0].outerHTML = ""
+  docId("infotable-name").innerHTML = "-";
+  docId("infotable-local").innerHTML = "-";
+  docId("infotable-id").innerHTML = "-";
+  docId("infotable-rookie").innerHTML = "-";
 }
 function undoMarquee() {
   var marquee = docId("replace").innerHTML;
-  docId("replace").innerHTML = marquee.replace(undoMarqueeText,"");
+  document.getElementsByClassName(lastTeam)[0].outerHTML = ""
   docId("infotable-name").innerHTML = "----";
   docId("infotable-local").innerHTML = "----";
   docId("infotable-id").innerHTML = "----";
   docId("infotable-rookie").innerHTML = "----";
   docId("undo").classList.add("disabled");
   if(!docId("isTie").checked) {
-  docId("rank").value = parseInt(docId("rank").value)+1;
+    docId("rank").value = parseInt(docId("rank").value)+1;
   }
 }
 //prevent accidental refreshes
