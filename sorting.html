@@ -61,6 +61,7 @@ margin: 0 auto;
 </div>
 </body>
 <script>
+var click = new Audio('sortingsound.ogg');
 var wasClicked = false;
 var force = ["power","courage","wisdom"];
 function clear() {
@@ -73,6 +74,7 @@ function spin() {
 	
 	} else {
 	setTimeout(function() {
+			click.play();
 			finalSelection = force[Math.floor(Math.random() * force.length)];
 			wasClicked = true;
 		},10);
