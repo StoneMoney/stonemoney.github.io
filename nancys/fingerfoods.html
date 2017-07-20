@@ -13,6 +13,7 @@
 }
 </style>
 <!-- InstanceEndEditable -->
+<meta name="viewport" content="user-scalable=yes">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <script>
   $( document ).ready(function(){})
@@ -35,12 +36,18 @@
   );
 </script>
 <style>
-body {
+.tabtext {
+	height: 50px;
+}
+.parallax-container {
+      height: 500px;
+}
+html, body {
 min-width: 386px;
 }
-</style>
-
-<style>
+.tab {
+overflow-x: hidden !important;
+}
 .stroke {
    -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: black;
@@ -60,46 +67,64 @@ min-width: 386px;
   		});
 	  </script>
       <script>
+	  	$(document).ready(function(){
+      		$('.parallax').parallax();
+    	});
+      </script>
+      <script>
 	    $(document).ready(function(){
          $('.slider').slider({full_width: true});
     	});
 	  </script>
-<meta name="Description" content="Nancy's Fried Dough is a family owned enterprise based in Rochester, NY.  We are a mobile food concessionaire specializing in seasonal events for the past 30 		years.  We are able to provide a wide and various menu to satisfy the needs of any event, large or small." />
+<meta name="Description" content="Nancy's Fried Dough is a family owned enterprise based in Rochester, NY.  We are a mobile food concessionaire specializing in seasonal events for the past 40 		years.  We are able to provide a wide and various menu to satisfy the needs of any event, large or small." />
       <meta content="noodp" name="robots" />
       
       
 </head>
 
-<body style="overflow-x:hidden;">
+<body>
+  <ul id="dropdown1" class="dropdown-content">
+	<li><a href="confections.html">Confections</a></li>
+	<li><a href="fingerfoods.html">Finger Foods</a></li>
+	<li><a href="pitapit.html">Pita Pit</a></li>
+	<li><a href="grill.html">Grill</a></li>
+	<li><a href="icecream.html">Ice Cream</a></li>
+	<li><a href="kettlecorn.html">Kettle Corn</a></li>
+  </ul>
   <div class="navbar-fixed">
    <nav>
     <div class="nav-wrapper red darken-4">
 
       <a href="index.html" class="brand-logo center"><img src="images/logo.png" width="60%"></a>
-      <ul id="nav-mobile" class="hide-on-small" class="left">
-        <li><a href="#">Our Menu</a></li>
-        <li><a href="#">Gallery</a></li>
+      <ul id="nav-mobile" class="hide-on-small left">
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Menus<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul id="nav-mobile" class="right">
-		<li><a href="#">About</a></li>
+		<li><a href="about.html">About</a></li>
       </ul>
 
     </div>
   </nav>
  </div>
   <!-- InstanceBeginEditable name="Content" -->
-  
-  <div class="center">
+      <div class="parallax-container">
+      <div class="parallax"><img src="images/fingerfoodstorefront.jpg"></div>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <div class="section grey lighten-3 center" style="opacity: 0.9;">
   		<h1>Finger Foods</h1>
     	<h4>Menu</h4>
+      </div>
     </div>
     <div class="section red lighten-4 center">
     	<h4>Notice</h4>
         <p>Prices and supply vary by location and event. Tax is included in all menu prices. Cash is the <u>ONLY</u> accepted currency at any of our locations</p>
     </div>
-    <div class="section grey lighten-4">
+    <div class="section yellow lighten-4">
     	<div class="row">
-        	<div class="col s12 m6 l3">
+    	    <div class=" col offset-m1 offset-l1"><h1><i class="medium material-icons">star</i>Top items</h1></div>
+        </div>
+        <div class="row">
+        	<div class="col s12 m6 l4 offset-l2">
         	  <div class="card">
               	<div class="card-content">
                   <span class="card-title">French Fries</span>
@@ -110,17 +135,18 @@ min-width: 386px;
                     <li class="tab" style="overflow-x:hidden;"><a class="active" href="#fries2">CURLY-Q</a></li>
                     <li class="tab" style="overflow-x:hidden;"><a href="#fries3">CHEESE</a></li>
                     <li class="tab" style="overflow-x:hidden;"><a href="#fries4">C. & BACON</a></li>
+                    <li>&nbsp;</li>
                   </ul>
                 </div>
                 <div class="card-content grey lighten-4">
-                  <div id="fries1" class="tabtextphoto">Classic fries with ketchup, salt, and vinegar at your discretion<img src="images/fries.jpg" width="90%"/></div>
-                  <div id="fries2" class="tabtextphoto">Thin sliced curly-q fries<img src="images/fries.jpg" width="90%"/></div>
-                  <div id="fries3" class="tabtextphoto">Cheesy fries served with a fork, Yum!<img src="images/cheesyfries.jpg" width="90%"/></div>
-                  <div id="fries4" class="tabtextphoto"><p>They say bacon is good with everything, and it shows here!</p><img src="images/cheesybaconfries.jpg" width="90%"/></div>
+                  <div id="fries1" class="tabtextphoto">Classic fries with ketchup, salt, and vinegar at your discretion<img src="images/fries.jpg" width="74%"/></div>
+                  <div id="fries2" class="tabtextphoto">Thin sliced curly-q fries<img src="images/nophoto.jpg" width="74%"/></div>
+                  <div id="fries3" class="tabtextphoto">Cheesy fries served with a fork, Yum!<img src="images/cheesyfries.jpg" width="74%"/></div>
+                  <div id="fries4" class="tabtextphoto"><p>They say bacon is good with everything, and it shows here!</p><img src="images/cheesybaconfries.jpg" width="74%"/></div>
                 </div>
               </div>
         	</div>
-            <div class="col s12 m6 l3">
+            <div class="col s12 m6 l4">
         	  <div class="card">
               	<div class="card-content">
                   <span class="card-title" >Chicken Fingers</span>
@@ -130,15 +156,20 @@ min-width: 386px;
                     <li class="tab" style="overflow-x:hidden;"><a class="active" href="#chicken1">REGULAR</a></li>
                     <li class="tab" style="overflow-x:hidden;"><a href="#chicken2">BUFFALO</a></li>
                     <li class="tab" style="overflow-x:hidden;"><a href="#chicken3">COMBO PLATTER</a></li>
+                    <li>&nbsp;</li>
                   </ul>
                 </div>
                 <div class="card-content grey lighten-4">
-                  <div id="chicken1" class="tabtextphoto"><p>4 Chicken fingers with your choice of BBQ, ranch, honey mustard, or blue cheese dipping sauce</p><img src="images/chickenfingers.jpg" width="81%"/></div>
-                  <div id="chicken2" class="tabtextphoto"><p>4 Chicken fingers drenched in buffalo hot sauce with your choice of ranch or blue cheese dipping sauce</p><img src="images/buffalochickenfingers.jpg" width="82%"/></div>
-                  <div id="chicken3" class="tabtextphoto"><p>3 Chicken fingers with a heaping pile of fries or onion rings. Also includes your choice of dipping sauce</p><img src="images/chickfrycombo.jpg" width="82%"/></div>
+                  <div id="chicken1" class="tabtextphoto"><p>4 Chicken fingers with your choice of BBQ, ranch, honey mustard, or blue cheese dipping sauce</p><img src="images/chickenfingers.jpg" width="74%"/></div>
+                  <div id="chicken2" class="tabtextphoto"><p>4 Chicken fingers drenched in buffalo hot sauce with your choice of ranch or blue cheese dipping sauce</p><img src="images/buffalochickenfingers.jpg" width="74%"/></div>
+                  <div id="chicken3" class="tabtextphoto"><p>3 Chicken fingers with a heaping pile of fries or onion rings. Also includes your choice of dipping sauce</p><img src="images/chickfrycombo.jpg" width="74%"/></div>
                 </div>
               </div>
         	</div>
+         </div>
+       </div>
+       <div class="section grey lighten-4">
+         <div class="row">
             <div class="col s12 m6 l3">
         	  <div class="card">
               	<div class="card-image">
@@ -148,6 +179,7 @@ min-width: 386px;
                 <div class="card-tabs">
                   <ul class="tabs tabs-fixed-width">
                     <li class="tab" style="overflow-x:hidden;"><a class="active" href="#rings1">DESCRIPTION</a></li>
+                    <li>&nbsp;</li>
                   </ul>
                 </div>
                 <div class="card-content grey lighten-4">
@@ -164,6 +196,7 @@ min-width: 386px;
                 <div class="card-tabs">
                   <ul class="tabs tabs-fixed-width">
                     <li class="tab" style="overflow-x:hidden;"><a class="active" href="#pickels1">DESCRIPTION</a></li>
+                    <li>&nbsp;</li>
                   </ul>
                 </div>
                 <div class="card-content grey lighten-4">
@@ -180,6 +213,7 @@ min-width: 386px;
                 <div class="card-tabs">
                   <ul class="tabs tabs-fixed-width">
                     <li class="tab" style="overflow-x:hidden;"><a class="active" href="#mozz">DESCRIPTION</a></li>
+                    <li>&nbsp;</li>
                   </ul>
                 </div>
                 <div class="card-content grey lighten-4">
@@ -194,9 +228,10 @@ min-width: 386px;
                   <span class="card-title">Fried Mac-n-Cheese</span>
                 </div>
                 <div class="card-tabs">
-                  <ul class="tabs tabs-fixed-width">
+                  <ul class="tabs tabs-fixed-width" style="overflow-x:hidden;">
                     <li class="tab" style="overflow-x:hidden;"><a class="active" href="#macs1">DESCRIPTION</a></li>
-                    <li class="tab" style="overflow-x:hidden;"><a href="#macs2">DIP OPTIONS</a></li>
+                    <li class="tab" style="overflow-x:hidden;"><a href="#macs2">DIPS</a></li>
+                    <li>&nbsp;</li>
                   </ul>
                 </div>
                 <div class="card-content grey lighten-4">
@@ -214,6 +249,7 @@ min-width: 386px;
                 <div class="card-tabs">
                   <ul class="tabs tabs-fixed-width">
                     <li class="tab" style="overflow-x:hidden;"><a class="active" href="#logs1">DESCRIPTION</a></li>
+                    <li>&nbsp;</li>
                   </ul>
                 </div>
                 <div class="card-content grey lighten-4">
@@ -231,11 +267,31 @@ min-width: 386px;
                   <ul class="tabs tabs-fixed-width">
                     <li class="tab" style="overflow-x:hidden;"><a class="active" href="#pretzel1">DESCRIPTION</a></li>
                     <li class="tab" style="overflow-x:hidden;"><a class="active" href="#pretzel2">ADD-ONS</a></li>
+                    <li>&nbsp;</li>
                   </ul>
                 </div>
                 <div class="card-content grey lighten-4">
                   <div id="pretzel1" class="tabtext">Baked soft pretzels, with or without salt.</div>
                   <div id="pretzel2" class="tabtext">Cheese dip</div>
+                </div>
+              </div>
+        	</div>
+            <div class="col s12 m6 l3">
+        	  <div class="card">
+              	<div class="card-image">
+                  <img src="images/nophoto.jpg">
+                  <span class="card-title">Boneless Wings</span>
+                </div>
+                <div class="card-tabs">
+                  <ul class="tabs tabs-fixed-width" style="overflow-x:hidden;">
+                    <li class="tab" style="overflow-x:hidden;"><a class="active" href="#boneless1">DESCRIPTION</a></li>
+                    <li class="tab" style="overflow-x:hidden;"><a href="#boneless2">OPTIONS</a></li>
+                    <li>&nbsp;</li>
+                  </ul>
+                </div>
+                <div class="card-content grey lighten-4">
+                  <div id="boneless1" class="tabtext">Get a boat of 8 boneless wings.</div>
+                  <div id="boneless2" class="tabtext">Soaked in BBQ, BOSS Sauce, Texas Hot Sauce</div>
                 </div>
               </div>
         	</div>
