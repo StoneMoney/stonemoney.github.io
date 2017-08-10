@@ -1,0 +1,372 @@
+<html>
+<head>
+<title>roBabble chatroom</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+<script src="ba-linkify.js"></script>
+<style>
+.footer {
+	text-align:right;
+	position:fixed;
+	right:0;
+	bottom:0;
+}
+*:disabled {
+cursor: not-allowed;
+}
+.opensans, h1, p, b, button {
+	font-family:'Open Sans',sans-serif;
+}
+iframe, img {
+	padding:10px;
+	max-width:75vw;
+	max-height:50vh;
+}
+td {
+	background-color:#ccc;
+	border-width:2.5px;
+	border-style:solid;
+	width:5vw;
+}
+.transparent {
+	opacity:.25;
+}
+.monospace,input,option,h5,p {
+	font-family: monospace;
+	font-size:2.5vh;
+}
+#chatroom {
+	position:relative;
+	left:0px;
+	width:98vw;
+	height:80vh;
+	border-style:solid;
+	border-width:5px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+#textbox {
+	padding:0px;
+	width:87vw;
+	font-size:3.5vh;
+}
+button {
+	width:100%;
+}
+.auto-button {
+	width:auto !important;
+}
+.record {
+	font-size:36px;
+	font-family:sans-serif;
+}
+.hidden {
+	visibility:hidden;
+}
+.logo {
+	width:400px !important;
+}
+.showCustom {
+	width: 35vmin;
+	background-color: #cb75f9;
+	border-width: 1px;
+	border-radius: 5px;
+	border-style:solid;
+	border-color:rgba(0,0,0,.6);
+}
+#status {
+	font-family: monospace;
+	color:red;
+	font-size:36px;
+	text-align:center;
+}
+#submit {
+	width:5.5vw;
+	height:5.5vh;
+}
+.wrapper {
+	width: 450px; 
+	background-color: rgba(0,0,0,.2);
+	border-width: 8px;
+	border-radius: 5px;
+	border-style:solid;
+	border-color:rgba(0,0,0,.6);
+	text-align:center;
+	align:center;
+}
+.inline {
+	display:inline-block;
+}
+.nickname {
+	background-color:rgba(165, 255, 137,.5);
+	padding-top:.3vh;
+	padding-bottom:.3vh;
+}
+.video {
+	background-color:rgba(255, 137, 137,.5);
+	padding-top:.3vh;
+	padding-bottom:.3vh;
+}
+.image {
+	background-color:rgba(137, 233, 255,.5);
+	padding-top:.3vh;
+	padding-bottom:.3vh;
+}
+.valign {
+	vertical-align:center;
+}
+.textyou {
+	background-color:rgba(137, 233, 255,.2);
+	vertical-align:center;
+}
+.textop {
+	background-color:rgba(251, 255, 137,.3);
+	vertical-align:center;
+}
+.op {
+	text-shadow: 0 0 5px #fbff89;
+	color:red;
+	font-weight:bolder;
+}
+.highlight {
+	background-color:rgba(211, 37, 14,.5) !important;
+}
+.icon {
+	padding:3px;
+}
+.username {
+	font-weight:bolder;
+	color:blue;
+}
+.nightmode {
+	background-color:#777;
+	color:white;
+}
+.nightmode-chatbox {
+	background-color:#555;
+}
+</style>
+</head>
+<body class="">
+<h1 id="message"><div id="status" class="inline">X</div>>roBabble><div id="room" class="inline">#general</div></h1>
+<!--<object src="logo.svg" class="logo">
+	<img class="logo" src="http://stonemoney.github.io/mojowheelassets/logo.svg">
+</object>-->
+<table id="roomnav" class="">
+<tr id="roomlist">
+<td>#general</td>
+<td>#dev</td>
+<td>#lol</td>
+</tr>
+</table>
+<div id="chatroom" class="">
+<!--<div id="" class="video monospace">
+	<i class="material-icons transparent icon">video_library</i> 
+	<div class="username inline">username</div>: <div id="text" class="inline">check out this sick video i found https://www.youtube.com/M7lc1UVf-VE?</div><br>
+	<iframe id="ytplayer" type="text/html" width="640" height="360"
+	  src="https://www.youtube.com/embed/M7lc1UVf-VE?"
+	frameborder="0"></iframe>
+</div>
+<div id="" class="image monospace">
+	<i class="material-icons transparent icon">collections</i> 
+	<div class="username inline">username</div>: <div id="text" class="inline">doesn't compare to my image though</div><br>
+	<img id="posted-image-1" src="http://lorempixel.com/1920/1080"></img>
+</div>
+<div id="" class="text monospace">
+	<i class="material-icons transparent icon">textsms</i>
+	<div class="username inline">username</div>: <div id="text" class="inline">lol thats pretty good</div>
+</div>
+<div id="" class="textyou monospace">
+	<i class="material-icons transparent icon">account_circle</i>
+	<div class="username inline">YOU</div>: <div id="text" class="inline">it really is</div>
+</div>
+<div id="" class="textop monospace">
+	<i class="material-icons transparent icon">stars</i>
+	<div class="op inline">admin</div>: <div id="text" class="inline">10/10</div>
+</div>-->
+</div>
+<input  id="textbox" class="inline" placeholder="chat" onkeydown="if (event.keyCode == 13) { send() }"></input>
+<button id="submit" class="inline" onclick="send()"><i class="material-icons icon inline">send</i></button>
+<p id="error" style="color:red"></p>
+<div class="footer">
+[@ngiano | roBabble 1 | 8-09-2017]
+</div>
+<script>
+	var at = new Audio('ding.ogg');
+	pattern0 = "^incomingdata (.*)"
+	re0 = new RegExp(pattern0,'i')
+	var pattern1 = /^\/video (?:https?:\/\/)?(?:http?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch)?(?:.*v=|v\/|\/)([\w\-_]+)\&?/i;
+	re1 = new RegExp(pattern1,'i')
+	pattern2 = "^\/xkcd ([0-9]+)"
+	re2 = new RegExp(pattern2,'i')
+	var identity = "anonymous"
+	var messageCount = 0;
+	var canChat = true;
+	var cr = document.getElementById("chatroom");
+	// allow 1px inaccuracy by adding 1
+	var isScrolledToBottom = cr.scrollHeight - cr.clientHeight <= cr.scrollTop + 1;
+	//create a new WebSocket object.
+	websocket = new WebSocket("ws://robabble.serveirc.com:8083/");
+	function reconnectToServer() {
+		location.reload();
+	}
+	websocket.onopen = function() {
+		document.getElementById("status").style.color = "#179b35";
+		document.getElementById("status").innerHTML = "OK";
+		var nicknameDialog = document.createElement("div")
+		nicknameDialog.id = 'nickname';
+		nicknameDialog.classList.add("monospace")
+		nicknameDialog.classList.add("nickname")
+		nicknameDialog.innerHTML = '<i class="material-icons transparent icon">perm_device_information</i> >welcome to the chatroom. provide an identity if you wish, or remain anonymous<div class="inline"><input id="identityText" size="32" placeholder="identity"></input><button class="auto-button inline" onclick="setIdentity()">SAVE</button></div>'		
+		cr.appendChild(nicknameDialog);
+	};
+	websocket.onclose = function() {
+		document.getElementById("status").style.color = "red";
+		document.getElementById("status").innerHTML = "X";
+		var errorMessage = document.createElement("div")
+		errorMessage.classList.add("highlight");
+		errorMessage.innerHTML = "Connection between the server and client was lost and the session has been terminated"
+		cr.appendChild(errorMessage);
+	};
+	websocket.onmessage = function(ev) {
+		if(re0.test(ev.data)) {
+			var message = ev.data;
+			var matches = message.match(pattern0);
+			var parsedJSON = JSON.parse(matches[1])
+			messageCount = messageCount+1;
+			switch(parsedJSON['type']) {
+				case 'text':
+					var textElement = document.createElement("div");
+					var embedText
+					parsedJSON['content'] = linkify( parsedJSON['content'] );
+					if(parsedJSON['sender'] == identity && identity != "anonymous") {
+						textElement.classList.add("textyou")
+						textElement.classList.add("monospace")
+						textElement.classList.add("valign")
+						embedText = '<div class="username inline">'+parsedJSON['sender']+'</div>: <div class="inline">'+parsedJSON['content']+'</div>'
+					} else {
+						textElement.classList.add("text")
+						textElement.classList.add("monospace")
+						textElement.classList.add("valign")
+						embedText = '<div class="username inline">'+parsedJSON['sender']+'</div>: <div class="inline">'+parsedJSON['content']+'</div>'
+						if(parsedJSON['content'].includes("@"+identity) && identity != "anonymous") {
+							at.play();
+							textElement.classList.add("highlight")
+						}
+					}
+					textElement.id = "message"+messageCount
+					textElement.innerHTML = embedText;
+					document.getElementById("chatroom").appendChild(textElement)
+					if(isScrolledToBottom) {
+						cr.scrollTop = cr.scrollHeight - cr.clientHeight;
+					}
+					break;
+				case 'video':
+					var videoElement = document.createElement("div");
+					var embedText = '<i class="material-icons transparent icon">video_library</i><div class="username inline">'+parsedJSON['sender']+'</div>:<br>'
+					var videoEmbed = document.createElement('iframe')
+					videoEmbed.src = "http://www.youtube.com/embed/"+parsedJSON['content'];
+					videoEmbed.style.border = 0;
+					videoEmbed.style.width = "40vw"
+					videoEmbed.style.height = "45vh";
+					videoElement.id = "message"+messageCount
+					videoElement.classList.add("video")
+					videoElement.classList.add("monospace")
+					videoElement.innerHTML = embedText;
+					document.getElementById("chatroom").appendChild(videoElement)
+					document.getElementById("message"+messageCount).appendChild(videoEmbed)
+					if(isScrolledToBottom) {
+						cr.scrollTop = cr.scrollHeight - cr.clientHeight;
+					}
+					break;
+				case 'xkcd':
+					var xkcdElement = document.createElement("div");
+					var embedText
+					console.log(parsedJSON)
+					var details = {};
+					var head= document.getElementsByTagName('head')[0];
+					var script= document.createElement('script');
+					script.type= 'text/javascript';
+					function dataloaded(o){details = o;}
+					script.src = "http://dynamic.xkcd.com/api-0/jsonp/comic/"+parsedJSON['content']+"?callback=dataloaded";
+					head.appendChild(script);
+					setTimeout(function() {
+						embedText = '<i class="material-icons transparent icon">collections</i> <div class="username inline">'+parsedJSON['sender']+'</div>: <div id="text" class="inline">'+details.alt+'</div><br><img id="posted-image-1" src="'+details.img+'></img>'
+						xkcdElement.id = "message"+messageCount
+						xkcdElement.classList.add("image");
+						xkcdElement.classList.add("monospace");
+						xkcdElement.innerHTML = embedText;
+						document.getElementById("chatroom").appendChild(xkcdElement)
+						if(isScrolledToBottom) {
+							cr.scrollTop = cr.scrollHeight - cr.clientHeight;
+						}
+					},2000);
+					break;
+			}
+		}
+	}
+	function send() {
+		if(!canChat) {
+		} else {
+		var reqJSON = '{"sender":"","content":"","type":""}'
+		var message =  document.getElementById("textbox").value;
+		var parsedJSON = JSON.parse(reqJSON);
+		parsedJSON['sender'] = identity;
+		parsedJSON['content'] = message;
+		document.getElementById("submit").disabled = true;
+		canChat = false;
+		setTimeout(function() {
+			document.getElementById("submit").disabled = false;
+			canChat = true;
+		},2500)
+		if(message.indexOf("/") == 0) {
+			if(message.indexOf('/video') == 0) {
+				if(re1.test(message)){
+					var matches = message.match(pattern1);
+					parsedJSON['content'] = matches[1];
+					parsedJSON['type'] = "video";
+					document.getElementById("textbox").value = ""
+					document.getElementById("textbox").focus();
+				} else {
+					document.getElementById("error").innerHTML = "Error: Invalid youtube link";
+					setTimeout(function() {
+						document.getElementById("error").innerHTML = "";
+					},5000);
+				}
+			} else if (message.indexOf('/xkcd') == 0) {
+				if(re2.test(message)){
+					var matches = message.match(pattern2);
+					parsedJSON['content'] = matches[1];
+					parsedJSON['type'] = "xkcd";
+					document.getElementById("textbox").value = ""
+					document.getElementById("textbox").focus();
+				} else {
+					document.getElementById("error").innerHTML = "Error: Invalid xkcd comic";
+					setTimeout(function() {
+						document.getElementById("error").innerHTML = "";
+					},5000);
+				}
+			}
+			websocket.send("outgoingmessage "+JSON.stringify(parsedJSON));
+		} else {
+			parsedJSON['type'] = "text";
+			document.getElementById("textbox").value = ""
+			document.getElementById("textbox").focus();
+			websocket.send("outgoingmessage "+JSON.stringify(parsedJSON));
+		}
+	}
+	}
+	function setIdentity() {
+		identity = document.getElementById("identityText").value
+	}
+	function Get(yourUrl){
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",yourUrl,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;          
+	}
+
+</script>
+</body>
+</html>
