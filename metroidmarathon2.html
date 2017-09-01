@@ -32,6 +32,15 @@ div, p  {
 </td>
 </table>
 <script>
+let url = 'https://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=246713&format=json';
+fetch(url)
+.then(res => res.json())
+.then((out) => {
+  document.getElementById("total").innerHTML = out.totalRaisedAmount
+  document.getElementById("goal").innerHTML = out.fundraisingGoal
+  console.log(out);
+})
+.catch(err => console.error(err));
 setInterval(function() {
 let url = 'https://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=246713&format=json';
 fetch(url)
