@@ -32,7 +32,8 @@ div, p  {
 </td>
 </table>
 <script>
-let url = 'https://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=246713&format=json';
+var randomAppend = Math.floor(Math.random() * 20000)
+let url = 'https://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=246713&format=json&foo='+randomAppend;
 fetch(url)
 .then(res => res.json())
 .then((out) => {
