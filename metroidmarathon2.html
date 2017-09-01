@@ -1,0 +1,75 @@
+<html>
+<head>
+<style>
+table {
+	background-color:#aaa;
+}
+.timer {
+	background-color:#333;
+}
+td {
+	font-family:sans-serif;
+	font-weight:bold;
+	font-size:50px;
+	color:white;
+}
+div, p  {
+	display:inline;
+}
+</style>
+</head>
+<body>
+<table height="60px" border="0px" width="100%">
+<td width="60px"><img src="http://metroidmarathon.com/marathon2/img/II.png" height="60px"></td>
+<td align="left">$<div id="total">NA</div>/$<div id="goal">NA</div></td>
+<td align="right" class="timer" width="20%">	<div id="countup" style="float:right;padding-right:3px;">
+	  <p id="years" style="display: none;">00</p>
+	  <p id="days" style="display: none;">00</p>
+	  <p id="hours">00</p><p>:</p>
+	  <p id="minutes">00</p><p>:</p>
+	  <p id="seconds">00</p>
+	</div>
+</td>
+</table>
+<script>
+setInterval(function() {
+let url = 'https://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=246713&format=json';
+fetch(url)
+.then(res => res.json())
+.then((out) => {
+  document.getElementById("total").innerHTML = out.totalRaisedAmount
+  document.getElementById("goal").innerHTML = out.fundraisingGoal
+  console.log(out);
+})
+.catch(err => console.error(err));
+},60000);
+</script>
+	<script>
+	window.onload=function() {
+	  // Month,Day,Year,Hour,Minute,Second
+	  upTime('sep,1,2017,12:00:00'); // ****** Change this line!
+	};
+	function upTime(countTo) {
+	  var addLeadingZeros = function(number){
+		return (number < 10) ? "0"+number : number;
+	  }
+
+	  now = new Date();
+	  countTo = new Date(countTo);
+	  difference = (now-countTo);
+	  days=Math.floor(difference/(60*60*1000*24)*1);
+	  if (years > 1){ days = days - (years * 365)}
+	  hours=Math.floor(((difference%(60*60*1000*24))/(60*60*1000)*1)+(days *24));
+	  mins=addLeadingZeros(Math.floor(((difference%(60*60*1000*24))%(60*60*1000))/(60*1000)*1));
+	  secs=addLeadingZeros(Math.floor((((difference%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1))
+	  document.getElementById('hours').firstChild.nodeValue = hours;
+	  document.getElementById('minutes').firstChild.nodeValue = mins;
+	  document.getElementById('seconds').firstChild.nodeValue = secs;
+
+	  clearTimeout(upTime.to);
+	  upTime.to=setTimeout(function(){ upTime(countTo); },1000);
+	}
+	</script>
+
+</body>
+</html>
