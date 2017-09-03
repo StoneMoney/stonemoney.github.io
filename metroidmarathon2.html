@@ -28,7 +28,7 @@ div, p  {
 <body>
 <table height="60px" border="0px" width="100%">
 <td width="60px"><img src="II.png" height="60px"></td>
-<td align="left" class="money">$<div id="total">NA</div>/$<div id="goal">NA</div></td>
+<td align="left" class="money">$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/$<div id="goal">1000</div></td>
 <td align="right"><div class="splash"> Donations go <b>directly</b> to Connecticut Children's Medical Center&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
 <td align="right" class="timer">	<div id="countup" style="float:right;padding-right:3px;">
 	  <div id="years" style="display: none;">00</div>
@@ -39,30 +39,6 @@ div, p  {
 	</div>
 </td>
 </table>
-<script>
-
-let url = 'https://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=246713&format=json&foo=';
-fetch(url)
-.then(res => res.json())
-.then((out) => {
-  document.getElementById("total").innerHTML = out.totalRaisedAmount
-  document.getElementById("goal").innerHTML = out.fundraisingGoal
-  console.log(out);
-})
-.catch(err => console.error(err));
-setInterval(function() {
-var randomAppend = Math.floor(Math.random() * 20000)
-let url = 'https://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=246713&format=json&foo='+randomAppend;
-fetch(url)
-.then(res => res.json())
-.then((out) => {
-  document.getElementById("total").innerHTML = out.totalRaisedAmount
-  document.getElementById("goal").innerHTML = out.fundraisingGoal
-  console.log(out);
-})
-.catch(err => console.error(err));
-},60000);
-</script>
 	<script>
 	window.onload=function() {
 	  // Month,Day,Year,Hour,Minute,Second
