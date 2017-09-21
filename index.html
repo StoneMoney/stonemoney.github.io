@@ -13,6 +13,26 @@
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
+	  <style>
+		.hvr-grow {
+		  display: inline-block;
+		  vertical-align: middle;
+		  -webkit-transform: perspective(1px) translateZ(0);
+		  transform: perspective(1px) translateZ(0);
+		  box-shadow: 0 0 1px transparent;
+		  -webkit-transition-duration: 0.3s;
+		  transition-duration: 0.3s;
+		  -webkit-transition-property: transform;
+		  transition-property: transform;
+		}
+		.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+		  -webkit-transform: scale(1.1);
+		  transform: scale(1.1);
+		}
+		#container {
+			height:50vh;
+		}
+	  </style>
       <script>
 				$( document ).ready(function(){})
 				$(".button-collapse").sideNav();({
@@ -25,43 +45,58 @@
 		  		$('.parallax').parallax();
 			}
 		  );
-
-	  </script>
+		</script>
 </head>
 
 <body>
   <div class="navbar-fixed">
    <nav>
     <div class="nav-wrapper deep-purple lighten-1">
-      <a href="#" class="brand-logo center"><h4><strong> STONEMONEY</strong><div style="font-weight:200;display: inline-block;">.GITHUB.IO</div></h4></a>
+      <a href="#" class="brand-logo center"><h4><strong>STONEMONEY</strong><div style="font-weight:200;display: inline-block;">.GITHUB.IO</div></h4></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="#"><span title="Contact"><i class="material-icons">comment</i></span></a></li>
       </ul>
     </div>
   </nav>
  </div>
-	<br/><br/><br/><br/><br/>
-	<div class="center"><h1 class="black-text"><b>Hello!</b> Welcome to my site</h1></div>
   </div>
-  <div class="section white">
-	<div class="center"><h2>Projects</h2></div>
+  <div class="section blue-grey lighten-2">
+	<br/><br/>
+	<div class="center"><h1 class="white-text" style="font-family:monospace;">Featured Projects</h1></div>
 	<div class="row s12">
-
-        <div class="col s12 m6 l4 offset-l2">
-          <div class="card large">
-            <div class="card-image">
-              <img src="images/FIRSTbot splash.png">
-              <span class="card-title"></span>
-            </div>
-            <div class="card-content">
-              <p>Not as in the first bot ever, but as in the bot that relates to FIRST (Robotics). This is a handly little bot for Discord that searches team and match info on request!</p>
-            </div>
-            <div class="card-action">
-              <a href="FIRSTbot.html">Check it out</a>
-            </div>
-          </div>
+        <div class="col s6 m3 l2 offset-l1">
+              <a onmouseover="hover1()" id="link1" href="sounds/index.html"><img class="hvr-grow" src="images/ztsounds.svg" width="100%"></a>
         </div>
-
+		<div class="col s6 m3 l2">
+              <a onmouseover="hover2()" id="link2" href="sorting.html"><img class="hvr-grow" src="images/sorthat.svg" width="100%"></a>
+        </div>
+		<div class="col s6 m3 l2">
+              <a onmouseover="hover3()" id="link3" href="MojoWheel.html"><img class="hvr-grow" src="images/mojowheel.svg" width="100%"></a>
+        </div>
+		<div class="col s6 m3 l2">
+              <a onmouseover="hover4()" id="link4" href="FIRSTbot.html"><img class="hvr-grow" src="images/firstbot.svg" width="100%"></a>
+        </div>
+		<div class="col s6 m3 l2">
+              <a onmouseover="hover5()" id="link5" href="FIRSTbot.html"><img class="hvr-grow" src="images/currentprojecttracker.svg" width="100%"></a>
+        </div>
+	</div>
+  </div>
+  <div class="section blue-grey" id="container">
+		<div class="row" id="contextcontainer">
+			<div class="col l3 s12 m4 offset-l1">
+				<img id="image1" src="images/PCN splash.png" width="100%">
+			</div>
+			<div class="col l3 s12 m4">
+				<h2 id="header1" class="white-text" >FIRSTbot</h2>
+				<h5 id="subheader1" class="white-text">A text based bot for FIRST Robotics</h5>
+			</div>
+			<div class="col l3 s12 m4 center">
+				</br>
+				<a id="button1" class="waves-effect waves-light blue accent-1 btn-large" href="MojoWheel.html">MORE INFO</a><br><br>
+				<a id="button2" class="waves-effect waves-light blue-grey darken-3 btn-large" href="https://github.com/StoneMoney/MojoWheel">View on GitHub</a>
+			</div>
+		</div>
+  </div>
         <!--<div class="col s12 m6 l4">
           <div class="card large">
             <div class="card-image">
@@ -75,7 +110,7 @@
               <a href="">SOON</a>
             </div>
           </div>
-        </div>-->
+        </div>
 
         <div class="col s12 m6 l4">
           <div class="card large">
@@ -91,22 +126,20 @@
             </div>
           </div>
         </div>
-
-        <div class="col s12 m6 l4 offset-l2">
+		<div class="col s12 m6 l4 offset-l2">
           <div class="card large">
             <div class="card-image">
-              <img src="images/TST splash.png">
-              <span class="card-title">THE SHADO TEMPLE</span>
+              <img src="images/mojowheel.png">
+              <span class="card-title"></span>
             </div>
             <div class="card-content">
-              <p>A website hub for a popular streamer that I made.</p>
+              <p>Use a control page to edit, add, and remove strings that can be randomly selected on the wheel. Up to 8 strings.<br/>Perfect for Twitch streams as a viewer incentive!</p>
             </div>
             <div class="card-action">
-              <a href="shado/index.html">CHECK IT OUT</a>
+              <a href="MojoWheel.html">CHECK IT OUT</a>
             </div>
           </div>
         </div>
-
         <div class="col s12 m6 l4">
           <div class="card large">
             <div class="card-image">
@@ -124,41 +157,100 @@
 		<div class="col s12 m6 l4 offset-l4">
           <div class="card large">
             <div class="card-image">
-              <img src="images/mojowheel.png">
+              <img src="images/chosenpower.png">
               <span class="card-title"></span>
             </div>
             <div class="card-content">
-              <p>Use a control page to edit, add, and remove strings that can be randomly selected on the wheel. Up to 8 strings.<br/>Perfect for Twitch streams as a viewer incentive!</p>
+              <p>The Legend of Zelda Triforce sorting hat!<br>Ever wonder which sect of the triforce you were meant to be a part of? Wonder no longer with this website in its original state created for Zeldathon Wild</p>
             </div>
             <div class="card-action">
-              <a href="MojoWheel.html">CHECK IT OUT</a>
+              <a href="sounds/index.html">CHECK IT OUT</a>
             </div>
           </div>
-        </div>
-      </div>
-  </div>
-          <footer class="page-footer deep-purple">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">StoneMoney Studio</h5>
-                <p class="grey-text text-lighten-4">Creating cool stuff</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Portfolio</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2016 StoneMoney studio
-            <a class="grey-text text-lighten-4 right" href="#!"></a>
-            </div>
-          </div>
-        </footer>
+        </div>-->
+	  <div class="section center blue-grey darken-3 white-text">
+	  <h4>Other Projects</h4>
+	  <a href="shado/index.html">SHADO TEMPLE</a><br>
+	  <a href="funscript.html">FRCTOP25 SCRIPT</a><br>
+	  <a href="chat.html">ROBABBLE CHAT (OFF-AIR)</a><br>
+	  <h4>In the works</h4>
+	  <a href="stk/index.html">STK - HotPlayer</a><br>
+	  </div>
+	  <script>
+		var activeItem = 0
+		function hover1() {
+			if(activeItem != 1) {
+				activeItem = 1;
+				$("#contextcontainer").fadeOut("slow")
+				setTimeout(function() {
+				document.getElementById("header1").innerHTML = "Zeldathon Sounds"
+				document.getElementById("subheader1").innerHTML = "Play and download various sounds as heard on Zeldathon.<br/><i>Not directly associated with Zeldathon, mcgDev, or KinstoneIO</i>"
+				document.getElementById("image1").src = "images/spotlight.png"
+				document.getElementById("button1").href = "sounds/index.html"
+				document.getElementById("button2").classList.add("disabled");
+				$("#contextcontainer").fadeIn("fast")
+				},600);
+			}
+		}
+		function hover2() {
+			if(activeItem != 2) {
+				activeItem = 2;
+				$("#contextcontainer").fadeOut("slow")
+				setTimeout(function() {
+				document.getElementById("header1").innerHTML = "Triforce Sorting Hat"
+				document.getElementById("subheader1").innerHTML = "The Legend of Zelda Triforce sorting hat!<br>Ever wonder which sect of the triforce you were meant to be a part of? Wonder no longer with this website in its original state created for Zeldathon Wild"
+				document.getElementById("image1").src = "images/hatspot.png"
+				document.getElementById("button1").href = "sorting.html"
+				document.getElementById("button2").classList.add("disabled");
+				$("#contextcontainer").fadeIn("fast")
+				},500);
+			}
+		}
+		function hover3() {
+			if(activeItem != 3) {
+				activeItem = 3;
+				$("#contextcontainer").fadeOut("slow")
+				setTimeout(function() {
+				document.getElementById("header1").innerHTML = "MojoWheel"
+				document.getElementById("subheader1").innerHTML = "Use a control page to edit, add, and remove strings that can be randomly selected on the wheel. Unlimited possibilities!<br/>Perfect for Twitch streams as a viewer incentive!"
+				document.getElementById("image1").src = "images/MojoWheel.png"
+				document.getElementById("button1").href = "MojoWheel.html"
+				document.getElementById("button2").href = "https://github.com/StoneMoney/MojoWheel"
+				document.getElementById("button2").classList.remove("disabled");
+				$("#contextcontainer").fadeIn("fast")
+				},500);
+			}
+		}
+		function hover4() {
+			if(activeItem != 4) {
+				activeItem = 4;
+				$("#contextcontainer").fadeOut("slow")
+				setTimeout(function() {
+				document.getElementById("header1").innerHTML = "FIRSTbot"
+				document.getElementById("subheader1").innerHTML = "A text based chat robot that is integrated with thebluealliance. As seen on Twitch as FIRST_Bot"
+				document.getElementById("image1").src = "images/FIRSTbot splash.png"
+				document.getElementById("button1").href = "FIRSTbot.html"
+				document.getElementById("button2").href = "https://github.com/StoneMoney/FIRSTbot"
+				document.getElementById("button2").classList.remove("disabled");
+				$("#contextcontainer").fadeIn("fast")
+				},500);
+			}
+		}
+		function hover5() {
+			if(activeItem != 5) {
+				activeItem = 5;
+				$("#contextcontainer").fadeOut("slow")
+				setTimeout(function() {
+				document.getElementById("header1").innerHTML = "Current Project Tracker"
+				document.getElementById("subheader1").innerHTML = "A stream overlay asset designed to inform watchers of what you're making, a description, a reference photo, and the recipient of creative projects"
+				document.getElementById("image1").src = "images/mojounlimited.png"
+				document.getElementById("button1").href = "#"
+				document.getElementById("button2").href = "https://github.com/StoneMoney/CurrentProjectTracker"
+				document.getElementById("button2").classList.remove("disabled");
+				$("#contextcontainer").fadeIn("fast")
+				},500);
+			}
+		}
+	  </script>
 </body>
 </html>
