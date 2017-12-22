@@ -55,11 +55,11 @@ margin: 0 auto;
 	<br>
 	<table id="center" onClick="spin()">
 		<tr>
-			<td colspan="2"><img id="power" style="display: block;margin: auto;" src="images/notselected.png" width="200px"></img></td>
+			<td colspan="2"><img id="Power" style="display: block;margin: auto;" src="images/notselected.png" width="200px"></img></td>
 		</tr>
 		<tr>
-			<td><img id="wisdom" src="images/notselected.png" width="200px"></img></td>
-			<td><img id="courage" src="images/notselected.png" width="200px"></img></td>
+			<td><img id="Wisdom" src="images/notselected.png" width="200px"></img></td>
+			<td><img id="Courage" src="images/notselected.png" width="200px"></img></td>
 		</tr>
 	</table>
 	<div id="result" class="center"><h1 id="center">Click/tap the Triforce</h1></div>
@@ -70,12 +70,13 @@ margin: 0 auto;
 <script>
 var click = new Audio('sortingsound.ogg');
 var wasClicked = false;
-var force = ["power","courage","wisdom"];
+var force = ["Power","Courage","Wisdom"];
 function clear() {
-	document.getElementById("power").src = "images/notselected.png";
-	document.getElementById("courage").src = "images/notselected.png";
-	document.getElementById("wisdom").src = "images/notselected.png";
+	document.getElementById("Power").src = "images/notselected.png";
+	document.getElementById("Courage").src = "images/notselected.png";
+	document.getElementById("Wisdom").src = "images/notselected.png";
 }
+click.volume = .3;
 function spin() {
 	if(wasClicked) {
 	
@@ -287,13 +288,13 @@ function spin() {
 			document.getElementById(random).src = "images/selected.png";
 			document.getElementById("result").innerHTML = "<h2>Your triforce is: "+random+"</h2>";
 			switch(random) {
-				case "power":
+				case "Power":
 					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #872436<br>Non-Prime: /color Red<h2>SHARE:</h2>The Triforce has chosen! I will be representing #TeamPower for #Zeldathon Mission! http://stonemoney.github.io/sorting-p.html"
 					break;
-				case "wisdom":
+				case "Wisdom":
 					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #0371C8<br>Non-Prime: /color DodgersBlue<h2>SHARE</h2>The Triforce has chosen! I will be representing #TeamWisdom for #Zeldathon Mission! http://stonemoney.github.io/sorting-w.html"
 					break;
-				case "courage":
+				case "Courage":
 					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #019561<br>Non-Prime: /color SeaGreen<h2>SHARE</h2>The Triforce has chosen! I will be representing #TeamCourage for #Zeldathon Mission! http://stonemoney.github.io/sorting-c.html"
 					break;
 			}
