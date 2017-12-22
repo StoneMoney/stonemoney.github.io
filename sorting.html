@@ -14,7 +14,8 @@
 <style>
 body {
 font-family:sans-serif;
-background-image:url("images/background-sorting.png");
+background-image:url("images/direct-relief.png");
+background-repeat: space;
 background-size: 100%;
 background-color: #000;
 color:#F8F4D9;
@@ -22,8 +23,8 @@ color:#F8F4D9;
 #wrapper { 
 width: 50%; 
 margin: 0 auto; 
-background-color: rgba(255,255,255,.4);
-border-width: 8px;
+background-color: rgba(0,0,0,.7);
+border-width: 2px;
 border-radius: 5px;
 border-style:solid;
 border-color:rgba(255,255,255,.6);
@@ -38,12 +39,17 @@ text-align:center;
 width: 50%; 
 margin: 0 auto; 
 }
+
+.corner {
+	position:absolute;
+	bottom:0px;
+}
 </style>
 </head>
 <body>
 <div id="wrapper">
 	<br>
-	<div  id="center"><img src="images/wildlogo.png" width="100%"></img></div>
+	<div  id="center"><img src="images/missionlogo.png" width="100%"></img></div>
 	<br>
 	<h1 id="center">Sorting Hat</h1>
 	<br>
@@ -60,6 +66,7 @@ margin: 0 auto;
 	<div id="share" class="center"></div>
 </div>
 </body>
+<h6 class="corner">not affiliated directly with Zeldathon, or Kinstone LLC</h6>
 <script>
 var click = new Audio('sortingsound.ogg');
 var wasClicked = false;
@@ -281,13 +288,13 @@ function spin() {
 			document.getElementById("result").innerHTML = "<h2>Your triforce is: "+random+"</h2>";
 			switch(random) {
 				case "power":
-					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #872436<br>Non-Prime: /color Red<h2>SHARE:</h2>The Triforce has chosen! I will be representing #TeamPower for #Zeldathon Wild! http://stonemoney.github.io/sorting-p.html<br><br><a href='http://theyetee.com/zeldathon/detail.php?itemid=ZELDATHON-"+random.toUpperCase()+"'>Buy the Shirt</a>"
+					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #872436<br>Non-Prime: /color Red<h2>SHARE:</h2>The Triforce has chosen! I will be representing #TeamPower for #Zeldathon Mission! http://stonemoney.github.io/sorting-p.html"
 					break;
 				case "wisdom":
-					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #0371C8<br>Non-Prime: /color DodgersBlue<h2>SHARE</h2>The Triforce has chosen! I will be representing #TeamWisdom for #Zeldathon Wild! http://stonemoney.github.io/sorting-w.html<br><br><a href='http://theyetee.com/zeldathon/detail.php?itemid=ZELDATHON-"+random.toUpperCase()+"'>Buy the Shirt</a>"
+					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #0371C8<br>Non-Prime: /color DodgersBlue<h2>SHARE</h2>The Triforce has chosen! I will be representing #TeamWisdom for #Zeldathon Mission! http://stonemoney.github.io/sorting-w.html"
 					break;
 				case "courage":
-					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #019561<br>Non-Prime: /color SeaGreen<h2>SHARE</h2>The Triforce has chosen! I will be representing #TeamCourage for #Zeldathon Wild! http://stonemoney.github.io/sorting-c.html<br><br><a href='http://theyetee.com/zeldathon/detail.php?itemid=ZELDATHON-"+random.toUpperCase()+"'>Buy the Shirt</a>"
+					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #019561<br>Non-Prime: /color SeaGreen<h2>SHARE</h2>The Triforce has chosen! I will be representing #TeamCourage for #Zeldathon Mission! http://stonemoney.github.io/sorting-c.html"
 					break;
 			}
 		},3200);
