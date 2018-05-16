@@ -207,7 +207,7 @@ button {
 	// allow 1px inaccuracy by adding 1
 	var isScrolledToBottom = cr.scrollHeight - cr.clientHeight <= cr.scrollTop + 1;
 	//create a new WebSocket object.
-	websocket = new WebSocket("ws://robabble.serveirc.com:8083/");
+	websocket = new WebSocket("wss://robabble.serveirc.com:8083/");
 	function reconnectToServer() {
 		location.reload();
 	}
