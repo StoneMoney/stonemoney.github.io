@@ -44,7 +44,6 @@
 		} else {
 			randomNumber = Number(randomNumber);
 		}
-		
 		if (randomNumber < 0.33) {
 			rigged = "Courage";
 		} else if (randomNumber < .66) {
@@ -75,7 +74,7 @@ function spin() {
 	setTimeout(function() {
 			click.play();
 			wasClicked = true;
-			if(rigged = "err") {
+			if(rigged == "err") {
 				rigged = force[Math.floor(Math.random() * force.length)];
 			}
 		},10);
