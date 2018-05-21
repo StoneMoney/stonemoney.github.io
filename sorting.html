@@ -11,63 +11,53 @@
 <meta name="theme-color" content="#F8F4D9">
 <meta name="msapplication-TileColor" content="#F8F4D9">
 <title>Zeldathon Sorting Hat</title>
-<style>
-body {
-font-family:sans-serif;
-background-image:url("images/direct-relief.png");
-background-repeat: space;
-background-size: 100%;
-background-color: #000;
-color:#F8F4D9;
-}
-#wrapper { 
-width: 50%; 
-margin: 0 auto; 
-background-color: rgba(0,0,0,.7);
-border-width: 2px;
-border-radius: 5px;
-border-style:solid;
-border-color:rgba(255,255,255,.6);
-}
-#center {
-text-align:center;
-width: 50%; 
-margin: 0 auto; 
-}
-.center {
-text-align:center;
-width: 50%; 
-margin: 0 auto; 
-}
-
-.corner {
-	position:absolute;
-	bottom:0px;
-}
-</style>
-</head>
-<body>
-<div id="wrapper">
-	<br>
-	<div  id="center"><img src="images/missionlogo.png" width="100%"></img></div>
-	<br>
-	<h1 id="center">Sorting Hat</h1>
-	<br>
-	<table id="center" onClick="spin()">
-		<tr>
-			<td colspan="2"><img id="Power" style="display: block;margin: auto;" src="images/notselected.png" width="200px"></img></td>
-		</tr>
-		<tr>
-			<td><img id="Wisdom" src="images/notselected.png" width="200px"></img></td>
-			<td><img id="Courage" src="images/notselected.png" width="200px"></img></td>
-		</tr>
-	</table>
-	<div id="result" class="center"><h1 id="center">Click/tap the Triforce</h1></div>
-	<div id="share" class="center"></div>
-</div>
-</body>
-<h6 class="corner">not affiliated directly with Zeldathon, or Kinstone LLC</h6>
 <script>
+	var rigged = "err";
+	/** Fantastic code stolen from www.didthanoskill.me
+		Author: Tristan Bellman-Greenwood
+	**/
+	function getCookie(cname) {
+		var name = cname + "=";
+		var decodedCookie = decodeURIComponent(document.cookie);
+		var ca = decodedCookie.split(';');
+		for(var i = 0; i <ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+	
+	function onLoad() {
+		
+		var randomNumber = getCookie("triforceNumber");
+
+		if (!randomNumber) {
+			randomNumber = Math.random();
+			document.cookie = "triforceNumber=" + randomNumber + "; expires=Fri, 26 June 2018 00:00:00 UTC";
+			console.log("It’s a piece of cake to bake a pretty cookie");
+		} else {
+			randomNumber = Number(randomNumber);
+		}
+		
+		if (randomNumber < 0.33) {
+			rigged = "Courage";
+		} else if (randomNumber < .66) {
+			rigged = "Wisdom";
+		} else {
+			rigged = "Power";
+		}
+	}
+	
+	function clearCookie() {
+		document.cookie = "triforceNumber=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+		location.reload();
+	}
+	/** this part is me tho **/
 var click = new Audio('sortingsound.ogg');
 var wasClicked = false;
 var force = ["Power","Courage","Wisdom"];
@@ -83,8 +73,10 @@ function spin() {
 	} else {
 	setTimeout(function() {
 			click.play();
-			finalSelection = force[Math.floor(Math.random() * force.length)];
 			wasClicked = true;
+			if(rigged = "err") {
+				rigged = force[Math.floor(Math.random() * force.length)];
+			}
 		},10);
 		setTimeout(function() {
 			var random = force[Math.floor(Math.random() * force.length)];
@@ -283,23 +275,81 @@ function spin() {
 			document.getElementById(random).src = "images/selected.png";
 		},3000);
 		setTimeout(function() {
-			var random = force[Math.floor(Math.random() * force.length)];
 			clear()
-			document.getElementById(random).src = "images/selected.png";
-			document.getElementById("result").innerHTML = "<h2>Your triforce is: "+random+"</h2>";
-			switch(random) {
+			document.getElementById(rigged).src = "images/selected.png";
+			document.getElementById("result").innerHTML = "<h2>Your triforce is: "+rigged+"</h2>";
+			switch(rigged) {
 				case "Power":
-					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #872436<br>Non-Prime: /color Red<h2>SHARE:</h2>The Triforce has chosen! I will be representing #TeamPower for #Zeldathon Mission! http://stonemoney.github.io/sorting-p.html"
+					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #872436<br>Non-Prime: /color Red<h2>SHARE:</h2>The Triforce has chosen! I will be representing #TeamPower for #Zeldathon Champions! http://stonemoney.github.io/sorting-p.html"
 					break;
 				case "Wisdom":
-					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #0371C8<br>Non-Prime: /color DodgersBlue<h2>SHARE</h2>The Triforce has chosen! I will be representing #TeamWisdom for #Zeldathon Mission! http://stonemoney.github.io/sorting-w.html"
+					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #0371C8<br>Non-Prime: /color DodgersBlue<h2>SHARE</h2>The Triforce has chosen! I will be representing #TeamWisdom for #Zeldathon Champions! http://stonemoney.github.io/sorting-w.html"
 					break;
 				case "Courage":
-					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #019561<br>Non-Prime: /color SeaGreen<h2>SHARE</h2>The Triforce has chosen! I will be representing #TeamCourage for #Zeldathon Mission! http://stonemoney.github.io/sorting-c.html"
+					document.getElementById("share").innerHTML = "<h2>CHAT COLOR</h2>Prime: /color #019561<br>Non-Prime: /color SeaGreen<h2>SHARE</h2>The Triforce has chosen! I will be representing #TeamCourage for #Zeldathon Champions! http://stonemoney.github.io/sorting-c.html"
 					break;
 			}
 		},3200);
 	}
 }
+
 </script>
+<style>
+body {
+font-family:sans-serif;
+background-image:url("images/st-jude.png");
+background-repeat: space;
+background-size: 100%;
+background-color: #000;
+color:#F8F4D9;
+}
+#wrapper { 
+width: 50%; 
+margin: 0 auto; 
+background-color: rgba(0,0,0,.7);
+border-width: 2px;
+border-radius: 5px;
+border-style:solid;
+border-color:rgba(255,255,255,.6);
+}
+#center {
+text-align:center;
+width: 50%; 
+margin: 0 auto; 
+}
+.center {
+text-align:center;
+width: 50%; 
+margin: 0 auto; 
+}
+
+.corner {
+	position:absolute;
+	bottom:0px;
+}
+</style>
+</head>
+<body onload="onLoad()">
+<div id="wrapper">
+	<br>
+	<div  id="center"><img src="images/zeldathon-champions.png" width="100%"></img></div>
+	<br>
+	<h1 id="center">Sorting Hat</h1>
+	<br>
+	<table id="center" onClick="spin()">
+		<tr>
+			<td colspan="2"><img id="Power" style="display: block;margin: auto;" src="images/notselected.png" width="200px"></img></td>
+		</tr>
+		<tr>
+			<td><img id="Wisdom" src="images/notselected.png" width="200px"></img></td>
+			<td><img id="Courage" src="images/notselected.png" width="200px"></img></td>
+		</tr>
+	</table>
+	<div id="result" class="center"><h1 id="center">Click/tap the Triforce</h1></div>
+	<div id="share" class="center"></div>
+</div>
+</body>
+<h6 class="corner">not affiliated directly with Zeldathon, or Kinstone LLC</h6>
+<button onclick="clearCookie()">Clear Cookie</button>
+
 </html>
