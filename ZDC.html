@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="FIRSTbot - A text bot for FIRST robotics.">
-<meta name="keywords" content="Twitch,FIRST Robotics,Bot,The Blue Alliance,FIRSTbot">
-<meta name="theme-color" content="#1E88E5">
-<meta name="msapplication-TileColor" content="#1E88E5">
-<title>FIRSTbot - stonemoney.github.io</title>
+<meta name="description" content="Zeldathon Donation Companion - A budgeting tool for Zeldathon Donations. Available as an extension for firefox and chrome">
+<meta name="keywords" content="Twitch,Zeldathon,Zeldathon Donation Companion">
+<meta name="theme-color" content="#ef6c00">
+<meta name="msapplication-TileColor" content="#ef6c00">
+<title>ZDC - stonemoney.github.io</title>
 		<!--Import Google Icon Font-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -26,8 +26,8 @@
 <body>
   <div class="navbar-fixed">
    <nav>
-    <div class="nav-wrapper blue darken-1">
-      <a href="#" class="brand-logo center"><h4><strong> FIRST</strong><div style="font-weight:200;display: inline-block;">bot</div></h4></a>
+    <div class="nav-wrapper orange darken-3">
+      <a href="#" class="brand-logo center"><h4><strong>Donation</strong><div style="font-weight:200;display: inline-block;">Companion</div></h4></a>
       <ul id="nav-mobile" class="left">
         <li><a href="index.html"><span title="Home"><i class="material-icons">home</i></span></a></li>
         <!-- <li><a href="#"><span title="Contact"><i class="material-icons">class</i></span></a></li> -->
@@ -36,13 +36,13 @@
   </nav>
  </div>
  <div class="parallax-container">
-    <div class="parallax"><img src="images/banner.jpg"></div>
+    <div class="parallax"><img src="images/direct-relief.png"></div>
 	<div class="center">
 		<br/><br/><br/>
-		<h1 class="white-text">A <b>Twitch</b> Bot</h1>
-		<h2 class="white-text">for FIRST Robotics</h2>
-		<a class="waves-effect waves-light btn-large" disabled>SERVER ADDING UNAVAILABLE</a>
-		<a class="waves-effect waves-light blue-grey darken-3 btn-large" href="https://github.com/StoneMoney/FIRSTbot">Fork on GitHub</a>
+		<h1 class="white-text">An <b>extension</b></h1>
+		<h2 class="white-text">for Zeldathon Donors</h2>
+		<a class="waves-effect waves-light btn-large" href="https://chrome.google.com/webstore/detail/unofficial-zeldathon-dona/lpkoibgmidgpjhnlhnnccgekdiikpggi/related?authuser=0&hl=en">CHROME</a>
+		<a class="waves-effect waves-light orange darken-3 btn-large" href="https://addons.mozilla.org/en-US/firefox/addon/unofficial-zeldathon-companion/">FIREFOX</a>
 	</div>
 	<br/>
 	<h4 class="center white-text">View features <b>below</b></h4>
@@ -55,16 +55,11 @@
         <div class="col s12 m6 l4 offset-l2">
           <div class="card">
             <div class="card-image">
-              <img src="images/firstbotteam.png">
-              <span class="card-title">FRC Team Info</span>
+              <img src="images/tooltip.png">
+              <span class="card-title">Quick View</span>
             </div>
             <div class="card-content">
-              <p>Check any teams name using  <tt>TBA TEAM [TEAM]</tt></p>
-			  <p>Check their rookie year with  <tt>TBA ROOKIE [TEAM]</tt></p>
-			  <p>Check their robot's name with  <tt>TBA ROBOT [YEAR] [TEAM] </tt></p>
-            </div>
-            <div class="card-action">
-              <a href="http://www.thebluealliance.com/apidocs">Powered by thebluealliance api</a>
+              <p>Check your total by clicking the  <tt>ZDC icon</tt></p>
             </div>
           </div>
         </div>
@@ -73,15 +68,11 @@
         <div class="col s12 m6 l4">
           <div class="card">
             <div class="card-image">
-              <img src="images/firstbotmatches.png">
+              <img src="images/budgetalert.png">
               <span class="card-title">Match Scores</span>
             </div>
             <div class="card-content">
-              <p>View any matches score found on thebluealliance's database</p>
-			  <p>Type <tt>TBA MATCH [YEAR] [EVENT ID] [QUALS|QUARTERS|SEMIS|FINALS] [MATCH NO.] [ROUND NO.(FOR QUARTER/SEMIS)]</tt></p>
-            </div>
-            <div class="card-action">
-              <a href="http://www.thebluealliance.com/events">Find your event codes here (Last 4 letters in the URL)</a>
+              <p>See an on-page alert with budget reminders</p>
             </div>
           </div>
         </div>
@@ -91,14 +82,14 @@
         <div class="col s12 m6 l4 offset-l2">
           <div class="card">
             <div class="card-image">
-              <img src="images/firstbotemotes.png">
-              <span class="card-title">Fun Emotes!</span>
+              <img src="images/mojounlimited.png">
+              <span class="card-title"><span class="new badge" data-badge-caption="soon"></span>Per-Donation Logging</span>
             </div>
             <div class="card-content">
-              <p>Get fun emotes by typing the case-sensitive word by itself.</p>
+              <p>Get a history of past donations with amounts and names.</p>
             </div>
             <div class="card-action">
-              <a href="#">SUGGEST YOUR OWN HERE</a>
+              <a href="#">COMING SOON</a>
             </div>
           </div>
         </div>
@@ -107,30 +98,19 @@
         <div class="col s12 m6 l4">
           <div class="card">
             <div class="card-image">
-              <img src="images/firstbotevent.png">
-              <span class="card-title">Event information!</span>
+              <img src="images/mojounlimited.png">
+              <span class="card-title"><span class="new badge" data-badge-caption="soon"></span>Tier Checking</span>
             </div>
             <div class="card-content">
-              <p>Type <tt>TBA EVENT [YEAR] [EVENT CODE]</tt></p>
+              <p>Check your donor tier</p>
             </div>
             <div class="card-action">
-              <a href="#">PRETTY COOL</a>
+              <a href="#">COMING SOON</a>
             </div>
           </div>
           </div>
 
     </div>
-	<div class="center">
-		<a class="waves-effect waves-light btn-large blue-grey darken-3" href="https://github.com/StoneMoney/FIRSTbot/wiki">See all commands on our wiki page</a>
-	</div>
-  </div>
-  <div class="parallax-container">
-    <div class="parallax"><img src="images/shot.png"></div>
-	<div class="center">
-		<br/><br/>
-		<a class="waves-effect waves-light btn-large" disabled>SERVER ADDING UNAVAILABLE</a>
-		<a class="waves-effect waves-light red btn-large" href="#">BACK TO TOP</a>
-	</div>
   </div>
           <footer class="page-footer blue">
           <div class="container">
@@ -150,7 +130,7 @@
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2017 StoneMoney studio, Twitch © 2017 Twitch Interactive Inc, FIRST © 2017 FIRST
+            © 2017 StoneMoney studio,  not directly affiliated with Kinstone.IO or Zeldathon, application is entirely unofficial
             <a class="grey-text text-lighten-4 right" href="#!"></a>
             </div>
           </div>

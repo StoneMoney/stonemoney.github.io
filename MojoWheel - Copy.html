@@ -37,9 +37,18 @@
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <script type="text/javascript" src="js/materialize.min.js"></script>
       <script>
-		$( document ).ready(function(){
-				$('.parallax').parallax();
-		});
+				$( document ).ready(function(){})
+				$(".button-collapse").sideNav();({
+					  menuWidth: 300, // Default is 240
+			  edge: 'right', // Choose the horizontal origin
+			  closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+			}
+		  );
+				$(document).ready(function(){
+		  		$('.parallax').parallax();
+			}
+		  );
+
 	  </script>
 	  <script>
 		var wheelArray = ['open-source','actively customizeable','OBS compatable','XSplit compatable','twitch overlay','livestream','top secret','magical','node.js powered','websocket powered','random','wheel spinner','lightweight','scientific']
