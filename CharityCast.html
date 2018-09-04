@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="CharityCast - An overlay toolkit for charity livestreamers. Bidwars, donation goals, goal wheel, schedule, and more. Limited release">
+<meta name="keywords" content="Twitch,Charity,Charity Marathons,Overlay,Toolkit">
+<meta property="og:title" content="CharityCast" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="An overlay toolkit for charity livestreamers. Bidwars, donation goals, goal wheel, schedule, and more. Currently in a limited release" />
+<meta property="og:image" content="https://stonemoney.github.io/images/charitycast.png"/>
+<meta property="og:image:width" content="150" />
+<meta property="og:image:height" content="150" />
+<meta name="theme-color" content="#22B573">
+<meta name="msapplication-TileColor" content="#22B573">
+<title>CharityCast - stonemoney.github.io</title>
+		<!--Import Google Icon Font-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+	  <script src="countUp.js"></script>
+      <script>
+		var options = {
+			useEasing: true, 
+			useGrouping: true, 
+			separator: ',', 
+			decimal: '.'
+		};
+		$( document ).ready(function(){
+			numAnim = new CountUp("donraised", 0, 2500, 0, 2.5, options);
+			$('.parallax').parallax();
+			$('.collapsible').collapsible();
+			if (!numAnim.error) {
+				numAnim.start();
+				numReady = true;
+			} else {
+				console.log(numAnim.error)
+			}
+		});
+	  </script>
+	  <style>
+		.brandcolor {
+			background-color:#22B573;
+		}
+		.bgblack {
+			background-color:rgba(0,0,0,.5);
+		}
+	  </style>
+</head>
+
+<body>
+  <div class="navbar-fixed">
+   <nav>
+    <div class="nav-wrapper brandcolor">
+      <a href="#" class="brand-logo center"><h4><strong>Charity</strong><div style="font-weight:200;display: inline-block;">Cast</div></h4></a>
+      <ul id="nav-mobile" class="left">
+        <li><a href="index.html"><span title="Home"><i class="material-icons">home</i></span></a></li>
+        <!-- <li><a href="#"><span title="Contact"><i class="material-icons">class</i></span></a></li> -->
+      </ul>
+    </div>
+  </nav>
+ </div>
+ <div class="parallax-container">
+    <div class="parallax"><img src="images/CharityCastSplash.png"></div>
+	<div class="row">
+		<div class="col l8 offset-l2 m10 offset-m1 s12 center bgblack" style="padding-bottom:500px"> 
+			<br/><br/><br/>
+			<h1 class="white-text">An <b>overlay toolkit</b></h1>
+			<h2 class="white-text">for charity livestreams</h2>
+			<h4 class="white-text">Helping raise $<span id="donraised">2000</span> (and counting!) for various charities</h4>
+			<!--<a class="waves-effect waves-light btn-large disabled" href="https://github.com/StoneMoney">GETTING STARTED</a>
+			<a class="waves-effect waves-light orange darken-3 btn-large disabled" href="https://addons.mozilla.org/en-US/firefox/addon/unofficial-zeldathon-companion/">CUSTOM</a>-->
+			<h5 class="white-text">CharityCast is currently in a limited release, please contact for possible arrangements</h5>
+			<br/>
+			<h4 class="center white-text">View features <b>below</b></h4>
+		</div>
+	</div>
+ </div>
+
+  <a name="features"></a>
+  <div class="section white">
+	<div class="row">
+		<ul class="collapsible col l8 offset-l2 m10 offset-m1 s12">
+			<li>
+			  <div class="collapsible-header"><i class="material-icons">settings</i>Simple Dashboard</div>
+			  <div class="collapsible-body"><span>Easily control the ticker with the dashboard. Tutorials and wiki information is also available</span></div>
+			</li>
+			<li>
+			  <div class="collapsible-header"><i class="material-icons">equalizer</i>Bidwars</div>
+			  <div class="collapsible-body"><span>Create bidwars pitting 2 options agaisnt eachother</span></div>
+			</li>
+			<li>
+			  <div class="collapsible-header"><i class="material-icons">data_usage</i>Donation Goals</div>
+			  <div class="collapsible-body"><span>Set donation goals at a certain amount</span></div>
+			</li>
+			<li>
+			  <div class="collapsible-header"><i class="material-icons">card_giftcard</i>Prizes</div>
+			  <div class="collapsible-body"><span>Display prizes (in text form), with a minimum donation amount</span></div>
+			</li>
+			<li>
+			  <div class="collapsible-header"><i class="material-icons">play_arrow</i>Schedule</div>
+			  <div class="collapsible-body"><span>What's on, what's up next? Show them with the schedule module</span></div>
+			</li>
+			<li>
+			  <div class="collapsible-header"><i class="material-icons">comment</i>Broadcast</div>
+			  <div class="collapsible-body"><span>Send out a 1 time message through the bar, secrets, updates, anything is possible</span></div>
+			</li>
+			<li>
+			  <div class="collapsible-header"><i class="material-icons">replay</i>Goal Wheel</div>
+			  <div class="collapsible-body"><span>Add a pool of options to the goal wheel, then give it a spin on-stream</span></div>
+			</li>
+			<li>
+			  <div class="collapsible-header"><i class="material-icons">av_timer</i>Marathon Timer</div>
+			  <div class="collapsible-body"><span>A rolling clock since the start of the marathon, useful for highlighting</span></div>
+			</li>
+			<li>
+			  <div class="collapsible-header"><i class="material-icons">border_color</i>Customization</div>
+			  <div class="collapsible-body"><span>Change the layout and looks of the bar with some simple image swaps</span></div>
+			</li>
+			<li>
+			  <div class="collapsible-header"><i class="material-icons">extension</i>API Integration</div>
+			  <div class="collapsible-body"><span>Dynamic donation total with ExtraLife or Tiltify integration</span></div>
+			</li>
+		</ul>
+    </div>
+  </div>
+          <footer class="page-footer blue">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">StoneMoney Studio</h5>
+                <p class="grey-text text-lighten-4">Creating cool stuff</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Portfolio</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2018 StoneMoney studio
+            <a class="grey-text text-lighten-4 right" href="#!"></a>
+            </div>
+          </div>
+        </footer>
+</body>
+</html>
