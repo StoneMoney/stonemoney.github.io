@@ -32,6 +32,7 @@
 			numAnim = new CountUp("donraised", 0, 2500, 0, 2.5, options);
 			$('.parallax').parallax();
 			$('.collapsible').collapsible();
+			$('.materialboxed').materialbox();
 			if (!numAnim.error) {
 				numAnim.start();
 				numReady = true;
@@ -72,9 +73,9 @@
 			<h4 class="white-text">Helping raise $<span id="donraised">2000</span> (and counting!) for various charities</h4>
 			<!--<a class="waves-effect waves-light btn-large disabled" href="https://github.com/StoneMoney">GETTING STARTED</a>
 			<a class="waves-effect waves-light orange darken-3 btn-large disabled" href="https://addons.mozilla.org/en-US/firefox/addon/unofficial-zeldathon-companion/">CUSTOM</a>-->
-			<h5 class="white-text">CharityCast is currently in a limited release, please contact for possible arrangements</h5>
+			<h3 class="red-text text-lighten-2">CharityCast is currently in a limited release, please contact for possible arrangements</h3>
 			<br/>
-			<h4 class="center white-text">View features <b>below</b></h4>
+			<!--<h4 class="center white-text">View features <b>below</b></h4>-->
 		</div>
 	</div>
  </div>
@@ -82,42 +83,71 @@
   <a name="features"></a>
   <div class="section white">
 	<div class="row">
+		<div class="center-align">
+			<h4>Click to expand images</h4>
+			<div class="row">
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample.png" width="100%">
+				</div>
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample2.png" width="100%">
+				</div>
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample3.png" width="100%">
+				</div>
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample4.png" width="100%">
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="col s12 m3 offset-m1">
+					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample5.png" width="100%">
+				</div>
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Metroid Marathon III" src="images/charitycast-metroidmarathon.png" width="100%">
+				</div>
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Dashboard" src="images/charitycast-dashboard.png" width="100%">
+				</div>
+			</div>
+		</div>
 		<ul class="collapsible col l8 offset-l2 m10 offset-m1 s12">
 			<li>
 			  <div class="collapsible-header"><i class="material-icons">settings</i>Simple Dashboard</div>
-			  <div class="collapsible-body"><span>Easily control the ticker with the dashboard. Tutorials and wiki information is also available</span></div>
+			  <div class="collapsible-body"><span>Easily control the ticker with the dashboard. Tutorials and wiki information is also available<img class="materialboxed" data-caption="Dashboard" src="images/charitycast-dashboard.png" width="100%"></span></div>
 			</li>
 			<li>
 			  <div class="collapsible-header"><i class="material-icons">equalizer</i>Bidwars</div>
-			  <div class="collapsible-body"><span>Create bidwars pitting 2 options agaisnt eachother</span></div>
+			  <div class="collapsible-body"><span>Create bidwars pitting 2 options agaisnt eachother<img class="materialboxed" data-caption="Bidwars" src="images/cc-bw.png" width="100%"></span></div>
 			</li>
 			<li>
 			  <div class="collapsible-header"><i class="material-icons">data_usage</i>Donation Goals</div>
-			  <div class="collapsible-body"><span>Set donation goals at a certain amount</span></div>
+			  <div class="collapsible-body"><span>Set donation goals at a certain amount<img class="materialboxed" data-caption="Donation Goal" src="images/cc-dg.png" width="100%"></span></div>
 			</li>
 			<li>
 			  <div class="collapsible-header"><i class="material-icons">card_giftcard</i>Prizes</div>
-			  <div class="collapsible-body"><span>Display prizes (in text form), with a minimum donation amount</span></div>
+			  <div class="collapsible-body"><span>Display prizes (in text form), with a minimum donation amount<img class="materialboxed" data-caption="Prizes" src="images/cc-pz.png" width="100%"></span></div>
 			</li>
 			<li>
 			  <div class="collapsible-header"><i class="material-icons">play_arrow</i>Schedule</div>
-			  <div class="collapsible-body"><span>What's on, what's up next? Show them with the schedule module</span></div>
+			  <div class="collapsible-body"><span>What's on, what's up next? Show them with the schedule module<img class="materialboxed" data-caption="Schedule" src="images/cc-sh.png" width="100%"></span></div>
 			</li>
 			<li>
 			  <div class="collapsible-header"><i class="material-icons">comment</i>Broadcast</div>
-			  <div class="collapsible-body"><span>Send out a 1 time message through the bar, secrets, updates, anything is possible</span></div>
+			  <div class="collapsible-body"><span>Send out a 1 time message through the bar, secrets, updates, anything is possible<img class="materialboxed" data-caption="Broadcast" src="images/cc-bc.png" width="100%"></span></div>
 			</li>
 			<li>
 			  <div class="collapsible-header"><i class="material-icons">replay</i>Goal Wheel</div>
-			  <div class="collapsible-body"><span>Add a pool of options to the goal wheel, then give it a spin on-stream</span></div>
+			  <div class="collapsible-body"><span>Add a pool of options to the goal wheel, then give it a spin on-stream<img class="materialboxed" data-caption="Goal Wheel" src="images/cc-gw.png" width="100%"></span></div>
 			</li>
 			<li>
 			  <div class="collapsible-header"><i class="material-icons">av_timer</i>Marathon Timer</div>
-			  <div class="collapsible-body"><span>A rolling clock since the start of the marathon, useful for highlighting</span></div>
+			  <div class="collapsible-body"><span>A rolling clock since the start of the marathon, useful for highlighting<img class="materialboxed" data-caption="Marathon Timer" src="images/cc-mt.png" width="100%"></span></div>
 			</li>
 			<li>
 			  <div class="collapsible-header"><i class="material-icons">border_color</i>Customization</div>
-			  <div class="collapsible-body"><span>Change the layout and looks of the bar with some simple image swaps</span></div>
+			  <div class="collapsible-body"><span>Change the layout and looks of the bar with some simple image swaps<img class="materialboxed" data-caption="Custom" src="images/cc-custom.png" width="100%"></span></div>
 			</li>
 			<li>
 			  <div class="collapsible-header"><i class="material-icons">extension</i>API Integration</div>
