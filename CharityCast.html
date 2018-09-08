@@ -40,7 +40,13 @@
 				console.log(numAnim.error)
 			}
 		});
+		  document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.carousel');
+			var instances = M.Carousel.init(elems, {fullWidth: false});
+		  });
+
 	  </script>
+
 	  <style>
 		.brandcolor {
 			background-color:#22B573;
@@ -67,15 +73,15 @@
     <div class="parallax"><img src="images/CharityCastSplash.png"></div>
 	<div class="row">
 		<div class="col l8 offset-l2 m10 offset-m1 s12 center bgblack" style="padding-bottom:500px"> 
-			<br/><br/><br/>
+			<br/>
 			<h1 class="white-text">An <b>overlay toolkit</b></h1>
 			<h2 class="white-text">for charity livestreams</h2>
 			<h4 class="white-text">Helping raise $<span id="donraised">2000</span> (and counting!) for various charities</h4>
 			<!--<a class="waves-effect waves-light btn-large disabled" href="https://github.com/StoneMoney">GETTING STARTED</a>
 			<a class="waves-effect waves-light orange darken-3 btn-large disabled" href="https://addons.mozilla.org/en-US/firefox/addon/unofficial-zeldathon-companion/">CUSTOM</a>-->
-			<h3 class="red-text text-lighten-2">CharityCast is currently in a limited release, please contact for possible arrangements</h3>
-			<br/>
-			<!--<h4 class="center white-text">View features <b>below</b></h4>-->
+			<h3 class="red-text text-lighten-2"><b>CharityCast is currently in a limited release, please contact for possible arrangements</b></h3>
+
+			<h4 class="center white-text">View features & samples <b>below</b></h4>
 		</div>
 	</div>
  </div>
@@ -83,35 +89,7 @@
   <a name="features"></a>
   <div class="section white">
 	<div class="row">
-		<div class="center-align">
-			<h4>Click to expand images</h4>
-			<div class="row">
-				<div class="col s12 m3">
-					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample.png" width="100%">
-				</div>
-				<div class="col s12 m3">
-					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample2.png" width="100%">
-				</div>
-				<div class="col s12 m3">
-					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample3.png" width="100%">
-				</div>
-				<div class="col s12 m3">
-					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample4.png" width="100%">
-				</div>
-			</div>
-			<div class="row">
-
-				<div class="col s12 m3 offset-m1">
-					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample5.png" width="100%">
-				</div>
-				<div class="col s12 m3">
-					<img class="materialboxed" data-caption="Metroid Marathon III" src="images/charitycast-metroidmarathon.png" width="100%">
-				</div>
-				<div class="col s12 m3">
-					<img class="materialboxed" data-caption="Dashboard" src="images/charitycast-dashboard.png" width="100%">
-				</div>
-			</div>
-		</div>
+		<h5 class="col s12 center">Click to expand features</h5>
 		<ul class="collapsible col l8 offset-l2 m10 offset-m1 s12">
 			<li>
 			  <div class="collapsible-header"><i class="material-icons">settings</i>Simple Dashboard</div>
@@ -154,6 +132,35 @@
 			  <div class="collapsible-body"><span>Dynamic donation total with ExtraLife or Tiltify integration</span></div>
 			</li>
 		</ul>
+		<div class="center-align">
+			<h5 class="col s12">Click to expand images</h5>
+			<div class="row">
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample.png" width="100%">
+				</div>
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample2.png" width="100%">
+				</div>
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample3.png" width="100%">
+				</div>
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample4.png" width="100%">
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Sample Screenshot" src="images/charitycast-sample5.png" width="100%">
+				</div>
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Metroid Marathon III" src="images/charitycast-metroidmarathon.png" width="100%">
+				</div>
+				<div class="col s12 m3">
+					<img class="materialboxed" data-caption="Dashboard" src="images/charitycast-dashboard.png" width="100%">
+				</div>
+			</div>
+		</div>
     </div>
   </div>
           <footer class="page-footer blue">
@@ -166,8 +173,8 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Portfolio</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Contact via Discord: StoneMoney#0181</a></li>
+                  <li><a class="grey-text text-lighten-3" href="mailto:npgiano@gmail.com">Contact via email</a></li>
                 </ul>
               </div>
             </div>

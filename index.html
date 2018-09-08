@@ -54,23 +54,33 @@
   </div>
   <div class="section blue-grey lighten-2">
 	<br/><br/>
-	<div class="center"><h1 class="white-text" style="font-family:monospace;">Featured Projects</h1></div>
+	<div class="center"><h2 class="white-text" style="font-family:monospace;">Featured Projects</h2></div>
 	<div class="row s12">
-        <div class="col s6 m3 l2 offset-l1">
-              <a onmouseover="hover1()" id="link1" href="sounds/index.html"><img class="hvr-grow" src="images/ztsounds.svg" width="100%"></a>
-        </div>
+		<div class="col s6 m3 l2 offset-l1">
+			<div class="card" onclick="click1()" onmouseover="hover1()">
+				<img class="hvr-grow" src="images/ztsounds.svg" width="30%" style="padding:2%;"><a href="sounds/index.html">Z Sounds</a>
+			</div>
+		</div>
 		<div class="col s6 m3 l2">
-              <a onmouseover="hover2()" id="link2" href="sorting.html"><img class="hvr-grow" src="images/sorthat.svg" width="100%"></a>
-        </div>
+			<div class="card" onclick="click2()" onmouseover="hover2()">
+				<img class="hvr-grow" src="images/sorthat.svg" width="30%" style="padding:2%;"><a href="sorting.html">Z Sorting Hat</a>
+			</div>
+		</div>
 		<div class="col s6 m3 l2">
-              <a onmouseover="hover3()" id="link3" href="MojoWheel.html"><img class="hvr-grow" src="images/mojowheel.svg" width="100%"></a>
-        </div>
+			<div class="card" onclick="click3()" onmouseover="hover3()">
+				<img class="hvr-grow" src="images/mojowheel.svg" width="30%" style="padding:2%;"><a href="MojoWheel.html">MojoWheel</a>
+			</div>
+		</div>
 		<div class="col s6 m3 l2">
-              <a onmouseover="hover4()" id="link4" href="FIRSTbot.html"><img class="hvr-grow" src="images/firstbot.svg" width="100%"></a>
-        </div>
+			<div class="card" onclick="click4()" onmouseover="hover4()">
+				<img class="hvr-grow" src="images/firstbot.svg" width="30%" style="padding:2%;"><a href="FIRSTbot.html">FIRSTbot</a>
+			</div>
+		</div>
 		<div class="col s6 m3 l2">
-              <a onmouseover="hover5()" id="link5" href="CharityCast.html"><img class="hvr-grow" src="images/charitycast.svg" width="100%"></a>
-        </div>
+			<div class="card" onclick="click5()" onmouseover="hover5()">
+				<img class="hvr-grow" src="images/charitycast.svg" width="30%" style="padding:2%;"><a href="CharityCast.html">CharityCast</a>
+			</div>
+		</div>
 	</div>
   </div>
   <div class="section blue-grey" id="container">
@@ -89,21 +99,7 @@
 			</div>
 		</div>
   </div>
-        <!--<div class="col s12 m6 l4">
-          <div class="card large">
-            <div class="card-image">
-              <img src="images/PCN splash.png">
-              <span class="card-title">PCN Website</span>
-            </div>
-            <div class="card-content">
-              <p>PCN is a charity group revolving around raising funds to charity while playing video games live, I made their website and am a part of their group!</p>
-            </div>
-            <div class="card-action">
-              <a href="">SOON</a>
-            </div>
-          </div>
-        </div>
-
+		<!--
         <div class="col s12 m6 l4">
           <div class="card large">
             <div class="card-image">
@@ -167,10 +163,25 @@
 	  <a href="funscript.html">FRCTOP25 SCRIPT</a><br>
 	  <a href="chat.html">ROBABBLE CHAT (OFF-AIR)</a><br>
 	  <h4>In the works</h4>
-	  <a href="stk/index.html">STK - HotPlayer</a><br>
+	  <a href="">RoboReplay</a><br>
 	  </div>
 	  <script>
 		var activeItem = 0
+		function click1() {
+			window.location = "sounds/index.html"
+		}
+		function click2() {
+			window.location = "sorting.html"
+		}
+		function click3() {
+			window.location = "MojoWheel.html"
+		}
+		function click4() {
+			window.location = "FIRSTbot.html"
+		}
+		function click5() {
+			window.location = "CharityCast.html"
+		}
 		function hover1() {
 			if(activeItem != 1) {
 				activeItem = 1;
@@ -206,7 +217,7 @@
 				setTimeout(function() {
 				document.getElementById("header1").innerHTML = "MojoWheel"
 				document.getElementById("subheader1").innerHTML = "Use a control page to edit, add, and remove strings that can be randomly selected on the wheel. Unlimited possibilities!<br/>Perfect for Twitch streams as a viewer incentive!"
-				document.getElementById("image1").src = "images/MojoWheel.png"
+				document.getElementById("image1").src = "images/mojowheel.png"
 				document.getElementById("button1").href = "MojoWheel.html"
 				document.getElementById("button2").href = "https://github.com/StoneMoney/MojoWheel"
 				document.getElementById("button2").classList.remove("disabled");
@@ -239,7 +250,7 @@
 				document.getElementById("image1").src = "images/charitycast-sample.png"
 				document.getElementById("button1").href = "CharityCast.html"
 				document.getElementById("button2").href = "https://github.com/StoneMoney/"
-				document.getElementById("button2").classList.remove("disabled");
+				document.getElementById("button2").classList.add("disabled");
 				$("#contextcontainer").fadeIn("fast")
 				},500);
 			}
