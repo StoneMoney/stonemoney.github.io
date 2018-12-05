@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>announce</title>
+	  <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!--Import materialize.css-->
+	  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	  <script>jQuery.holdReady(true)</script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+	  <style>
+		.card {
+			overflow-y:hidden;
+			overflow-x:hidden;
+			background-color:rgba(255,255,255,.25);
+		}
+		.brand-logo {
+			z-index: 1000;
+		}
+		.kindabigtext {
+			font-size:4vh;
+		}
+		.bigtext {
+			font-size:6vh;
+		}
+		.biggertext {
+			font-size:8vh;
+		}
+		.shorttextspace {
+			line-height: .9;
+		}
+		.inline {
+			display:inline-block;
+		}
+		.short {
+			height:11vh;
+		}
+		.heightcal {
+			height:29vh;
+		}
+		.weather {
+			font-size:3vh !important;
+		}
+		.an-card {
+			height:89vh;
+			background-color: rgba(0,0,0,.5);
+			color:white;
+		}
+		.rotate {
+			writing-mode: vertical-rl;
+			text-orientation: sideways-right;
+		}
+		#carousel {
+			height:96%;
+		}
+		#car2 {
+			height:130px !important;
+		}
+		#car3 {
+			height:350px !important;
+		}
+		#car4 {
+			height:185px !important;
+		}
+		.low {
+			color: rgb(7, 115, 204);
+		}
+		.high {
+			padding-top:2vh;
+			color: #FF413A;
+		}
+		.low,.high {
+			line-height:4vh;
+			font-size:5vh;
+		}
+		body {
+			background-image: url("background.jpg");
+			background-size:     cover;                      /* <------ */
+			background-repeat:   no-repeat;
+			background-position: center center;    
+		}
+		.Urgent {
+			background-color:#d32f2f;
+			color:white;
+		}
+		.Clubs {
+			background-color:#01579b;
+			color:white;
+		}
+		.Sports {
+			background-color:#43a047;
+			color:white;
+		}
+		.Events {
+			background-color:#00838f;
+			color:white;
+		}
+		.Lunch {
+			background-color:#ef6c00;
+		}
+		.Birthday {
+			background-color:#5e35b1;
+			color:white;
+		}
+	  </style>
+	  
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper blue darken-4">
+      <a href="#" class="brand-logo right"><img src="logo.png" width="80%"></a>
+	  <ul class="left">
+        <li><a href="" class="kindabigtext" id="splash">X</a></li>
+      </ul>
+    </div>
+  </nav>
+	<div class="row">
+		<div class="col s12 m5 l4">
+			<div class="card blue accent-3">
+				<div class="col s3 bigtext center bigtext white-text blue darken-3 short shorttextspace">
+					<div id="month">X</div>
+					<div id="day">X</div>
+				</div>
+				<div class="col s7 center white-text valign-wrapper short">
+					<div class="valign-wrapper">
+						<div class="biggertext inline" id="time">XX:XX</div>
+						<div id="isAM" class="inline">XX</div>
+					</div>
+				</div>
+				<div class="col s2 center white-text yellow darken-2 short inline shorttextspace">
+					<div class="bigtext">
+						<div id="letter">X</div>
+						<div id="period">XX</div>
+					</div>
+				</div>
+			</div>
+			<div class="carousel carousel-slider" data-indicators="true" id="car2">
+			<a class="carousel-item short" href="#two!">
+			<div class="card blue-grey">
+				<div class="col s1 center short valign-wrapper">
+					<img src="http://blob.weather.microsoft.com/static/weather4/en-us/law/26.gif" id="condition-icon-now">
+				</div>
+				<div class="col s2 center white-text valign-wrapper short">
+					<div class="valign-wrapper">
+						&nbsp;<div id="temp-now" class="bigtext inline">X°</div>
+					</div>
+				</div>
+				<div class="col s8 center white-text valign-wrapper short">
+						&nbsp;<div id="condition-now" class="inline kindabigtext">X</div>
+				</div>
+				<div class="col s1 center white-text valign-wrapper short">
+					<h5 class="inline rotate">NOW</h5>
+				</div>
+			</div>
+			</a>
+			<a class="carousel-item " href="#tree!">
+			<div class="card blue-grey darken-2">
+				<div class="col s1 center short valign-wrapper">
+					<img src="http://blob.weather.microsoft.com/static/weather4/en-us/law/26.gif" id="condition-icon-2">
+				</div>
+				<div class="col s2 center white-text short vertical-align">
+					<div id="temp-2h" class="kindabigtext high">X°</div><div id="temp-2l" class="kindabigtext low">X°</div>
+				</div>
+				<div class="col s8 center white-text valign-wrapper short">
+						&nbsp;<div id="condition-2" class="inline kindabigtext">partly cloudy</div>
+				</div>
+				<div class="col s1 center white-text valign-wrapper short">
+					<h5 class="inline rotate" id="forecast2day">TMRW</h5>
+				</div>
+			</div>
+			</a>
+			<a class="carousel-item " href="#tree!">
+			<div class="card blue-grey darken-4">
+				<div class="col s1 center short valign-wrapper">
+					<img src="https://icons.wxug.com/i/c/h/partlycloudy.gif" id="condition-icon-3">
+				</div>
+				<div class="col s2 center white-text short vertical-align">
+					<div id="temp-3h" class="kindabigtext high">X°</div><div id="temp-3l" class="kindabigtext low">X°</div>
+				</div>
+				<div class="col s8 center white-text valign-wrapper short">
+						&nbsp;<div id="condition-3" class="inline kindabigtext">partly cloudy</div>
+				</div>
+				<div class="col s1 center white-text valign-wrapper short">
+					<h5 class="inline rotate" id="forecast3day">X</h5>
+				</div>
+			</div>
+			</a>
+			</div>
+			<div class="card">
+				<div class="card-content">
+				  <div class="carousel carousel-slider" id="car3">
+					
+				  </div>
+				</div>
+			</div>
+			<!-- <div class="card">
+				<div class="card-content">
+					<span class="card-title"><i class="material-icons">date_range</i> Events</span>
+					<div class="carousel carousel-slider center vertical-align" data-indicators="true" id="car4">
+				    </div>
+				</div>
+			</div> -->
+		</div>
+		<div class="col s12 m5 l8">
+			<div class="card">
+				<div class="card-content an-card">
+					<span class="card-title"><i class="material-icons">announcement</i> Announcements</span>
+					<div class="carousel carousel-slider center vertical-align" data-indicators="true" id="carousel">
+						<!--<div class="carousel-item" href="#one!">
+						  <h1 class="">This is your first panel</h1>
+						</div>-->
+				    </div>
+				</div>
+			</div>
+		</div>
+
+			<!--<div class="card">
+				<div class="card-content">
+					<span class="card-title"><i class="material-icons">sentiment_very_satisfied</i> School's slogan</span>
+					<div class="carousel">
+						<a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/255/nature/1"></a>
+						<a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/255/nature/2"></a>
+						<a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/255/nature/3"></a>
+						<a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/255/nature/4"></a>
+						<a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/255/nature/5"></a>
+					</div>
+				</div>
+			</div>-->
+
+    </div>
+  <script>
+	date = new Date();
+	hours = date.getHours();
+	minutes = date.getMinutes();
+	var days = ["SUN","MON","TUES","WED","THURS","FRI","SAT","SUN","MON","TUES"];
+	document.getElementById("forecast3day").innerHTML = days[date.getDay()+2];
+	document.getElementById("forecast2day").innerHTML = days[date.getDay()+1];
+	document.getElementById("isAM").innerHTML = "AM";
+	document.getElementById("splash").innerHTML = "Good morning students"
+	document.getElementById("time").innerHTML = convertToStandard(hours)+":"+convertToStandardMin(minutes);
+	var months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+	document.getElementById("month").innerHTML = months[date.getMonth()];
+	document.getElementById("day").innerHTML = date.getDate();
+	if(hours >= 12) {
+		document.getElementById("isAM").innerHTML = "PM";
+		document.getElementById("splash").innerHTML = "Good afternoon students"
+	}
+	switch(hours) {
+		case 7:
+			if (minutes >= 25) {
+				document.getElementById("period").innerHTML = "1";
+			} else if (minutes >= 01) {
+				document.getElementById("period").innerHTML = "0";
+			} else {
+				document.getElementById("period").innerHTML = "X";
+			}
+			break;
+		case 8:
+			if (minutes >= 50) {
+				document.getElementById("period").innerHTML = "ADV";
+			} else {
+				document.getElementById("period").innerHTML = "1";
+			}
+			break;
+		case 9:
+			if (minutes >=  20) {
+				document.getElementById("period").innerHTML = "2";
+			} else {
+				document.getElementById("period").innerHTML = "ADV";
+			}
+		case 10:
+			if (minutes >= 45) {
+				document.getElementById("period").innerHTML = "3";
+			} else {
+				document.getElementById("period").innerHTML = "2";
+			}
+			break;
+		case 11:
+				document.getElementById("period").innerHTML = "3";
+			break;
+		case 12:
+			if (minutes >= 50) {
+				document.getElementById("period").innerHTML = "4";
+			} else {
+				document.getElementById("period").innerHTML = "3";
+			}
+			break;
+		case 13:
+				document.getElementById("period").innerHTML = "4";
+			break;
+		case 14:
+			if(minutes >= 20) {
+				document.getElementById("period").innerHTML = "AS";
+			} else if (minutes >= 10) {
+				document.getElementById("period").innerHTML = "DSM";
+			}
+			break;
+		default:
+			document.getElementById("period").innerHTML = "X";
+			break;
+	}
+	/** 
+		Converts military(24h) clock to standard (US) clock
+		hour Hour (0-23) to convert
+		return Hour in standard format
+	**/
+	function convertToStandard(hour) {
+		if (hour == 0) {
+			return 12;
+		}
+		else if (hour >= 13) {
+			return (hour-12);
+		} else {
+			return hour;
+		}
+	}
+	/**
+		Converts 0-9 numbers to have a 0 prefix to be more readable and human
+		minutes Minutes (0-59) to convert
+		return Standard format
+	**/
+	function convertToStandardMin(minutes) {
+		if(minutes <= 9) {
+			return "0"+minutes;
+		} else {
+			return minutes;
+		}
+	}
+setInterval(function() {
+	date = new Date();
+	hours = date.getHours();
+	minutes = date.getMinutes();
+	document.getElementById("isAM").innerHTML = "AM";
+	document.getElementById("splash").innerHTML = "Good morning, students"
+	document.getElementById("time").innerHTML = convertToStandard(hours)+":"+convertToStandardMin(minutes);
+	var months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+	document.getElementById("month").innerHTML = months[date.getMonth()];
+	document.getElementById("day").innerHTML = date.getDate();
+	if(hours >= 12) {
+		document.getElementById("isAM").innerHTML = "PM";
+		document.getElementById("splash").innerHTML = "Good afternoon, students"
+	}
+	switch(hours) {
+		case 7:
+			if (minutes >= 25) {
+				document.getElementById("period").innerHTML = "1";
+			} else if (minutes >= 01) {
+				document.getElementById("period").innerHTML = "0";
+			} else {
+				document.getElementById("period").innerHTML = "X";
+			}
+			break;
+		case 8:
+			if (minutes >= 50) {
+				document.getElementById("period").innerHTML = "ADV";
+			} else {
+				document.getElementById("period").innerHTML = "1";
+			}
+			break;
+		case 9:
+			if (minutes >=  20) {
+				document.getElementById("period").innerHTML = "2";
+			} else {
+				document.getElementById("period").innerHTML = "ADV";
+			}
+		case 10:
+			if (minutes >= 45) {
+				document.getElementById("period").innerHTML = "3";
+			} else {
+				document.getElementById("period").innerHTML = "2";
+			}
+			break;
+		case 11:
+				document.getElementById("period").innerHTML = "3";
+			break;
+		case 12:
+			if (minutes >= 50) {
+				document.getElementById("period").innerHTML = "4";
+			} else {
+				document.getElementById("period").innerHTML = "3";
+			}
+			break;
+		case 13:
+				document.getElementById("period").innerHTML = "4";
+			break;
+		case 14:
+			if(minutes >= 20) {
+				document.getElementById("period").innerHTML = "AS";
+			} else if (minutes >= 10) {
+				document.getElementById("period").innerHTML = "DSM";
+			}
+			break;
+		default:
+			document.getElementById("period").innerHTML = "X";
+			break;
+	}
+	function convertToStandard(hour) {
+		if (hour == 0) {
+			return 12;
+		}
+		else if (hour >= 13) {
+			return (hour-12);
+		} else {
+			return hour;
+		}
+	}
+	function convertToStandardMin(minutes) {
+		if(minutes <= 9) {
+			return "0"+minutes;
+		} else {
+			return minutes;
+		}
+	}
+		},60000);
+  </script>
+	  <script type="text/javascript">
+		var incrementingID = 0;
+		var frag = '';
+		var carousel = document.getElementById("carousel");
+		websocket = new WebSocket("ws://172.101.242.195:8080/");
+		websocket.onopen = function() {
+			websocket.send("GO");
+			console.log('OPEN')
+		};
+		websocket.onmessage = function(ev) {
+			console.log(ev.data)
+			if(ev.data.indexOf("w") === 0) { //weather
+				var wData = ev.data.split("||");
+				switch(wData[0]) {
+					case 'w0':
+						document.getElementById("temp-now").innerHTML = wData[1]+"°"
+						document.getElementById("condition-icon-now").src = "http://blob.weather.microsoft.com/static/weather4/en-us/law/"+wData[2]+".gif"
+						document.getElementById("condition-now").innerHTML = wData[3]
+						break;
+					case 'w1':
+						document.getElementById("temp-2h").innerHTML = wData[2]+"°"
+						document.getElementById("temp-2l").innerHTML = wData[1]+"°"
+						document.getElementById("condition-icon-2").src = "http://blob.weather.microsoft.com/static/weather4/en-us/law/"+wData[3]+".gif"
+						document.getElementById("condition-2").innerHTML = wData[4]
+						break;
+					case 'w2':
+						document.getElementById("temp-3h").innerHTML = wData[2]+"°"
+						document.getElementById("temp-3l").innerHTML = wData[1]+"°"
+						document.getElementById("condition-icon-3").src = "http://blob.weather.microsoft.com/static/weather4/en-us/law/"+wData[3]+".gif"
+						document.getElementById("condition-3").innerHTML = wData[4]
+						break;
+				}
+			} else if (ev.data.indexOf("an") === 0) {
+				var aData = ev.data.split("||")
+				if(aData.length > 3) { //picture included
+					incrementingID = incrementingID+1;
+					cards = document.createElement('a');
+					cards.classList.add("carousel-item")
+					//cards.classList.add(aData[4]) CATAGORY, NOT USED
+					cards.href = "#annouce"+incrementingID+"!"
+					cards.innerHTML = buildHTML(aData[2],aData[1]+"</br><img src="+aData[3]+" width='100%'/>")
+					carousel.appendChild(cards);
+				} else {
+					incrementingID = incrementingID+1;
+					cards = document.createElement('a');
+					cards.classList.add("carousel-item")
+					//cards.classList.add(aData[4]) CATAGORY, NOT USED
+					cards.href = "#annouce"+incrementingID+"!"
+					cards.innerHTML = buildHTML(aData[2],aData[1])
+					carousel.appendChild(cards);
+				}
+			} if(ev.data == "ready") {
+				setTimeout(function() {jQuery.holdReady(false) },2500);
+			}
+		}
+		/**
+		Adds images to slideshow, max of 5
+		**/
+		for(var i = 1; i <= 5; i++) {
+			var photoContainer = document.createElement("a");
+			photoContainer.classList.add("carousel-item");
+			var photo = document.createElement("img")
+			photo.src = "images/photo"+i+".png"
+			photo.style.height = "100%"
+			photoContainer.innerHTML = photo.outerHTML;
+			document.getElementById("car3").appendChild(photoContainer)
+		}
+	  function listMajors() {
+
+		if(i+1 == range.values.length) {
+			
+		}
+      }
+
+	  function buildHTML(title, announce) {
+		frag = '<h1>'+title+'</h1><h1 class="white-text">'+announce+'</h1>'
+		return frag;
+	  }
+	  
+    </script>
+	<script>
+	  $(document).ready(function(){
+      $('.carousel').carousel({fullWidth: true});
+	  });
+	  setInterval(function() {
+		$('.carousel').carousel('next');
+	  },10000);
+	 </script>
+</body>
+</html>
