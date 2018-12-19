@@ -1,0 +1,23 @@
+{
+    "items":[
+        {"name":"painting","gMin":10,"gMax":15,"fmMin":12,"fmMax":17,"weight":3},
+        {"name":"vhs-movie","gMin":5,"gMax":7,"fmMin":6,"fmMax":10,"weight":1},
+        {"name":"chair","gMin":4,"gMax":5,"fmMin":5,"fmMax":5,"weight":4},
+        {"name":"welcome-mat","gMin":2,"gMax":3,"fmMin":3,"fmMax":3,"weight":1},
+        {"name":"small-carpet","gMin":4,"gMax":5,"fmMin":4,"fmMax":5,"weight":1},
+        {"name":"dog-toy","gMin":2,"gMax":2,"fmMin":3,"fmMax":3,"weight":1},
+        {"name":"50-cans-of-tomato-soup","gMin":12,"gMax":14,"fmMin":15,"fmMax":17,"weight":6},
+        {"name":"dishware-set","gMin":10,"gMax":15,"fmMin":11,"fmMax":16,"weight":3},
+        {"name":"golden-cup","gMin":5,"gMax":7,"fmMin":6,"fmMax":7,"weight":2},
+        {"name":"toolbox","gMin":8,"gMax":10,"fmMin":10,"fmMax":13,"weight":4},
+        {"name":"garden-tools","gMin":6,"gMax":9,"fmMin":7,"fmMax":7,"weight":3},
+        {"name":"shoes","gMin":4,"gMax":6,"fmMin":5,"fmMax":5,"weight":1},
+        {"name":"book","gMin":1,"gMax":3,"fmMin":3,"fmMax":3,"weight":1},
+        {"name":"kitchen-mixer","gMin":5,"gMax":7,"fmMin":8,"fmMax":9,"weight":2},
+        {"name":"tube-tv","gMin":15,"gMax":17,"fmMin":16,"fmMax":19,"weight":6},
+        {"name":"tshirt","gMin":4,"gMax":5,"fmMin":5,"fmMax":5,"weight":1},
+        {"name":"lantern","gMin":3,"gMax":4,"fmMin":5,"fmMax":6,"weight":2},
+        {"name":"breadbox","gMin":3,"gMax":5,"fmMin":4,"fmMax":6,"weight":2},
+        {"name":"board-game","gMin":4,"gMax":4,"fmMin":5,"fmMax":5,"weight":1}
+    ]
+}
