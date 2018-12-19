@@ -423,7 +423,7 @@ setInterval(function() {
 		var incrementingID = 0;
 		var frag = '';
 		var carousel = document.getElementById("carousel");
-		websocket = new WebSocket("ws://172.101.242.195:8080/");
+		websocket = new WebSocket("wss://172.101.242.195:8080/");
 		websocket.onopen = function() {
 			websocket.send("GO");
 			console.log('OPEN')
