@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Triforce Hat 2.0</title>
+        <link type="text/css" rel="stylesheet" href="triforcehatrel.css"/>
+        <meta property="og:url" content="https://stonemoney.github.io/triforce-hat/index.html" />
+        <meta property="og:title" content="Zeldathon Sorting Hat" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="Looking for a team? The triforce will choose for you! What fate will you fall upon?" />
+        <meta property="og:image" content="https://stonemoney.github.io/triforce-hat/images/ogtriforce.png"/>
+        <meta property="og:image:width" content="150" />
+        <meta property="og:image:height" content="150" />
+        <meta name="theme-color" content="#ffd800">
+        <meta name="msapplication-TileColor" content="#ffd800">
+    </head>
+    <body lang="us-en" onload="onLoad()">
+        <div class="main-container">
+            <img src="images/25.png" class="zelda-logo"/>
+            <div class="subtext">Sorting Hat</div>
+            <div class="triforce-container" id="container" onmouseenter="runOver()" onmouseleave="runAway()" onclick="runClick()" id="container">
+                <div class="loading-circle" id="loading"></div>
+                <div class="overlap-circle" id="overlap"></div>
+                <div class="triangle-up" id="courage" onmouseenter="glow('courage')" onmouseleave="noGlow('courage')"></div>
+                <div class="triangle-up" id="power" onmouseenter="glow('power')" onmouseleave="noGlow('power')"></div>
+                <div class="triangle-up" id="wisdom" onmouseenter="glow('wisdom')" onmouseleave="noGlow('wisdom')"></div>
+                <div class="text transition" id="main-text">TOUCH</div>
+            </div>
+            <div class="context hidden transition" id="context"></div>
+        </div>
+        <script>
+        var rigged = "err";
+        var container = document.getElementById("container")
+        var overlap = document.getElementById("overlap")
+        var loading = document.getElementById("loading")
+        var text = document.getElementById("main-text")
+        var conText = document.getElementById("context")
+        console.log(text)
+        var power = document.getElementById("power")
+        var courage = document.getElementById("courage")
+        var wisdom = document.getElementById("wisdom")
+        var force = ["power","courage","wisdom"];
+        var forceVars = [power,courage,wisdom];
+        var rolled = false;
+        /** Fantastic code stolen from www.didthanoskill.me
+            Author: Tristan Bellman-Greenwood
+        **/
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        
+        function onLoad() {
+            var randomNumber = getCookie("triforceNumber");
+
+            if (!randomNumber) {
+                randomNumber = Math.random();
+                document.cookie = "triforceNumber=" + randomNumber + "; expires=Sat, 22 January 2020 00:00:00 UTC";
+                firstGo = true;
+            } else {
+                randomNumber = Number(randomNumber);
+            }
+            if (randomNumber < 0.33) {
+                rigged = 0;
+            } else if (randomNumber < .66) {
+                rigged = 1;
+            } else {
+                rigged = 2;
+            }
+        }
+
+        function clearCookie() {
+            document.cookie = "triforceNumber=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            location.reload();
+        }
+
+        function runOver() {
+            if(!rolled) {
+                loading.classList.add("loading-hover")
+                loading.classList.add("transition")
+                console.log("a")
+            }
+        }
+        function runAway() {
+            loading.classList.remove("loading-hover")
+            console.log("b")
+        }
+        function runClick() {
+            if(!rolled) {
+                changeText("SELECTING")
+                power.classList.remove("power","transition")
+                courage.classList.remove("courage","transition")
+                wisdom.classList.remove("wisdom","transition")
+                power.classList.add("transition-fast")
+                courage.classList.add("transition-fast")
+                wisdom.classList.add("transition-fast")
+
+                rolled = true;
+                // Counter for how many runs
+                var runCounter = 0;
+                // Storage for no-repeats
+                var lastPulled = -1;
+                var intervalID = setInterval(function () {
+                    forceVars.forEach(function(el){
+                        el.classList.remove('selected')
+                    })
+                    loading.classList.remove("loading-hover")
+                    loading.classList.add('loading-full')
+                    var random = (Math.floor(Math.random() * forceVars.length));
+                    // Add 1 if random number is the same as last random number (or loop to 0 if at array max)
+                    if(random === lastPulled) {
+                        if(random === (forceVars.length-1)) {
+                            random = 0;
+                        } else {
+                            random++;
+                        }
+                    }
+                    console.log(forceVars[random])
+                    forceVars[random].classList.add('selected')
+                    // Store last pull to prevent repeats
+                    lastPulled = random;
+                // Stops the animation after 30 runs
+                // 'Final run' code is executed here
+                if (++runCounter === 30) {
+                    window.clearInterval(intervalID);
+                    forceVars.forEach(function(el){
+                        el.classList.remove('selected')
+                    })
+                    // Final selection, rigged based on cookies
+                    forceVars.forEach(function(el){
+                        el.classList.add('not-selected')
+                    })
+                    forceVars[rigged].classList.remove('not-selected')
+                    forceVars[rigged].classList.add('selected')
+                    loading.classList.add("glow")
+                    container.classList.add("transition")
+                    changeText(force[rigged])
+                    switch(force[rigged]) {
+                        case "power":
+                            conText.innerHTML = "<p><div class='context-header'>CHAT COLOR</div><br>Prime: /color #872436<br>Non-Prime: /color Red<br><div class='context-header'>SHARE</div><br>The Triforce has chosen! I will be representing #TeamPower for #Zeldathon Forces!<br>http://stonemoney.github.io/sorting-p.html</p>"
+                            break;
+                        case "wisdom":
+                            conText.innerHTML = "<p><div class='context-header'>CHAT COLOR</div><br>Prime: /color #0371C8<br>Non-Prime: /color DodgersBlue<br><div class='context-header'>SHARE</div><br>The Triforce has chosen! I will be representing #TeamWisdom for #Zeldathon Forces!<br>http://stonemoney.github.io/sorting-w.html</p>"
+                            break;
+                        case "courage":
+                        default:
+                            conText.innerHTML = "<p><div class='context-header'>CHAT COLOR</div><br>Prime: /color #019561<br>Non-Prime: /color SeaGreen<br><div class='context-header'>SHARE</div><br>The Triforce has chosen! I will be representing #TeamCourage for #Zeldathon Forces!<br>http://stonemoney.github.io/sorting-c.html</p>"
+                            break;
+                    }
+                    conText.classList.remove("hidden");
+                }
+                }, 150);
+            }
+        }
+        function changeText(text2) {
+            text.classList.add("hidden")
+            setTimeout(function(){
+                text.innerHTML = ""+text2
+            },500)
+            setTimeout(function(){
+                text.classList.remove("hidden")
+                text.classList.add("visible")
+            },1000)
+            setTimeout(function(){
+                text.classList.remove("visible")
+            },2000)
+        }
+        function glow(thing) {
+            if(!rolled) {
+                document.getElementById(thing).classList.add(thing)
+                document.getElementById(thing).classList.add('transition')
+            }
+        }
+        function noGlow(thing) {
+            if(!rolled) {
+                document.getElementById(thing).classList.remove(thing)
+            }
+        }
+        </script>
+    </body>
+</html>

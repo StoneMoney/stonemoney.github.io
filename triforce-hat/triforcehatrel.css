@@ -1,0 +1,193 @@
+body {
+    background-image: url('images/st-jude.jpg');
+    background-repeat: no-repeat;
+    background-size: 100vw auto;
+}
+.transition {
+    transition: 1s;
+}
+.transition-fast {
+    transition: 100ms;
+}
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 500ms, opacity 500ms linear;
+}
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 500ms linear;
+}
+
+.main-container {
+    position: absolute;
+    left: 15vw;
+    width: 70vw;
+    margin-top: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 2vw;
+    border: .1vw solid black;
+    border-radius: 1vw;
+    align-content: center;
+    text-align: center;
+    background-color: rgba(255,255,255,.85);
+}
+
+.text {
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3vw;
+    font-weight: bolder;
+    text-align: center;
+    text-transform: uppercase;
+    color: #555;
+    left: 5vw;
+    top: 21vw;
+    width: 20vw;
+    z-index: 100;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.zelda-logo {
+    width: 30vh;
+    padding: 1vh;
+}
+.subtext {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 5vh;
+    font-weight: bolder;
+    text-align: center;
+    text-transform: uppercase;
+    color: #555;
+}
+.context {
+    position: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5vh;
+    font-weight: bold;
+    text-align: center;
+    color: #555; 
+    border: .1vw solid black;
+    border-radius: 1vw;
+    align-content: center;
+    text-align: center;
+    background-color: rgba(255,255,255,1);
+    width: 50vw;
+    left: 25vw;
+}
+.context-header {
+    display: inline-block;
+    font-weight: bolder;
+    font-size: 2vh;
+    color: #222; 
+}
+.triforce-container {
+    transform-origin: top left;
+    margin: auto;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    width: 30vw;
+    height: 30vw;
+    position: relative;
+}
+.loading-circle {
+    display: inline-block;
+    position: absolute;
+    left:0;
+    top:0;
+    height: 30vw;
+    width: 30vw;
+    background-color: #555;
+    border-radius: 50%;
+}
+.loading-full {
+    transform: scale(1.05);
+}
+.glow {
+    transform: scale(1);
+    background-color: #ffd800;
+    box-shadow: 0px 0px 50px #ffd800;
+    transition: 1s;
+}
+.overlap-circle {
+    display: inline-block;
+    position: absolute;
+    left:1vw;
+    top:1vw;
+    height: 28vw;
+    width: 28vw;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.loading-hover {
+    background-color: #999;
+    transition: 0.3s;
+    -webkit-animation: breathing 2s ease-out infinite normal;
+    animation: breathing 2s ease-out infinite normal;
+}
+
+.loading-active {
+    background-color: #A9A;
+    transform: scale(1.05);
+    animation: none;
+}
+
+.triangle-up {
+    display: inline-block;
+    position: absolute;
+	width: 0;
+	height: 0;
+	border-left: 4.5vw solid transparent;
+	border-right: 4.5vw solid transparent;
+	border-bottom: 9vw solid #555;
+}
+
+#power {
+    left:10.5vw;
+    top:3vw;
+}
+
+#wisdom {
+    left:6vw;
+    top:11.9vw;
+}
+
+#courage {
+    left:14.9vw;
+    top:11.9vw;  
+}
+.courage {
+    border-bottom-color:#019561;
+}
+.wisdom {
+    border-bottom-color:#0371C8;
+}
+.power {
+    border-bottom-color:#872436;
+}
+.selected {
+    border-bottom-color:#ffd800;
+}
+.not-selected {
+    opacity: .5;
+}
+@-webkit-keyframes breathing {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  
+    50% {
+      -webkit-transform: scale(1.05);
+      transform: scale(1.05);
+    }
+  
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+}
